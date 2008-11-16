@@ -2,10 +2,10 @@ from zope.interface import providedBy
 import binascii
 from zope.component import getGlobalSiteManager
 from Globals import DevelopmentMode
-from plone.app.gloworm.browser.interfaces import IGlowormLayer
+from Products.Gloworm.browser.interfaces import IGlowormLayer
 
 import logging
-logger = logging.getLogger('plone.app.gloworm')
+logger = logging.getLogger('Products.Gloworm')
 
 def initialize(context):
     """Initializer called when used as a Zope 2 product."""

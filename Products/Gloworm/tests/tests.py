@@ -12,15 +12,15 @@ from Products.PloneTestCase import PloneTestCase as ptc
 from Products.PloneTestCase.layer import PloneSite
 ptc.setupPloneSite()
 
-import plone.app.gloworm
+import Products.Gloworm
 
-class GloWormTestCase(ptc.PloneTestCase):
+class GlowormTestCase(ptc.PloneTestCase):
     class layer(PloneSite):
         @classmethod
         def setUp(cls):
             fiveconfigure.debug_mode = True
             zcml.load_config('configure.zcml',
-                             plone.app.gloworm)
+                             Products.Gloworm)
             #fiveconfigure.debug_mode = True
 
             # starting with 2.10.4 product initialization gets delayed for
@@ -28,7 +28,7 @@ class GloWormTestCase(ptc.PloneTestCase):
             # we have to initialize the package method manually...
             from OFS.Application import install_package
             app = ztc.app()
-            install_package(app, plone.app.gloworm, plone.app.gloworm.initialize)
+            install_package(app, Products.Gloworm, Products.Gloworm.initialize)
             # create a starting point for the tests...
             commit()
             ztc.close(app)
@@ -38,13 +38,13 @@ class GloWormTestCase(ptc.PloneTestCase):
         def tearDown(cls):
             pass
     
-class GloWormWithoutDebugModeEnabledTestCase(ptc.PloneTestCase):
+class GlowormWithoutDebugModeEnabledTestCase(ptc.PloneTestCase):
     class layer(PloneSite):
         @classmethod
         def setUp(cls):
             fiveconfigure.debug_mode = True
             zcml.load_config('configure.zcml',
-                             plone.app.gloworm)
+                             Products.Gloworm)
             fiveconfigure.debug_mode = False
 
         @classmethod
@@ -56,21 +56,21 @@ def test_suite():
 
         # Unit tests
         #doctestunit.DocFileSuite(
-        #    'README.txt', package='plone.app.gloworm',
+        #    'README.txt', package='Products.Gloworm',
         #    setUp=testing.setUp, tearDown=testing.tearDown),
 
         #doctestunit.DocTestSuite(
-        #    module='plone.app.gloworm.mymodule',
+        #    module='Products.Gloworm.mymodule',
         #    setUp=testing.setUp, tearDown=testing.tearDown),
 
 
         # Integration tests that use PloneTestCase
         #ztc.ZopeDocFileSuite(
-        #    'README.txt', package='plone.app.gloworm',
+        #    'README.txt', package='Products.Gloworm',
         #    test_class=TestCase),
 
         #ztc.FunctionalDocFileSuite(
-        #    'browser.txt', package='plone.app.gloworm',
+        #    'browser.txt', package='Products.Gloworm',
         #    test_class=TestCase),
         
         ])

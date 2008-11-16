@@ -33,12 +33,12 @@
 
 <style type="text/css"
        media="screen"
-       tal:content="structure string:&lt;!-- @import url(${view/baseurl}/++resource++plone.app.gloworm.css); --&gt;">
+       tal:content="structure string:&lt;!-- @import url(${view/baseurl}/++resource++gloworm.css); --&gt;">
 </style>
 
 <link rel="kinetic-stylesheet" 
       type="text/css"
-      tal:attributes="href string:${view/baseurl}/++resource++plone.app.gloworm.kss" />
+      tal:attributes="href string:${view/baseurl}/++resource++gloworm.kss" />
 
  <!-- Generate the resizable layout -->
 <script type="text/javascript">

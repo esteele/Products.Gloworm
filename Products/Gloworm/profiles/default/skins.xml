@@ -4,8 +4,8 @@
 <object name="portal_skins">
     <object name="GloWorm"
             meta_type="Filesystem Directory View"
-            directory="plone.app.gloworm:skins/gloworm"/>
+            directory="Products.Gloworm:skins/gloworm"/>
     <skin-path name="*">
-        <layer name="plone.app.gloworm"/>
+        <layer name="Products.Gloworm"/>
     </skin-path>
 </object>

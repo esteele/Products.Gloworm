@@ -3,7 +3,7 @@ from interfaces import IGlowormCommands
 from zope.interface import implements
 
 import logging
-logger = logging.getLogger('plone.app.gloworm')
+logger = logging.getLogger('Products.Gloworm')
 
 class GlowormCommands(CommandSet):
     implements(IGlowormCommands)

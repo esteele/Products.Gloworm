@@ -8,11 +8,11 @@ __docformat__ = 'plaintext'
 #
 
 from Products.CMFCore.utils import getToolByName
-import plone.app.gloworm
-from plone.app.gloworm.tests.tests import GloWormTestCase
+import Products.Gloworm
+from Products.Gloworm.tests.tests import GlowormTestCase
 from Products.Five import fiveconfigure
 
-class testInstall(GloWormTestCase):
+class testInstall(GlowormTestCase):
     def afterSetUp(self):
         pass
         
@@ -21,11 +21,11 @@ class testInstall(GloWormTestCase):
         
     def testKSSRegistered(self):
         portalkss = getToolByName(self.portal,'portal_kss')
-        self.failUnless('++resource++plone.app.gloworm.kss' in portalkss.getResourceIds())
+        self.failUnless('++resource++gloworm.kss' in portalkss.getResourceIds())
         
     def testCSSRegistered(self):
         portalcss = getToolByName(self.portal,'portal_css')
-        self.failUnless('++resource++plone.app.gloworm.css' in portalcss.getResourceIds())
+        self.failUnless('++resource++gloworm.css' in portalcss.getResourceIds())
 
     def testInstallMonkeyPatch(self):
         from Products.PageTemplates.ZopePageTemplate import ZopePageTemplate, manage_addPageTemplate
@@ -39,7 +39,7 @@ class testInstall(GloWormTestCase):
         self.app.REQUEST.debug.showTAL = True
         self.assertEqual(zpt.pt_render(), u'<div tal:content="string:foo">foo</div>\n')
         
-class testUninstall(GloWormTestCase):
+class testUninstall(GlowormTestCase):
     def afterSetUp(self):
         pass
 
