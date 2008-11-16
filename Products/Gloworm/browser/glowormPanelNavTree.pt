@@ -1,0 +1,9 @@
+<div id="glowormPanelNavTree">
+    <ol>
+        <li>
+            <a href="#" class="inspectContentObject">Content Object</a>
+            <tal:block tal:replace="structure view/outstr" />
+        </li>
+    </ol>
+</div>
+

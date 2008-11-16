@@ -1,0 +1,46 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en-US" lang="en-US"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="">
+    <body>
+        <h4>Viewlet Manager <tal:block tal:content="options/managerName" /></h4>
+        <table id="viewletManagerListing">
+
+        <!-- <tr>
+            <th colspan="2">Move</th>
+            <th>Visibility</th>
+            <th>Viewlet</th>
+        </tr> -->
+        <tr tal:repeat="viewlet options/containedViewlets"
+            tal:attributes="class string:${viewlet/className} kssattr-viewlethash-${viewlet/hashedInfo}">
+            <td tal:condition="options/canOrder">
+                <a href='#' 
+                   tal:attributes="class string:viewletMoveUp kssattr-forviewlet-${viewlet/hashedInfo}"
+                   tal:condition="not:repeat/viewlet/start">
+                    &#9650;
+                </a>
+            </td>
+            <td tal:condition="options/canOrder">
+                <a href='#' 
+                   tal:attributes="class string:viewletMoveDown kssattr-forviewlet-${viewlet/hashedInfo}"
+                   tal:condition="not:repeat/viewlet/end">
+                    &#9660;
+                </a>
+            </td>
+            <td>
+                <a href='#' class='hideViewlet'><img src='portal_skins/GloWorm/lightbulb.png' /></a>
+                <a href='#' class='showViewlet'><img src='portal_skins/GloWorm/lightbulb_off.png' /></a>
+            </td>
+    
+            <td>
+                <a href='#' 
+                   tal:attributes="class string:viewletMoreInfo kssattr-forviewlet-${viewlet/hashedInfo}"
+                   tal:content="viewlet/name">
+                </a>
+            </td>    
+        </tr>
+        </table>
+    </body>
+</html>

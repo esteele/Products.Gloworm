@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!-- This file holds the setup configuration for the portal_skins tool -->
+
+<object name="portal_skins">
+    <object name="GloWorm"
+            meta_type="Filesystem Directory View"
+            directory="plone.app.gloworm:skins/gloworm"/>
+    <skin-path name="*">
+        <layer name="plone.app.gloworm"/>
+    </skin-path>
+</object>
