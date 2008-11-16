@@ -2,7 +2,7 @@
 <!-- This file holds the setup configuration for the portal_skins tool -->
 
 <object name="portal_skins">
-    <object name="GloWorm"
+    <object name="Gloworm"
             meta_type="Filesystem Directory View"
             directory="Products.Gloworm:skins/gloworm"/>
     <skin-path name="*">

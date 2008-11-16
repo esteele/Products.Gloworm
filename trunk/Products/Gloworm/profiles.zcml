@@ -1,14 +1,14 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
-    i18n_domain="plone.app.gloworm">
+    i18n_domain="Products.Gloworm">
 
     <!-- Register the installation GenericSetup extension profile -->
     <genericsetup:registerProfile
       name="default"
       title="GloWorm"
       directory="profiles/default"
-      description=""
+      description="Adds a Firebug-like inspector tool for Plone."
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
@@ -20,6 +20,5 @@
       description=""
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
-
 
 </configure>
