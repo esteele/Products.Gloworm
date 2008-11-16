@@ -1,4 +1,4 @@
-plone.app.gloworm Package Readme
+Products.Gloworm Package Readme
 =========================
 
 Overview
@@ -25,7 +25,7 @@ Confirmed working in:
 Using GloWorm
 -------------
 
-Install the plone.app.gloworm package through the Add/Remove Products page.
+Install the Products.Gloworm package through the Add/Remove Products page.
 Once installed and when running in Zope debug mode (either by turning
 debug mode on in your zope.conf file or by running Zope in foreground mode),
 an "inspect this page" link will appear in the Object Actions section of

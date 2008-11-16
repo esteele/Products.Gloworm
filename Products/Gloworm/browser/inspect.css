@@ -4,7 +4,7 @@
 .GloWormViewletManagerBlock.currentlySelectedElement, .GloWormViewletBlock.currentlySelectedElement { display:block !important; }
 .currentlySelectedElement{ border: 2px dashed red !important; }
 
-#glowormPanelHeader { height: 22px; line-height: 22px; margin:0; padding:0; background:url(portal_skins/GloWorm/gloworm_header_bg.gif) repeat-x; /*cursor: n-resize;*/}
+#glowormPanelHeader { height: 22px; line-height: 22px; margin:0; padding:0; background:url(portal_skins/Gloworm/gloworm_header_bg.gif) repeat-x; /*cursor: n-resize;*/}
 #glowormPanelHeader h2 { color: #FFF; font-size: 1.0em; font-weight: bold; border-bottom: none; margin: 0; padding-left:5px; }
 #glowormPanelHeader .closeLink{ float: right; margin: 4px; }
 
@@ -44,16 +44,16 @@
 #glowormPanelBody #editableTemplateErrorMessage.visible { display: block; }
 
 #glowormErrorPanel { border: 1px solid #DDD; background: #F9F9F9; position:relative; }
-#glowormErrorPanel .hd { color: #FFF; font-size: 1.0em; font-weight: bold; height: 22px; line-height: 22px; padding:0 5px; background:url(portal_skins/GloWorm/gloworm_header_bg.gif) repeat-x; }
+#glowormErrorPanel .hd { color: #FFF; font-size: 1.0em; font-weight: bold; height: 22px; line-height: 22px; padding:0 5px; background:url(portal_skins/Gloworm/gloworm_header_bg.gif) repeat-x; }
 #glowormErrorPanel .bd { padding: .5em; }
-#glowormErrorPanel .container-close { position: absolute; right: 0px; top: 5px; width: 20px; background:url(portal_skins/GloWorm/cancel.png) no-repeat; overflow: hidden; text-decoration: none; text-indent: -10000em; }
+#glowormErrorPanel .container-close { position: absolute; right: 0px; top: 5px; width: 20px; background:url(portal_skins/Gloworm/cancel.png) no-repeat; overflow: hidden; text-decoration: none; text-indent: -10000em; }
 #glowormErrorPanel .bd pre { border: 1px dashed #D55; background: #EEE; padding: 1em; overflow: auto;}
 #glowormErrorPanel .yui-resize-handle-br { right:0; bottom:0; height: 8px; width: 8px; position:absolute; }
 
 /* Prevent Plone elements (usually z-index:2 or below) from displaying over top of the panel*/
 .yui-overlay,.yui-panel-container{ z-index: 20 !important; }
 .yui-resize .yui-resize-handle-br{height:5px;width:5px;bottom:0;right:0;cursor:se-resize;z-index:22;zoom:1;}
-.yui-resize-handle-br{background-image:url(portal_skins/GloWorm/layout_sprite.png);background-repeat:no-repeat;background-position:-22px -62px;}
+.yui-resize-handle-br{background-image:url(portal_skins/Gloworm/layout_sprite.png);background-repeat:no-repeat;background-position:-22px -62px;}
 .yui-resize .bd { overflow: auto; }
 .yui-layout-hd h2 { border: none;}
 

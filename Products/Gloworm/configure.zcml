@@ -4,9 +4,8 @@
     xmlns:plone="http://namespaces.plone.org/plone"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     xmlns:cmf="http://namespaces.zope.org/cmf"
-    i18n_domain="plone.app.gloworm">
+    i18n_domain="Products.Gloworm">
 
-    <five:registerPackage package="." initialize=".initialize" />
     <include package=".browser" />
     <include file="profiles.zcml" />
  
