@@ -1,0 +1,6 @@
+<div id="glowormPanelHeader">
+    <a href="" tal:attributes="href view/close_url" class="closeLink">
+        <img src="portal_skins/GloWorm/cancel.png" alt="Close" />
+    </a>
+    <h2>GloWorm Inspector Panel</h2>
+</div>
