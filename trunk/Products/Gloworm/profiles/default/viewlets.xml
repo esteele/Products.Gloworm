@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<object>
+  <order manager="gloworm.glowormPanel" skinname="*" based-on="Plone Default">
+    <viewlet name="glowormPanelHeader" insert-before="*" />
+    <viewlet name="glowormPanelBody" />
+    <viewlet name="glowormPanelNavTree" />
+  </order>
+  <order manager="plone.htmlhead" skinname="*">
+      <viewlet name="plone.resourceregistries" />
+      <viewlet name="glowormHtmlHeadIncludes" />
+  </order>
+</object>
