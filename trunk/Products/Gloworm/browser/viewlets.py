@@ -9,14 +9,14 @@ from plone.app.layout.viewlets.common import ViewletBase
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
-from plone.app.gloworm.browser.interfaces import IInspectorView, IGlowormLayer, IAmIgnoredByGloworm
-from plone.app.gloworm.browser.utils import findTemplateViewRegistrationFromHash, getProvidedForViewlet, hashViewletInfo
+from Products.Gloworm.browser.interfaces import IInspectorView, IGlowormLayer, IAmIgnoredByGloworm
+from Products.Gloworm.browser.utils import findTemplateViewRegistrationFromHash, getProvidedForViewlet, hashViewletInfo
 
 from Globals import DevelopmentMode
 import re
 import logging
 
-logger = logging.getLogger('plone.app.gloworm')
+logger = logging.getLogger('Products.Gloworm')
 
 class InspectorView(BrowserView):
     implements(IInspectorView)

@@ -18,18 +18,18 @@ from five.customerize.utils import findViewletTemplate
 from plone.app.customerize import registration
 from plone.app.kss.interfaces import IPloneKSSView
 from plone.app.kss.plonekssview import PloneKSSView as base
-from plone.app.gloworm.browser.utils import findTemplateViewRegistrationFromHash, hashViewletInfo, unhashViewletInfo
-from plone.app.gloworm.browser.interfaces import IGlowormLayer
 from plone.app.viewletmanager.interfaces import IViewletSettingsStorage
 from plone.portlets.utils import unhashPortletInfo
 
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from Products.Gloworm.browser.utils import findTemplateViewRegistrationFromHash, hashViewletInfo, unhashViewletInfo
+from Products.Gloworm.browser.interfaces import IGlowormLayer
 
 import transaction
 import binascii
 import logging
 
-logger = logging.getLogger('plone.app.gloworm')
+logger = logging.getLogger('Products.Gloworm')
 
 class InspectorKSS(base):
     implements(IPloneKSSView)
