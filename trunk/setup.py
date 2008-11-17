@@ -8,11 +8,11 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.0b1'
+version = open(os.path.join("Products", "Gloworm", "version.txt")).read().strip()
 
 setup(name='Products.Gloworm',
       version=version,
-      description="",
+      description="A Firebug-like inspection tool for Plone",
       long_description=open("Products/Gloworm/README.txt").read() + "\n\n" +
                        open("Products/Gloworm/HISTORY.txt").read(),
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
@@ -23,13 +23,12 @@ setup(name='Products.Gloworm',
         "Programming Language :: JavaScript",
         "Topic :: Software Development :: Libraries :: Python Modules",
         "Intended Audience :: Developers",
-        "Development Status :: 4 - Beta",
+        "Development Status :: 4 - Beta"
         ],
       author='WebLion Group, Penn State University',
       author_email='support@weblion.psu.edu',
       url='https://weblion.psu.edu/svn/weblion/weblion/Products.Gloworm/',
       license='GPL',
-      obsoletes='plone.app.gloworm',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['Products'],
       include_package_data=True,
