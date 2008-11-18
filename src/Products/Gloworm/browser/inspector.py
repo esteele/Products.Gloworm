@@ -266,7 +266,10 @@ class InspectorKSS(base):
         viewletName = unhashedInfo['viewletName']
         # Find the template in portal_view_customizations, save the new version
         container = queryUtility(IViewTemplateContainer)
-        templateName = 'zope.interface.interface-%s' % viewletName
+        
+        reg = findTemplateViewRegistrationFromHash(viewlethash)
+        templateName = registration.generateIdFromRegistration(reg)
+        
         try:
             container[templateName].write(newContent)
             result = self._renderCustomizedViewlet(viewlethash, templateName)
