@@ -612,10 +612,10 @@ class InspectorKSS(base):
     
     def _redrawViewletManager(self, managerName):
         # Get the viewlet manager, update, and rerender it
-        # We can't do this with a refreshProvider call because then we lose the <tal:viewletmanager> block.
+        # We can't do this with a refreshProvider call because then we lose the <tal:viewletmanager> block.\
         viewletManager = queryMultiAdapter((self.context, self.request, self), IViewletManager, managerName)
         viewletManager.update()
-        
+                
         # Apply all of the bits we need for inline tal
         self._turnOnTalRenderingForObjectsRequest(viewletManager)
         
@@ -627,9 +627,9 @@ class InspectorKSS(base):
         
     def _turnOnTalRenderingForObjectsRequest(self, obj):
         """ Turn on the debug flags for the object's request, so that we have our tal: content """
-        obj.request.debug = DebugFlags()
-        obj.request.debug.showTAL = True
-        obj.request.debug.sourceAnnotations = True
+        # obj.request.debug = DebugFlags()
+        # obj.request.debug.showTAL = True
+        # obj.request.debug.sourceAnnotations = True
         alsoProvides(obj.request, IGlowormLayer)
     
     def showTemplateErrorMessage(self, error):
