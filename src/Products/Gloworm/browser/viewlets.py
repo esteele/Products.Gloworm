@@ -27,12 +27,6 @@ class InspectorView(BrowserView):
         if DevelopmentMode:
             alsoProvides(self.request, IGlowormLayer)
             
-            self.portal_type = self.context.getPortalTypeName()
-            context_state = getMultiAdapter((self.context, self.request),
-                                            name=u'plone_context_state')
-            self.template_name = context_state.view_template_id()
-            
-            
             self.request.debug = DebugFlags()
             self.request.debug.showTAL = True
             self.request.debug.sourceAnnotations = True
