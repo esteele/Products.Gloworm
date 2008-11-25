@@ -1,5 +1,6 @@
     1.0b2
         * Viewlet customization no longer assumes that templates are created with a zope.interface.interface prefix.
+        * Fixed a rendering issue that caused portal_tabs to not display its CSS when the portal-header viewelet manager was rerendered.
 
     1.0b1
         * plone.app.gloworm is now Products.Gloworm
