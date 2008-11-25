@@ -1,0 +1,34 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en-US" lang="en-US"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="">
+    <body>
+        <h4>Content Object "<span tal:replace="options/contentObject/id" />"</h4>
+        <table>
+    
+            <tr>
+                <th>Content Type:</th>
+                <td tal:content="options/contentObject/Type" />
+            </tr>    
+            <tr>
+                <th>Parent Object:</th>
+                <td>
+                    <span tal:replace="options/parent/Type" /> 
+                    "<span tal:replace="options/parent/id" />"
+                    at <span tal:replace="options/parent/absolute_url" />
+                </td>
+            </tr>
+            <tr>
+                <th>Template Name:</th>
+                <td tal:content="options/templateName" />
+            </tr>
+            <tr>
+                <th>Skin Name:</th>
+                <td tal:content="options/skinName" />
+            </tr>    
+
+        </table>
+    </body>
+</html>
