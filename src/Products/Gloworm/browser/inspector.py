@@ -575,6 +575,11 @@ class InspectorKSS(base):
         
         # Highlight this element
         ksscore.addClass(selector, 'currentlySelectedElement')
+        
+        # Scroll the content area
+        kssglo = self.getCommandSet('gloWorm')
+        kssglo.scrollContentArea(selector)
+        
     
     def highlightInNavTree(self, selector):
         """ Hightlight the element in the navigation tree

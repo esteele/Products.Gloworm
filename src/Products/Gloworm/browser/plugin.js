@@ -13,8 +13,25 @@ kukit.actionsGlobalRegistry.register('scrollNavTree', function(oper) {
         yanim.animate();
     }
 });
-
 kukit.commandsGlobalRegistry.registerFromAction('scrollNavTree', 
+                                                kukit.cr.makeSelectorCommand);
+
+kukit.actionsGlobalRegistry.register('scrollContentArea', function(oper) {
+;;; oper.componentName = '[scrollContentArea] action';
+;;; oper.evaluateParameters([], {});
+    var itemScrollPos = oper.node.parentNode.offsetTop;
+    var maxDistanceFromEdge = 75;
+    scrollElement = document.getElementById('glowormPageWrapper').parentNode;
+
+    visibleTop = scrollElement.scrollTop;
+    visibleBottom = visibleTop + scrollElement.offsetHeight;
+    if (!((itemScrollPos > visibleTop + maxDistanceFromEdge) && (itemScrollPos < visibleBottom - maxDistanceFromEdge))){
+        var att = { scroll: { to: [0, itemScrollPos - parseInt(scrollElement.offsetHeight/2)]}};
+        var yanim = new YAHOO.util.Scroll(scrollElement, att);
+        yanim.animate();
+    }
+});
+kukit.commandsGlobalRegistry.registerFromAction('scrollContentArea', 
                                                 kukit.cr.makeSelectorCommand);
                                                 
 var _ParseTALAttributes = function() {

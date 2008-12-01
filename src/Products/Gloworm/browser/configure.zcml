@@ -26,6 +26,12 @@
         />
 
     <kss:action
+        name="scrollContentArea"
+        command_factory="selector"
+        jsfile="plugin.js"
+        />
+
+    <kss:action
         name="forceGlowormPanelResize"
         command_factory="global"
         jsfile="plugin.js"

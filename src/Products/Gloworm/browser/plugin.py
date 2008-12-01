@@ -13,7 +13,7 @@ class GlowormCommands(CommandSet):
         command = self.commands.addCommand('showErrorMessage')
         data = command.addParam('message', message)
         logger.debug("in GlowormCommands.showErrorMessage")
-
+    
     def forceGlowormPanelResize(self, message=""):
         """ Fire the resize event of the GloWorm panel """
         command = self.commands.addCommand('forceGlowormPanelResize')
@@ -24,5 +24,9 @@ class GlowormCommands(CommandSet):
         """
         command = self.commands.addCommand('scrollNavTree', selector)
         logger.debug("in GlowormCommands.scrollNavTree")
-        return "bar"
     
+    def scrollContentArea(self, selector):
+        """ Scroll the content area to show the selected element
+        """
+        command = self.commands.addCommand('scrollContentArea', selector)
+        logger.debug("in GlowormCommands.scrollContentArea")
