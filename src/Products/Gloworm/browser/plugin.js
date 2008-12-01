@@ -19,7 +19,7 @@ kukit.commandsGlobalRegistry.registerFromAction('scrollNavTree',
 kukit.actionsGlobalRegistry.register('scrollContentArea', function(oper) {
 ;;; oper.componentName = '[scrollContentArea] action';
 ;;; oper.evaluateParameters([], {});
-    var itemScrollPos = oper.node.parentNode.offsetTop;
+    var itemScrollPos = oper.node.offsetTop;
     var maxDistanceFromEdge = 75;
     scrollElement = document.getElementById('glowormPageWrapper').parentNode;
 

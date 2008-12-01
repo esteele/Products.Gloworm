@@ -578,7 +578,8 @@ class InspectorKSS(base):
         
         # Scroll the content area
         kssglo = self.getCommandSet('gloWorm')
-        kssglo.scrollContentArea(selector)
+        
+        kssglo.scrollContentArea(ksscore.getCssSelector('#glowormPageWrapper %s' % selector.value))
         
     
     def highlightInNavTree(self, selector):
