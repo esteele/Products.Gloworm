@@ -1,14 +1,16 @@
 kukit.actionsGlobalRegistry.register('scrollNavTree', function(oper) {
 ;;; oper.componentName = '[scrollNavTree] action';
 ;;; oper.evaluateParameters([], {});
-    var itemNode = oper.node.parentNode;
-    var itemScrollPos = itemNode.offsetTop;
-    var maxDistanceFromEdge = 50;
-    navTree = document.getElementById('glowormPanelNavTree')
-    visibleTop = navTree.scrollTop;
-    visibleBottom = visibleTop + navTree.offsetHeight;
-    if (!((itemScrollPos > visibleTop - maxDistanceFromEdge) && (itemScrollPos < visibleBottom + maxDistanceFromEdge))){
-        document.getElementById('glowormPanelNavTree').scrollTop = itemScrollPos - parseInt(navTree.offsetHeight/2);
+    var itemScrollPos = oper.node.parentNode.offsetTop;
+    var maxDistanceFromEdge = 75;
+    scrollElement = document.getElementById('glowormPanelNavTree').parentNode;
+    
+    visibleTop = scrollElement.scrollTop;
+    visibleBottom = visibleTop + scrollElement.offsetHeight;
+    if (!((itemScrollPos > visibleTop + maxDistanceFromEdge) && (itemScrollPos < visibleBottom - maxDistanceFromEdge))){
+        var att = { scroll: { to: [0, itemScrollPos - parseInt(scrollElement.offsetHeight/2)]}};
+        var yanim = new YAHOO.util.Scroll(scrollElement, att);
+        yanim.animate();
     }
 });
 
