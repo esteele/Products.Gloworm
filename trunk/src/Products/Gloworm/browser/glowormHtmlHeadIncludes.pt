@@ -96,8 +96,6 @@ GloWormPanel = null;
       <!-- Make sure the page has loaded properly (ie, no errors have caused the content to not display). -->
       if (document.getElementById('glowormPanelBody')) {
           fullPageLayout.render();
-          var anim = new YAHOO.util.Scroll('glowormPageWrapper', document.getElementById('portal-footer'));
-          anim.animate();
       }
       
   });
