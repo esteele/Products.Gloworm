@@ -16,6 +16,9 @@
 <script type="text/javascript" 
         tal:attributes="src string:${view/baseurl}/++resource++gloworm3rdParty/resize-min.js"></script>
 
+<script type="text/javascript" 
+        tal:attributes="src string:${view/baseurl}/++resource++gloworm3rdParty/animation-min.js"></script>
+
 <style type="text/css"
        media="screen"
        tal:content="structure string:&lt;!-- @import url(${view/baseurl}/++resource++gloworm3rdParty/resize.css); --&gt;">
@@ -93,6 +96,8 @@ GloWormPanel = null;
       <!-- Make sure the page has loaded properly (ie, no errors have caused the content to not display). -->
       if (document.getElementById('glowormPanelBody')) {
           fullPageLayout.render();
+          var anim = new YAHOO.util.Scroll('glowormPageWrapper', document.getElementById('portal-footer'));
+          anim.animate();
       }
       
   });

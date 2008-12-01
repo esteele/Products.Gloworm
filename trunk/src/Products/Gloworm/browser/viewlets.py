@@ -26,7 +26,8 @@ class InspectorView(BrowserView):
     def __call__(self):
         if DevelopmentMode:
             alsoProvides(self.request, IGlowormLayer)
-            
+            from plone.app.layout.globals.interfaces import IViewView
+            alsoProvides(self.request, IViewView)
             self.request.debug = DebugFlags()
             self.request.debug.showTAL = True
             self.request.debug.sourceAnnotations = True
