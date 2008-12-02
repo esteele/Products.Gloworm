@@ -577,9 +577,12 @@ class InspectorKSS(base):
         ksscore.addClass(selector, 'currentlySelectedElement')
         
         # Scroll the content area
-        kssglo = self.getCommandSet('gloWorm')
-        
-        kssglo.scrollContentArea(ksscore.getCssSelector('#glowormPageWrapper %s' % selector.value))
+        # Check for a value for the selector before attempting to scroll,
+        # otherwise, odd things happen when clicking on elements in the content pane.
+        if selector.value:
+            kssglo = self.getCommandSet('gloWorm')
+            newSelectorString = '#glowormPageWrapper %s' % selector.value
+            kssglo.scrollContentArea(ksscore.getCssSelector(newSelectorString))
         
     
     def highlightInNavTree(self, selector):
