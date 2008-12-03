@@ -37,6 +37,7 @@ setup(name='Products.Gloworm',
           'setuptools',
           # -*- Extra requirements: -*-
           'plone.app.customerize>=1.1.2',
+          'archetypes.kss>=1.4.2'
       ],
       entry_points="""
       # -*- Entry points: -*-
