@@ -5,6 +5,7 @@
         * Changed icons for show/hide viewlets.
         * Added help text to show/hide viewlet icons
         * Added new icons and help text for nav tree items.
+        * Fixed a bug that prevented the inspect viewlet panel template from realizing that a customization already existed.
 
     1.0b2
         * Viewlet customization no longer assumes that templates are created with a zope.interface.interface prefix.
