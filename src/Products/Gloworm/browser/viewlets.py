@@ -151,7 +151,7 @@ class GlowormPanelNavTree(ViewletBase):
                 name = viewlet[0]
                 managerObj = viewlet[1].manager
                 viewletHash = hashViewletInfo(name, managerObj.__name__, getProvidedForViewlet(name, managerObj))
-                return "<li><a href='#' title='Hidden viewlet %s' class='viewletMoreInfo hiddenViewlet kssattr-forviewlet-%s'>%s</a></li>" % (reg.name, viewletHash, name)
+                return "<li><a href='#' title='Hidden viewlet %s' class='viewletMoreInfo hiddenViewlet kssattr-forviewlet-%s'>%s</a></li>" % (name, viewletHash, name)
             
             for v in all:
                 if not(stripped and v.findParent('tal:viewlet') and stripped[-1] in v.findParents('tal:viewlet')):
