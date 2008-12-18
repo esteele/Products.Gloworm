@@ -171,7 +171,6 @@ class InspectorKSS(base):
         managerName = unhashedViewletInfo['managerName']
         cls = registration.getViewClassFromRegistration(reg)
         className = "%s.%s" % (cls.__module__, cls.__name__)
-        
         try:
             viewRegistrationInfo = list(registration.templateViewRegistrationInfos([reg]))[0]
         except IndexError:
@@ -185,7 +184,7 @@ class InspectorKSS(base):
             template = viewRegistrationInfo['zptfile']
             templatePath = registration.generateIdFromRegistration(reg)
             container = queryUtility(IViewTemplateContainer)
-            customizationExists = template in container
+            customizationExists = templatePath in container
             customizationAllowed = True
         
         template = ViewPageTemplateFile('panel_inspect_viewlet.pt')
