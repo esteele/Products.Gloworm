@@ -30,8 +30,8 @@
                 </a>
             </td>
             <td>
-                <a href='#' class='hideViewlet'><img src='portal_skins/Gloworm/lightbulb.png' /></a>
-                <a href='#' class='showViewlet'><img src='portal_skins/Gloworm/lightbulb_off.png' /></a>
+                <a href='#' class='hideViewlet'><img src='portal_skins/Gloworm/tick.png' /></a>
+                <a href='#' class='showViewlet'><img src='portal_skins/Gloworm/cross.png' /></a>
             </td>
     
             <td>
