@@ -16,22 +16,24 @@
         <tr tal:repeat="viewlet options/containedViewlets"
             tal:attributes="class string:${viewlet/className} kssattr-viewlethash-${viewlet/hashedInfo}">
             <td tal:condition="options/canOrder">
-                <a href='#' 
+                <a href='#'
+                   title="Move viewlet up"
                    tal:attributes="class string:viewletMoveUp kssattr-forviewlet-${viewlet/hashedInfo}"
                    tal:condition="not:repeat/viewlet/start">
                     &#9650;
                 </a>
             </td>
             <td tal:condition="options/canOrder">
-                <a href='#' 
+                <a href='#'
+                   title="Move viewlet down"
                    tal:attributes="class string:viewletMoveDown kssattr-forviewlet-${viewlet/hashedInfo}"
                    tal:condition="not:repeat/viewlet/end">
                     &#9660;
                 </a>
             </td>
             <td>
-                <a href='#' class='hideViewlet'><img src='portal_skins/Gloworm/tick.png' /></a>
-                <a href='#' class='showViewlet'><img src='portal_skins/Gloworm/cross.png' /></a>
+                <a href='#' title="Hide viewlet" class='hideViewlet'><img src='portal_skins/Gloworm/tick.png' alt="Hide Viewlet" /></a>
+                <a href='#' title="Show viewlet" class='showViewlet'><img src='portal_skins/Gloworm/cross.png' alt="Show Viewlet" /></a>
             </td>
     
             <td>

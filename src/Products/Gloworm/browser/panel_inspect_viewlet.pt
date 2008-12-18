@@ -28,6 +28,10 @@
                 <th>Template:</th>
                 <td tal:content="options/templatePath" />
             </tr>
+            <tr>
+                <th>Visibility:</th>
+                <td></td>
+            </tr>
         </table>
         <div style="margin:1em; text-align: center;">
             <form>
