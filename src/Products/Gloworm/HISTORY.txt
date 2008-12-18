@@ -2,6 +2,7 @@
         * Improved auto-scrolling of the navigation tree.
         * Added scrolling for the content well.
         * Added a dependency on archetypes.kss>=1.4.2 for IInlineEditingEnabled support.
+        * Changed icons for show/hide viewlets.
 
     1.0b2
         * Viewlet customization no longer assumes that templates are created with a zope.interface.interface prefix.
