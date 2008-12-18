@@ -127,7 +127,7 @@ class GlowormPanelNavTree(ViewletBase):
                     # Get the viewletmanager object
                     managerObj = queryMultiAdapter((self.context, self.request, self), IViewletManager, name)
                     if not IAmIgnoredByGloworm.providedBy(managerObj):
-                        self.outstr += "<li><a href='#' class='inspectViewletManager kssattr-forviewletmanager-%s'>%s</a>" % (name.replace('.', '-'), name)
+                        self.outstr += "<li><a href='#' title='Viewlet Manager %s' class='inspectViewletManager kssattr-forviewletmanager-%s'>%s</a>" % (name, name.replace('.', '-'), name)
                         
                         # Look up the viewlets attached to this viewlet manager.
                         # We do it this way because calling viewletManager.viewlets won't see the hidden viewlets...
@@ -151,7 +151,7 @@ class GlowormPanelNavTree(ViewletBase):
                 name = viewlet[0]
                 managerObj = viewlet[1].manager
                 viewletHash = hashViewletInfo(name, managerObj.__name__, getProvidedForViewlet(name, managerObj))
-                return "<li><a href='#' class='viewletMoreInfo hiddenViewlet kssattr-forviewlet-%s'>%s</a></li>" % (viewletHash, name)
+                return "<li><a href='#' title='Hidden viewlet %s' class='viewletMoreInfo hiddenViewlet kssattr-forviewlet-%s'>%s</a></li>" % (reg.name, viewletHash, name)
             
             for v in all:
                 if not(stripped and v.findParent('tal:viewlet') and stripped[-1] in v.findParents('tal:viewlet')):
@@ -166,7 +166,7 @@ class GlowormPanelNavTree(ViewletBase):
                             allViewlets.pop(0)
                         
                         if not IAmIgnoredByGloworm.providedBy(allViewlets[0][1]):
-                            self.outstr += "<li><a href='#' class='viewletMoreInfo kssattr-forviewlet-%s'>%s</a>" % (viewletHash, reg.name)
+                            self.outstr += "<li><a href='#' title='Visible viewlet %s' class='viewletMoreInfo kssattr-forviewlet-%s'>%s</a>" % (reg.name, viewletHash, reg.name)
                             stripped.append(v)
                             getChildViewletManagers(v)
                             self.outstr += "</li>"
