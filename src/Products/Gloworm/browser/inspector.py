@@ -6,8 +6,7 @@ from zope.component import getUtility
 from zope.component import queryMultiAdapter
 from zope.component import queryUtility
 from zope.interface import implements, providedBy, alsoProvides
-from zope.pagetemplate.pagetemplate import PageTemplate, PTRuntimeError
-from zope.publisher.base import DebugFlags
+from zope.pagetemplate.pagetemplate import PTRuntimeError
 from zope.traversing.interfaces import TraversalError
 from zope.viewlet.interfaces import IViewlet, IViewletManager
 
@@ -256,16 +255,16 @@ class InspectorKSS(base):
         # Force a resize update of the panel so that the form elements are sized to the dimensions of the panel.
         kssglo = self.getCommandSet('gloWorm')
         kssglo.forceGlowormPanelResize()
-
+        
         return self.render()
     
     def saveViewletTemplate(self, viewlethash, newContent):
         """ Update portal_view_customizations with the new version of the template. """
         logger.debug("in saveViewletTemplate")
-
+        
         # Hide the error message
         self.hideTemplateErrorMessage()
-
+        
         # Unhash the viewlet info. Pull out what we need.
         unhashedInfo = unhashViewletInfo(viewlethash)
         viewletName = unhashedInfo['viewletName']
@@ -288,7 +287,7 @@ class InspectorKSS(base):
             return self.showTemplateErrorMessage("TraversalError: %s" % err)
         else:
             return self._renderCustomizedViewlet(viewlethash, templateName)
-                
+    
     def _renderCustomizedViewlet(self, viewlethash, templateName):
         """ Rerender the viewlets to show the new code """
         # Unhash the viewlet info. Pull out what we need.
@@ -463,7 +462,7 @@ class InspectorKSS(base):
         # Otherwise, we get an "AttributeError: 'str' object has no attribute 'other'" error
         template = template.__of__(self)
         out = template(managerName = managerName,
-                       safeManagerName = managerName.replace('.', '-'), 
+                       safeManagerName = managerName.replace('.', '-'),
                        containedViewlets = containedViewlets,
                        canOrder = canOrder
                        )
@@ -495,13 +494,13 @@ class InspectorKSS(base):
         # Update the nav tree
         zope = self.getCommandSet('zope')
         zope.refreshViewlet('#glowormPanelNavTree', 'gloworm.glowormPanel', 'glowormPanelNavTree')
-
+        
         # Update the viewlet listing in the GloWorm panel
         if managerName:
             self.inspectViewletManager(unhashViewletInfo(viewlethash)['managerName'].replace('.', '-'))
         else:
             self.inspectViewlet(viewlethash)
-            
+        
         return self.render()
     
     def showViewlet(self, viewlethash, managerName = None):
@@ -514,7 +513,7 @@ class InspectorKSS(base):
         selector = ksscore.getCssSelector('#glowormPanel .kssattr-viewlethash-%s' % viewlethash)
         ksscore.removeClass(selector, 'hiddenViewlet')
         ksscore.addClass(selector, 'visibleViewlet')
-
+        
         # Update the nav tree
         zope = self.getCommandSet('zope')
         zope.refreshViewlet('#glowormPanelNavTree', 'gloworm.glowormPanel', 'glowormPanelNavTree')
@@ -524,7 +523,7 @@ class InspectorKSS(base):
             self.inspectViewletManager(unhashViewletInfo(viewlethash)['managerName'].replace('.', '-'))
         else:
             self.inspectViewlet(viewlethash)
-
+        
         return self.render()
     
     def moveViewletByDelta(self, viewlethash, delta):
@@ -597,7 +596,7 @@ class InspectorKSS(base):
             kssglo = self.getCommandSet('gloWorm')
             newSelectorString = '#glowormPageWrapper %s' % selector.value
             kssglo.scrollContentArea(ksscore.getCssSelector(newSelectorString))
-        
+    
     
     def highlightInNavTree(self, selector):
         """ Hightlight the element in the navigation tree
@@ -638,7 +637,7 @@ class InspectorKSS(base):
         # We can't do this with a refreshProvider call because then we lose the <tal:viewletmanager> block.\
         viewletManager = queryMultiAdapter((self.context, self.request, self), IViewletManager, managerName)
         viewletManager.update()
-                
+        
         # Apply all of the bits we need for inline tal
         self._turnOnTalRenderingForObjectsRequest(viewletManager)
         
@@ -647,7 +646,7 @@ class InspectorKSS(base):
         selector = ksscore.getCssSelector('.kssattr-viewletmanagername-' + managerName.replace('.', '-'))
         ksscore.replaceInnerHTML(selector, viewletManager.render())
         return self.render()
-        
+    
     def _turnOnTalRenderingForObjectsRequest(self, obj):
         """ Turn on the debug flags for the object's request, so that we have our tal: content """
         # obj.request.debug = DebugFlags()
@@ -662,11 +661,11 @@ class InspectorKSS(base):
         ksscore.replaceInnerHTML(ksscore.getCssSelector('#editableTemplateErrorMessage'), error)
         # kssglo = self.getCommandSet('gloWorm')
         # kssglo.showErrorMessage(error)
-
+        
         # Force a resize update of the panel so that the form elements are sized to the dimensions of the panel.
         kssglo = self.getCommandSet('gloWorm')
         kssglo.forceGlowormPanelResize()
-
+        
         return self.render()
     
     def hideTemplateErrorMessage(self):
@@ -675,5 +674,3 @@ class InspectorKSS(base):
         # Force a resize update of the panel so that the form elements are sized to the dimensions of the panel.
         kssglo = self.getCommandSet('gloWorm')
         kssglo.forceGlowormPanelResize()
-        
-        
