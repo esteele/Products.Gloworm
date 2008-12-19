@@ -19,8 +19,8 @@
 #glowormPanelNavTree ol.viewletmanager-tree { list-style: none; }
 #glowormPanelNavTree ol.viewletmanager-tree li a,
 #glowormPanelNavTree ol.viewlet-tree li a { padding: 1px 0 2px 20px; line-height: 17px; }
-#glowormPanelNavTree ol.viewletmanager-tree li a { background-image: url(portal_skins/Gloworm/folder_table.png); background-repeat: no-repeat; background-position: left middle; }
-#glowormPanelNavTree ol.viewlet-tree li a { background-image: url(portal_skins/Gloworm/table.png); background-repeat: no-repeat; background-position: left middle; }
+#glowormPanelNavTree ol.viewletmanager-tree li a, #glowormPanelNavTree ol.viewletmanager-tree ol.viewletmanager-tree li a { background-image: url(portal_skins/Gloworm/folder_table.png); background-repeat: no-repeat; background-position: left middle; }
+#glowormPanelNavTree ol.viewlet-tree li a, #glowormPanelNavTree ol.viewlet-tree ol.viewlet-tree li a { background-image: url(portal_skins/Gloworm/table.png); background-repeat: no-repeat; background-position: left middle; }
 #glowormPanelNavTree .currentlySelectedElement { background-color: #EDD; border: 1px solid #DCC !important; border-right: none !important; font-weight: bold; opacity: 1 !important; filter: alpha(opacity = 100) !important;}
 #glowormPanelNavTree a.inspectContentObject { font-weight: bold; }
 
@@ -45,6 +45,7 @@
 #glowormPanelBody textarea { width: 100%; }
 #glowormPanelBody #editableTemplateErrorMessage { border: 1px solid #F00; background: #FCC; padding: 2px; margin: 2px 0; display: none;}
 #glowormPanelBody #editableTemplateErrorMessage.visible { display: block; }
+#glowormPanelBody .visibility form { display: inline; margin-left:1em;} 
 
 #glowormErrorPanel { border: 1px solid #DDD; background: #F9F9F9; position:relative; }
 #glowormErrorPanel .hd { color: #FFF; font-size: 1.0em; font-weight: bold; height: 22px; line-height: 22px; padding:0 5px; background:url(portal_skins/Gloworm/gloworm_header_bg.gif) repeat-x; }

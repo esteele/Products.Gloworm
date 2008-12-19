@@ -187,6 +187,11 @@ class InspectorKSS(base):
             customizationExists = templatePath in container
             customizationAllowed = True
         
+        # Get the names of the hidden viewlets
+        storage = getUtility(IViewletSettingsStorage)
+        hiddenViewlets = frozenset(storage.getHidden(managerName, self.context.getCurrentSkinName()))
+        isVisible = viewName not in hiddenViewlets
+        
         template = ViewPageTemplateFile('panel_inspect_viewlet.pt')
         # Wrap it so that Zope knows in what context it's being called
         # Otherwise, we get an "AttributeError: 'str' object has no attribute 'other'" error
@@ -198,6 +203,7 @@ class InspectorKSS(base):
                        templatePath = templatePath,
                        customizationExists = customizationExists,
                        customizationAllowed = customizationAllowed,
+                       visible = isVisible,
                        viewletHash = viewlethash)
         
         # Dump the output to the output panel
@@ -457,6 +463,7 @@ class InspectorKSS(base):
         # Otherwise, we get an "AttributeError: 'str' object has no attribute 'other'" error
         template = template.__of__(self)
         out = template(managerName = managerName,
+                       safeManagerName = managerName.replace('.', '-'), 
                        containedViewlets = containedViewlets,
                        canOrder = canOrder
                        )
@@ -474,7 +481,7 @@ class InspectorKSS(base):
         return self.render()
     
     
-    def hideViewlet(self, viewlethash):
+    def hideViewlet(self, viewlethash, managerName = None):
         """ Hide the selected viewlet """
         logger.debug("in hide_viewlet")
         def updateHiddenList(hidden, viewletName):
@@ -488,12 +495,16 @@ class InspectorKSS(base):
         # Update the nav tree
         zope = self.getCommandSet('zope')
         zope.refreshViewlet('#glowormPanelNavTree', 'gloworm.glowormPanel', 'glowormPanelNavTree')
-        
+
         # Update the viewlet listing in the GloWorm panel
-        self.inspectViewletManager(unhashViewletInfo(viewlethash)['managerName'].replace('.', '-'))
+        if managerName:
+            self.inspectViewletManager(unhashViewletInfo(viewlethash)['managerName'].replace('.', '-'))
+        else:
+            self.inspectViewlet(viewlethash)
+            
         return self.render()
     
-    def showViewlet(self, viewlethash):
+    def showViewlet(self, viewlethash, managerName = None):
         """ Show the selected viewlet """
         logger.debug("in hide_viewlet")
         def updateHiddenList(hidden, viewletName):
@@ -509,7 +520,11 @@ class InspectorKSS(base):
         zope.refreshViewlet('#glowormPanelNavTree', 'gloworm.glowormPanel', 'glowormPanelNavTree')
         
         # Update the viewlet listing in the GloWorm panel
-        self.inspectViewletManager(unhashViewletInfo(viewlethash)['managerName'].replace('.', '-'))
+        if managerName:
+            self.inspectViewletManager(unhashViewletInfo(viewlethash)['managerName'].replace('.', '-'))
+        else:
+            self.inspectViewlet(viewlethash)
+
         return self.render()
     
     def moveViewletByDelta(self, viewlethash, delta):
