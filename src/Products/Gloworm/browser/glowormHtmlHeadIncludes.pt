@@ -72,7 +72,7 @@ GloWormPanel = null;
               parent: fullPageLayout,
               units: [
                   { position: 'top', body: 'glowormPanelHeader', height: 22, scroll: false},
-                  { position: 'left', width: 300, resize: true, body: 'glowormPanelNavTree', scroll: true, gutter: '0 5px 0 0'},
+                  { position: 'left', width: 310, resize: true, body: 'glowormPanelNavTree', scroll: true, gutter: '0 5px 0 0'},
                   { position: 'center', body: 'glowormPanelBody', scroll: true }
               ]
           });

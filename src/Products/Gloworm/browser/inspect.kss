@@ -87,14 +87,35 @@
     inspectViewletManager-managerName: kssAttr(forviewletmanager);
 }
 
-.hideViewlet:click, .hideViewlet img:click {
+
+#viewletListing .hideViewlet:click,
+#viewletListing .hideViewlet img:click {
     evt-click-preventdefault: True;
     action-server: inlineHideViewlet;
     inlineHideViewlet-viewlethash: kssAttr('viewlethash', True);
 }
 
-.showViewlet:click, .showViewlet img:click {
+#viewletListing .showViewlet:click,
+#viewletListing .showViewlet img:click {
     evt-click-preventdefault: True;
     action-server: inlineShowViewlet;
-    inlineShowViewlet-viewlethash: kssAttr('viewlethash', True);
+    inlineShowViewlet-viewlethash: kssAttr('viewlethash', True);    
 }
+
+#viewletManagerListing .hideViewlet:click,
+#viewletManagerListing .hideViewlet img:click {
+    evt-click-preventdefault: True;
+    action-server: inlineHideViewlet;
+    inlineHideViewlet-viewlethash: kssAttr('viewlethash', True);
+    inlineHideViewlet-managerName: kssAttr('viewletmanager', True);
+} 
+
+#viewletManagerListing .showViewlet:click,
+#viewletManagerListing .showViewlet img:click {
+    evt-click-preventdefault: True;
+    action-server: inlineShowViewlet;
+    inlineShowViewlet-viewlethash: kssAttr('viewlethash', True);    
+    inlineShowViewlet-managerName: kssAttr('viewletmanager', True);
+}
+
+
