@@ -1,0 +1,15 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:cmf="http://namespaces.zope.org/cmf"
+    i18n_domain="Products.Gloworm">
+
+    <include package=".browser" />
+    <include file="profiles.zcml" />
+ 
+    <!-- Register the skin folder -->
+    <cmf:registerDirectory name="gloworm" />
+        
+</configure>
