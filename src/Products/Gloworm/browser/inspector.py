@@ -320,7 +320,7 @@ class InspectorKSS(base):
         templateName = registration.generateIdFromRegistration(reg)
         
         container.manage_delObjects([templateName])
-        self._renderCustomizedViewlet(viewlethash, templateName)
+        self._redrawViewletManager(unhashedViewletInfo['managerName'])
         return self.inspectViewlet(viewlethash)
     
     def showMoveViewletForm(self, viewlethash):
