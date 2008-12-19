@@ -73,3 +73,5 @@
 /* Style the Clip */
 .yui-layout .yui-layout-clip { position: absolute; height: 20px; background-color: #EDF5FF; display: none; border: 1px solid #808080; }
 
+.yui-resize-handle-r .yui-layout-resize-knob { background:transparent url(portal_skins/Gloworm/layout_sprite.png) no-repeat scroll 0 -5px; height:16px; left:0; position:absolute; top:45%; width:6px; }
+.yui-resize-handle-t .yui-layout-resize-knob { background:transparent url(portal_skins/Gloworm/layout_sprite.png) no-repeat scroll -20px 0; height:6px; left:45%; position:absolute; width:16px; }
