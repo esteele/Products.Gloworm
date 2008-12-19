@@ -8,6 +8,7 @@
         * Fixed a bug that prevented the inspect viewlet panel template from realizing that a customization already existed.
         * Fixed a bug preventing viewlets from rerendering properly when customizations are discarded.
         * Added a "visibility" field and show/hide link to the inspect viewlets panel. 
+        * Added resize handles to resizable panels
         
     1.0b2
         * Viewlet customization no longer assumes that templates are created with a zope.interface.interface prefix.
