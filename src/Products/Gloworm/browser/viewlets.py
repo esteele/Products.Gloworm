@@ -31,7 +31,12 @@ class InspectorView(BrowserView):
             self.request.debug = DebugFlags()
             self.request.debug.showTAL = True
             self.request.debug.sourceAnnotations = True
-            renderedTemplate = self.context()
+
+            context_state = getMultiAdapter((self.context, self.request), name='plone_context_state')
+
+            templateId = context_state.view_template_id()
+            template = self.context.restrictedTraverse(templateId)
+            renderedTemplate = template()
             
             # Insert the GloWorm panel and wrap the page content in a wrapper div so that we
             # can break the two into two different panels. To do that, we're forced to
@@ -105,7 +110,12 @@ class GlowormPanelNavTree(ViewletBase):
         # We need the GloWorm specific browser layer in there so that we can see the tal:viewlet* tags.
         alsoProvides(self.request, IGlowormLayer)
 
-        strippedHTML = ''.join((re.findall('(<\/?tal:viewlet/?[^\>]*>)', self.context())))
+        context_state = getMultiAdapter((self.context, self.request), name='plone_context_state')
+        templateId = context_state.view_template_id()            
+        template = self.context.restrictedTraverse(templateId)
+        renderedTemplate = template()
+
+        strippedHTML = ''.join((re.findall('(<\/?tal:viewlet/?[^\>]*>)', renderedTemplate)))
         
         # Soupify the simplified HTML
         soup = BeautifulSoup(strippedHTML)
