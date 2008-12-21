@@ -2,12 +2,12 @@ from zope.component import getMultiAdapter, getAdapters, queryMultiAdapter
 from zope.interface import implements, alsoProvides
 from zope.publisher.base import DebugFlags
 from zope.viewlet.interfaces import IViewlet, IViewletManager
-
 from archetypes.kss.interfaces import IInlineEditingEnabled
 from kss.core.BeautifulSoup import BeautifulSoup
 from plone.app.layout.viewlets.common import ViewletBase
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from Products.CMFCore.interfaces import IContentish
 
 from Products.Gloworm.browser.interfaces import IInspectorView, IGlowormLayer, IAmIgnoredByGloworm
 from Products.Gloworm.browser.utils import findTemplateViewRegistrationFromHash, getProvidedForViewlet, hashViewletInfo
@@ -26,16 +26,25 @@ class InspectorView(BrowserView):
     def __call__(self):
         if DevelopmentMode:
             alsoProvides(self.request, IGlowormLayer)
+            
+            # TODO What was this for again?
             from plone.app.layout.globals.interfaces import IViewView
             alsoProvides(self.request, IViewView)
+            
+            # Apply debug flags to the request
             self.request.debug = DebugFlags()
             self.request.debug.showTAL = True
             self.request.debug.sourceAnnotations = True
-
-            context_state = getMultiAdapter((self.context, self.request), name='plone_context_state')
-
+            
+            # Find the actual content object in the context
+            # Calling @@inspect on object/view results in view being self.context
+            contentObject = self.context
+            while not IContentish.providedBy(contentObject):
+                contentObject = contentObject.aq_parent
+            
+            context_state = getMultiAdapter((contentObject, self.request), name='plone_context_state')
             templateId = context_state.view_template_id()
-            template = self.context.restrictedTraverse(templateId)
+            template = contentObject.restrictedTraverse(templateId)
             renderedTemplate = template()
             
             # Insert the GloWorm panel and wrap the page content in a wrapper div so that we
@@ -95,7 +104,7 @@ class GlowormHtmlHeadIncludes(ViewletBase):
     def update(self):
         portal_state = getMultiAdapter((self.context, self.request), name='plone_portal_state')
         self.baseurl = portal_state.portal_url()
-        
+
 class GlowormPanelNavTree(ViewletBase):
     render = ViewPageTemplateFile('glowormPanelNavTree.pt')
     def update(self):
@@ -106,15 +115,20 @@ class GlowormPanelNavTree(ViewletBase):
         
         # Render the current page and strip out everything but the <tal:viewletmanager> and <tal:viewlet> tags.
         # TODO We probably don't need BeautifulSoup anymore since we've got such a simple parsetree.
-
+        
         # We need the GloWorm specific browser layer in there so that we can see the tal:viewlet* tags.
         alsoProvides(self.request, IGlowormLayer)
+        
+        contentObject = self.context
+        while not IContentish.providedBy(contentObject):
+            contentObject = contentObject.aq_parent
 
-        context_state = getMultiAdapter((self.context, self.request), name='plone_context_state')
-        templateId = context_state.view_template_id()            
-        template = self.context.restrictedTraverse(templateId)
+        
+        context_state = getMultiAdapter((contentObject, self.request), name='plone_context_state')
+        templateId = context_state.view_template_id()
+        template = contentObject.restrictedTraverse(templateId)
         renderedTemplate = template()
-
+        
         strippedHTML = ''.join((re.findall('(<\/?tal:viewlet/?[^\>]*>)', renderedTemplate)))
         
         # Soupify the simplified HTML
@@ -136,14 +150,14 @@ class GlowormPanelNavTree(ViewletBase):
                     name = rawname.replace('-','.')
                     # Get the viewletmanager object
                     managerObj = queryMultiAdapter((self.context, self.request, self), IViewletManager, name)
-                    if not IAmIgnoredByGloworm.providedBy(managerObj):
+                    if managerObj and not IAmIgnoredByGloworm.providedBy(managerObj):
                         self.outstr += "<li><a href='#' title='Viewlet Manager %s' class='inspectViewletManager kssattr-forviewletmanager-%s'>%s</a>" % (name, name.replace('.', '-'), name)
                         
                         # Look up the viewlets attached to this viewlet manager.
                         # We do it this way because calling viewletManager.viewlets won't see the hidden viewlets...
                         containedViewlets = getAdapters((self.context, self.request, managerObj.__parent__, managerObj),IViewlet)
                         containedViewlets = managerObj.sort([vl for vl in containedViewlets])
-                    
+                        
                         stripped.append(v)
                         getChildViewlets(v, containedViewlets)
                         self.outstr += "</li>"
@@ -181,7 +195,7 @@ class GlowormPanelNavTree(ViewletBase):
                             getChildViewletManagers(v)
                             self.outstr += "</li>"
                         allViewlets.pop(0) # Remove the current viewlet from the allViewlets list
-                        
+            
             # Collect any remaining hidden viewletss
             if allViewlets:
                 for vlt in allViewlets:
@@ -194,6 +208,6 @@ class GlowormPanelNavTree(ViewletBase):
 class DisableInlineEditingView(BrowserView):
     """ Disable inline editing for the Gloworm Inspector view. """
     implements(IInlineEditingEnabled)
-
+    
     def __call__(self):
         return False
