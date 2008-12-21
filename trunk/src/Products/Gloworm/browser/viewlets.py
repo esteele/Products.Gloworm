@@ -7,7 +7,7 @@ from kss.core.BeautifulSoup import BeautifulSoup
 from plone.app.layout.viewlets.common import ViewletBase
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from Products.CMFCore.interfaces import IContentish
+from Products.CMFCore.interfaces import IContentish, IDynamicType
 
 from Products.Gloworm.browser.interfaces import IInspectorView, IGlowormLayer, IAmIgnoredByGloworm
 from Products.Gloworm.browser.utils import findTemplateViewRegistrationFromHash, getProvidedForViewlet, hashViewletInfo
@@ -39,8 +39,8 @@ class InspectorView(BrowserView):
             # Find the actual content object in the context
             # Calling @@inspect on object/view results in view being self.context
             contentObject = self.context
-            while not IContentish.providedBy(contentObject):
-                contentObject = contentObject.aq_parent
+            while not IDynamicType.providedBy(contentObject):
+                contentObject = contentObject.aq_inner.aq_parent
             
             context_state = getMultiAdapter((contentObject, self.request), name='plone_context_state')
             templateId = context_state.view_template_id()
@@ -64,6 +64,7 @@ class InspectorView(BrowserView):
             %s
             \3
             """ % glowormPanel
+            
             updatedTemplate = re.sub(regexp, replace, renderedTemplate)
             
             # For cross-browser compatability (ie. everything, not just Firefox), we need to:
@@ -119,10 +120,12 @@ class GlowormPanelNavTree(ViewletBase):
         # We need the GloWorm specific browser layer in there so that we can see the tal:viewlet* tags.
         alsoProvides(self.request, IGlowormLayer)
         
-        contentObject = self.context
-        while not IContentish.providedBy(contentObject):
-            contentObject = contentObject.aq_parent
 
+        # Find the object providing IDynamicType, that's what we want to inspect
+        # Otherwise, we get errors relating to getTypeInfo() 
+        contentObject = self.context
+        while not IDynamicType.providedBy(contentObject):
+            contentObject = contentObject.aq_inner.aq_parent
         
         context_state = getMultiAdapter((contentObject, self.request), name='plone_context_state')
         templateId = context_state.view_template_id()
