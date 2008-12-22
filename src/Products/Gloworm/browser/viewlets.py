@@ -44,9 +44,9 @@ class InspectorView(BrowserView):
             
             context_state = getMultiAdapter((contentObject, self.request), name='plone_context_state')
             templateId = context_state.view_template_id()
-            template = contentObject.restrictedTraverse(templateId)
+            template = contentObject.unrestrictedTraverse(templateId)
+
             renderedTemplate = template()
-            
             # Insert the GloWorm panel and wrap the page content in a wrapper div so that we
             # can break the two into two different panels. To do that, we're forced to
             # do some ill-conceived html parsing. BeautifulSoup appears to be changing pages
@@ -85,13 +85,13 @@ class InspectorView(BrowserView):
         logger.debug("saving template edits for viewlet %s" % viewlet)
 
 class GlowormPanelHeader(ViewletBase):
-    render = ViewPageTemplateFile('glowormPanelHeader.pt')
+    index = ViewPageTemplateFile('glowormPanelHeader.pt')
     
     def update(self):
         self.close_url = self.context.absolute_url()
 
 class GlowormPanelBody(ViewletBase):
-    render = ViewPageTemplateFile('glowormPanelBody.pt')
+    index = ViewPageTemplateFile('glowormPanelBody.pt')
     
     def update(self):
         self.portal_type = self.context.getPortalTypeName()
@@ -100,14 +100,15 @@ class GlowormPanelBody(ViewletBase):
 
 class GlowormHtmlHeadIncludes(ViewletBase):
     implements(IAmIgnoredByGloworm)
-    render = ViewPageTemplateFile('glowormHtmlHeadIncludes.pt')
+    index = ViewPageTemplateFile('glowormHtmlHeadIncludes.pt')
     
     def update(self):
         portal_state = getMultiAdapter((self.context, self.request), name='plone_portal_state')
         self.baseurl = portal_state.portal_url()
 
 class GlowormPanelNavTree(ViewletBase):
-    render = ViewPageTemplateFile('glowormPanelNavTree.pt')
+    index = ViewPageTemplateFile('glowormPanelNavTree.pt')
+    
     def update(self):
         
         # Tell BeautifulSoup that viewlets and viewletmanagers can be nested.
@@ -120,7 +121,6 @@ class GlowormPanelNavTree(ViewletBase):
         # We need the GloWorm specific browser layer in there so that we can see the tal:viewlet* tags.
         alsoProvides(self.request, IGlowormLayer)
         
-
         # Find the object providing IDynamicType, that's what we want to inspect
         # Otherwise, we get errors relating to getTypeInfo() 
         contentObject = self.context
@@ -129,7 +129,11 @@ class GlowormPanelNavTree(ViewletBase):
         
         context_state = getMultiAdapter((contentObject, self.request), name='plone_context_state')
         templateId = context_state.view_template_id()
-        template = contentObject.restrictedTraverse(templateId)
+        # There are instances in which the enclosing view is named 'index' that calling a traverse to 'index' 
+        # actually gets this viewlet's index method. Prepending the '@@' seems to take care of that.
+        # So, either traverse to @@templateId or nothing depending on the value of templateId.
+        template = contentObject.unrestrictedTraverse(templateId and '@@%s' % templateId)
+
         renderedTemplate = template()
         
         strippedHTML = ''.join((re.findall('(<\/?tal:viewlet/?[^\>]*>)', renderedTemplate)))
@@ -207,6 +211,7 @@ class GlowormPanelNavTree(ViewletBase):
             return stripped
         
         getChildViewletManagers(soup)
+
 
 class DisableInlineEditingView(BrowserView):
     """ Disable inline editing for the Gloworm Inspector view. """
