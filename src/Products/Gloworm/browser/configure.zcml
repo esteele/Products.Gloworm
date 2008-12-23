@@ -57,7 +57,7 @@
     <browser:viewletManager
         name="gloworm.glowormPanel"
         provides=".interfaces.IGlowormPanel"
-        permission="zope2.View"
+        permission="cmf.ManagePortal"
         class="plone.app.viewletmanager.manager.OrderedViewletManager"
         />
 

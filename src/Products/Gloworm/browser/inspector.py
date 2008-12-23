@@ -21,7 +21,7 @@ from plone.app.viewletmanager.interfaces import IViewletSettingsStorage
 from plone.portlets.utils import unhashPortletInfo
 
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from Products.Gloworm.browser.utils import findTemplateViewRegistrationFromHash, hashViewletInfo, unhashViewletInfo
+from Products.Gloworm.browser.utils import findTemplateViewRegistrationFromHash, hashViewletInfo, unhashViewletInfo, findViewletManager
 from Products.Gloworm.browser.interfaces import IGlowormLayer
 
 import transaction
@@ -300,7 +300,7 @@ class InspectorKSS(base):
         # Find the viewletmangager instance, tell it to update its rendering, and replace the contents of the selected div with that new html
         # We can't do this with a refreshViewlet or refreshProvider because then we lose the <tal:viewletmanager> and <tal:viewlet> blocks.
         # selector = ksscore.getCssSelector('.kssattr-viewletmanagername-' + managerName.replace('.', '-'))
-        viewletManager = queryMultiAdapter((self.context, self.request, self), IViewletManager, managerName)
+        viewletManager = findViewletManager(self, managerName)
         viewletManager.update()
         
         vlt = ksscore.getCssSelector('.kssattr-viewlethash-%s' % viewlethash)
@@ -409,7 +409,7 @@ class InspectorKSS(base):
         logger.debug("in inspectViewletManager")
         # Get the viewletmanager object
         managerName = managerName.replace('-', '.')
-        viewletManager = queryMultiAdapter((self.context, self.request, self), IViewletManager, managerName)
+        viewletManager = findViewletManager(self, managerName)
         
         # Gather information for the viewlet hashes
         managerInterface = list(providedBy(viewletManager).flattened())[0]
@@ -541,7 +541,7 @@ class InspectorKSS(base):
         logger.debug("Moving viewlet by %s" % delta)
         
         # Get the viewletmanager object
-        viewletManager = queryMultiAdapter((self.context, self.request, self), IViewletManager, managerName)
+        viewletManager = findViewletManager(self, managerName)
         
         # Get the order of the viewlets managed by this viewlet manager
         viewletManager.update()
@@ -635,7 +635,7 @@ class InspectorKSS(base):
     def _redrawViewletManager(self, managerName):
         # Get the viewlet manager, update, and rerender it
         # We can't do this with a refreshProvider call because then we lose the <tal:viewletmanager> block.\
-        viewletManager = queryMultiAdapter((self.context, self.request, self), IViewletManager, managerName)
+        viewletManager = findViewletManager(self, managerName)
         viewletManager.update()
         
         # Apply all of the bits we need for inline tal
