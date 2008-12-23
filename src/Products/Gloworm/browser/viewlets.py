@@ -1,5 +1,5 @@
-from zope.component import getMultiAdapter, getAdapters, queryMultiAdapter
-from zope.interface import implements, alsoProvides
+from zope.component import getMultiAdapter, getAdapters, queryMultiAdapter, getGlobalSiteManager
+from zope.interface import implements, alsoProvides, classImplements
 from zope.publisher.base import DebugFlags
 from zope.viewlet.interfaces import IViewlet, IViewletManager
 from archetypes.kss.interfaces import IInlineEditingEnabled
@@ -11,6 +11,8 @@ from Products.CMFCore.interfaces import IContentish, IDynamicType
 
 from Products.Gloworm.browser.interfaces import IInspectorView, IGlowormLayer, IAmIgnoredByGloworm
 from Products.Gloworm.browser.utils import findTemplateViewRegistrationFromHash, getProvidedForViewlet, hashViewletInfo
+
+from new import classobj
 
 from Globals import DevelopmentMode
 import re
@@ -44,7 +46,7 @@ class InspectorView(BrowserView):
             
             context_state = getMultiAdapter((contentObject, self.request), name='plone_context_state')
             templateId = context_state.view_template_id()
-            template = contentObject.unrestrictedTraverse(templateId)
+            template = contentObject.unrestrictedTraverse(templateId and '@@%s' % templateId)
 
             renderedTemplate = template()
             # Insert the GloWorm panel and wrap the page content in a wrapper div so that we
@@ -157,6 +159,32 @@ class GlowormPanelNavTree(ViewletBase):
                     name = rawname.replace('-','.')
                     # Get the viewletmanager object
                     managerObj = queryMultiAdapter((self.context, self.request, self), IViewletManager, name)
+                    if not managerObj:
+                        # Here's where we go totally off the deep end...
+                        # Since we can't find this viewlet manager with the basic (self.context, self.request, self)
+                        # multiadapter lookup, this must be some sort of custom manager, registered to other interfaces.
+                        # In order to find it, we need to do a bit of reverse engineering...
+                        
+                        # Since Plone's generic setup process for viewlets constrains us to one viewlet manager / name,
+                        # we're going to assume that the adapter with this name, and a provided interface that is or extends IViewletManger
+                        # is the one we're looking for. 
+                        # So, start with a search of the adapter registry...
+                        
+                        reg = [reg for reg in getGlobalSiteManager().registeredAdapters() if reg.name == name][0]
+
+                        # So far, I think we're stuck with context and request being the first two interfaces.
+                        providedClasses = [self.context, self.request]
+
+                        # Now, we take a look at the required interfaces...
+                        # And create some dummy classes that implement them.                    
+                        for iface in reg.required[2:]:
+                            tempClass = classobj('dummy', (object,), {})
+                            classImplements(tempClass, iface)
+                            providedClasses.append(tempClass())
+                    
+                        # Now just do a basic multiadapter lookup using our new objects providing the correct interfaces...
+                        managerObj = queryMultiAdapter(tuple(providedClasses), reg.provided, name)
+                    
                     if managerObj and not IAmIgnoredByGloworm.providedBy(managerObj):
                         self.outstr += "<li><a href='#' title='Viewlet Manager %s' class='inspectViewletManager kssattr-forviewletmanager-%s'>%s</a>" % (name, name.replace('.', '-'), name)
                         
