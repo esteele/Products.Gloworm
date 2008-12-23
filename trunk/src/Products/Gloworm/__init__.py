@@ -56,7 +56,6 @@ def initialize(context):
                     else:
                         view_name = viewlet.template.id.split('-')[-1]
                     # Get the "provided" interfaces for this viewlet manager.
-                    # TODO: Do this lookup properly.
                     regs = [regs for regs in getGlobalSiteManager().registeredAdapters() if regs.name == view_name and regs.required[-1].isOrExtends(managerInterface)]
                     if regs:
                         reg = regs[0]
