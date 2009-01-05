@@ -11,6 +11,7 @@ from Products.Five import fiveconfigure
 from Products.PloneTestCase import PloneTestCase as ptc
 from Products.PloneTestCase.layer import PloneSite
 from Products.PloneTestCase.layer import onsetup
+import Products.Gloworm
 
 # there is no install package in Zope 2.9
 TEST_INSTALL =True
@@ -46,9 +47,13 @@ def setup_product():
 setup_product()
 ptc.setupPloneSite(products=['Products.Gloworm'])
 
+# Manually call initialize() so that the monkey patch gets installed
+Products.Gloworm.initialize(ztc.app)
 
 class GlowormTestCase(ptc.PloneTestCase):
-    pass
+    def afterSetUp(self):
+        # Turn debug mode on
+        fiveconfigure.debug_mode = True
     
 class GlowormWithoutDebugModeEnabledTestCase(ptc.PloneTestCase):
     class layer(PloneSite):
