@@ -9,12 +9,12 @@ __docformat__ = 'plaintext'
 
 from Products.CMFCore.utils import getToolByName
 import Products.Gloworm
-from Products.Gloworm.tests.tests import GlowormTestCase
+from Products.Gloworm.tests.base import GlowormTestCase
 from Products.Five.fiveconfigure import debug_mode as DebugModeActive
 
 class testInstall(GlowormTestCase):
     def afterSetUp(self):
-        pass
+        self.setRoles(('Manager',))
         
     def testCheckDebugMode(self):
         self.failUnless(DebugModeActive == True, 'Debug Mode is not enabled, GloWorm was not activated.')
@@ -30,7 +30,12 @@ class testInstall(GlowormTestCase):
         self.assertEqual(zpt.pt_render(), u'<div>foo</div>\n')
         self.app.REQUEST.debug.showTAL = True
         self.assertEqual(zpt.pt_render(), u'<div tal:content="string:foo">foo</div>\n')
-        
+
+    def testInspectFrontPage(self):
+        """ Simple test to ensure that the @@inspect view at least initializes without errors for the front-page of the site. """
+        self.app.plone['front-page'].unrestrictedTraverse('@@inspect')()
+
+
 class testUninstall(GlowormTestCase):
     def afterSetUp(self):
         pass
