@@ -24,7 +24,6 @@ class InspectorView(BrowserView):
     glowormPanelTemplate = ViewPageTemplateFile('glowormPanel.pt')
     
     def __call__(self):
-        import pdb; pdb.set_trace( )
         if DebugModeActive:
             alsoProvides(self.request, IGlowormLayer)
             
