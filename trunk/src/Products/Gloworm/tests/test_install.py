@@ -34,8 +34,7 @@ class testInstall(GlowormTestCase):
     def testInspectFrontPage(self):
         """ Simple test to ensure that the @@inspect view at least initializes without errors for the front-page of the site. """
         self.app.plone['front-page'].unrestrictedTraverse('@@inspect')()
-
-
+            
 class testUninstall(GlowormTestCase):
     def afterSetUp(self):
         pass

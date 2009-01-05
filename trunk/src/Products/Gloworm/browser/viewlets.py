@@ -133,9 +133,12 @@ class GlowormPanelNavTree(ViewletBase):
         # There are instances in which the enclosing view is named 'index' that calling a traverse to 'index' 
         # actually gets this viewlet's index method. Prepending the '@@' seems to take care of that.
         # So, either traverse to @@templateId or nothing depending on the value of templateId.
-        template = contentObject.unrestrictedTraverse(templateId and '@@%s' % templateId)
-        # template = contentObject.unrestrictedTraverse(templateId)
-        
+        try:
+            template = contentObject.unrestrictedTraverse(templateId and '@@%s' % templateId)
+        except AttributeError:
+            # The template isn't a view, just call it without the @@
+            template = contentObject.unrestrictedTraverse(templateId)
+
         renderedTemplate = template()
         
         strippedHTML = ''.join((re.findall('(<\/?tal:viewlet/?[^\>]*>)', renderedTemplate)))
