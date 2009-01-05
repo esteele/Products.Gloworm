@@ -71,7 +71,7 @@ var _GetSourceAnnotation = function() {
       parentalNode = node.parentNode;
       while(parentalNode){
           while(siblingNode){
-              if ((siblingNode.nodeType == document.COMMENT_NODE) && (siblingNode.data.indexOf('====='))){
+              if ((siblingNode.nodeType == document.COMMENT_NODE) && (siblingNode.data.indexOf('==============================================================================') != -1)){
                   return siblingNode.data;
               }          
               siblingNode = siblingNode.previousSibling;
