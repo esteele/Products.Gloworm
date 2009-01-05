@@ -12,7 +12,7 @@ from Products.CMFCore.interfaces import IContentish, IDynamicType
 from Products.Gloworm.browser.interfaces import IInspectorView, IGlowormLayer, IAmIgnoredByGloworm
 from Products.Gloworm.browser.utils import findTemplateViewRegistrationFromHash, getProvidedForViewlet, hashViewletInfo, findViewletManager
 
-from Globals import DevelopmentMode
+from Globals import DevelopmentMode as DebugMode
 import re
 import logging
 
@@ -24,7 +24,7 @@ class InspectorView(BrowserView):
     glowormPanelTemplate = ViewPageTemplateFile('glowormPanel.pt')
     
     def __call__(self):
-        if DevelopmentMode:
+        if DebugMode:
             alsoProvides(self.request, IGlowormLayer)
             
             # TODO What was this for again?
@@ -44,7 +44,8 @@ class InspectorView(BrowserView):
             
             context_state = getMultiAdapter((contentObject, self.request), name='plone_context_state')
             templateId = context_state.view_template_id()
-            template = contentObject.unrestrictedTraverse(templateId and '@@%s' % templateId)
+            template = contentObject.unrestrictedTraverse(templateId)
+            # template = contentObject.unrestrictedTraverse(templateId and '@@%s' % templateId)
 
             renderedTemplate = template()
             # Insert the GloWorm panel and wrap the page content in a wrapper div so that we
@@ -133,7 +134,8 @@ class GlowormPanelNavTree(ViewletBase):
         # actually gets this viewlet's index method. Prepending the '@@' seems to take care of that.
         # So, either traverse to @@templateId or nothing depending on the value of templateId.
         template = contentObject.unrestrictedTraverse(templateId and '@@%s' % templateId)
-
+        # template = contentObject.unrestrictedTraverse(templateId)
+        
         renderedTemplate = template()
         
         strippedHTML = ''.join((re.findall('(<\/?tal:viewlet/?[^\>]*>)', renderedTemplate)))
