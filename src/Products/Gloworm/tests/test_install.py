@@ -4,7 +4,7 @@ __author__ = """WebLion <support@weblion.psu.edu>"""
 __docformat__ = 'plaintext'
 
 #
-# Test-cases for product install/uninstall/reinstall
+# Test-cases for Gloworm
 #
 
 from Products.CMFCore.utils import getToolByName
@@ -12,7 +12,7 @@ import Products.Gloworm
 from Products.Gloworm.tests.base import GlowormTestCase
 from Products.Five.fiveconfigure import debug_mode as DebugModeActive
 
-class testInstall(GlowormTestCase):
+class testGloworm(GlowormTestCase):
     def afterSetUp(self):
         self.setRoles(('Manager',))
         
@@ -34,16 +34,9 @@ class testInstall(GlowormTestCase):
     def testInspectFrontPage(self):
         """ Simple test to ensure that the @@inspect view at least initializes without errors for the front-page of the site. """
         self.app.plone['front-page'].unrestrictedTraverse('@@inspect')()
-            
-class testUninstall(GlowormTestCase):
-    def afterSetUp(self):
-        pass
-
-
 
 def test_suite():
     from unittest import TestSuite, makeSuite
     suite = TestSuite()
-    suite.addTest(makeSuite(testInstall))
-    suite.addTest(makeSuite(testUninstall))
+    suite.addTest(makeSuite(testGloworm))
     return suite
