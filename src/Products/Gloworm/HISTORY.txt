@@ -1,6 +1,8 @@
     1.0b4
         * Improved handling of inspection of custom views, viewlets, and viewlet managers.
-
+        * Refactored tests
+        * Improved source annotation searching
+        
     1.0b3
         * Improved auto-scrolling of the navigation tree.
         * Added scrolling for the content well.
