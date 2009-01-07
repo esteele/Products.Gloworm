@@ -9,9 +9,7 @@
     <include package=".browser" />
     <include file="profiles.zcml" />
  
-    <!--
-        TODO Does this do anything useful anymore?
-    -->
+    <!-- Register the skin folder -->
     <cmf:registerDirectory name="gloworm" />
         
 </configure>

@@ -7,7 +7,7 @@
 
     <body>
         <h4>Viewlet <tal:block tal:content="options/viewName" /></h4>
-        <table>
+        <table id="viewletListing">
             <tr>
                 <th>Name:</th>
                 <td tal:content="options/viewName" />
@@ -27,6 +27,23 @@
             <tr tal:condition="options/templatePath">
                 <th>Template:</th>
                 <td tal:content="options/templatePath" />
+            </tr>
+            <tr tal:attributes="class string:visibility kssattr-viewlethash-${options/viewletHash};">
+                <th>Visibility:</th>
+                <td tal:condition="options/visible">Visible 
+                    <form>
+                        <input type="submit" 
+                               value="Hide viewlet"
+                               class='hideViewlet context' />
+                    </form>
+                </td>
+                <td tal:condition="not: options/visible">Hidden
+                    <form>
+                        <input type="submit" 
+                               value="Show viewlet"
+                               class='showViewlet context' />
+                    </form>
+                </td>
             </tr>
         </table>
         <div style="margin:1em; text-align: center;">

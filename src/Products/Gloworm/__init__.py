@@ -1,7 +1,7 @@
 from zope.interface import providedBy
 import binascii
 from zope.component import getGlobalSiteManager
-from Globals import DevelopmentMode
+from Products.Five.fiveconfigure import debug_mode as DebugModeActive
 from Products.Gloworm.browser.interfaces import IGlowormLayer
 
 import logging
@@ -56,7 +56,6 @@ def initialize(context):
                     else:
                         view_name = viewlet.template.id.split('-')[-1]
                     # Get the "provided" interfaces for this viewlet manager.
-                    # TODO: Do this lookup properly.
                     regs = [regs for regs in getGlobalSiteManager().registeredAdapters() if regs.name == view_name and regs.required[-1].isOrExtends(managerInterface)]
                     if regs:
                         reg = regs[0]
@@ -77,6 +76,6 @@ def initialize(context):
     from plone.app.viewletmanager.manager import BaseOrderedViewletManager
     # Only install the monkey patch if we're running in debug mode since that's one of the prereqs for running GloWorm. 
     # It's an attempt to minimize the effects this monkeypatch has on the system until we can get some sort of adaptation working properly.
-    if DevelopmentMode:
+    if DebugModeActive:
         BaseOrderedViewletManager.render = render
     logger.info('BaseOrderedViewletManager.render monkey patch installed.')
