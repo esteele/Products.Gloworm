@@ -1,0 +1,9 @@
+<object name="portal_actions" meta_type="Plone Actions Tool">
+    <action-provider name="portal_actions">
+        <action title="Inspect this page" 
+                    action_id="gloworm_inspect"
+                    category="document_actions"
+                    remove="True">
+        </action>
+    </action-provider>
+</object>
