@@ -12,7 +12,9 @@ Products.Gloworm Package Readme
         
     Requirements
         
-        Requires plone.app.customerize 1.1.2 (included in Plone 3.1.3) or higher.
+        * Requires plone.app.customerize 1.1.2 (included in Plone 3.1.3) or higher
+        
+        * archetypes.kss 1.4.2 (included in Plone 3.1.5) or higher
         
         Confirmed to work in:
         
