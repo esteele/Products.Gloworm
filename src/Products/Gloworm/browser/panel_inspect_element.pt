@@ -47,18 +47,11 @@
                 <td tal:content="options/talCondition" />
             </tr>
             <tr tal:condition="options/portletInfo">
-                <th>Portlet:</th>
+                <th>Contained in portlet:</th>
                 <td>
-                    <table>
-                        <tr>
-                            <td>Portlet Name:</td>
-                            <td tal:content="options/portletInfo/name" />
-                        </tr>
-                        <tr>
-                            <td>Portlet Manager:</td>
-                            <td tal:content="options/portletInfo/name"/>
-                        </tr>
-                    </table>
+                    <a href='#'
+                        tal:attributes="class string:portletMoreInfo kssattr-forportlet-${options/portletInfo/hash}"
+                        tal:content="options/portletInfo/name" />
                 </td>
             </tr>
             <tr tal:condition="options/viewletInfo">

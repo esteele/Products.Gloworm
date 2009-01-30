@@ -19,6 +19,12 @@
     inspectField-fieldname: kssAttr(fieldname);
 }
 
+.portletMoreInfo:click {
+    evt-click-preventdefault: True;
+    action-server: inspectPortlet;
+    inspectPortlet-portlethash: kssAttr(forportlet);
+}
+
 .viewletMoreInfo:click {
     evt-click-preventdefault: True;
     action-server: inspectViewlet;
