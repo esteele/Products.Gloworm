@@ -156,6 +156,39 @@ class InspectorKSS(base):
         self.highlightElement(ksscore.getCssSelector('.kssattr-atfieldname-%s' % fieldname))
         
         return self.render()
+
+    def inspectPortlet(self, portlethash):
+        """ Display detailed information about a particular viewlet. """
+        logger.debug("in inspectPortlet")
+        
+        # Unhash the portlet info
+        unhashedPortletInfo = unhashPortletInfo(portlethash)
+
+        # Get the registration information for this portlet
+        portletName = unhashedPortletInfo['name']
+        managerName = unhashedPortletInfo['manager']
+        
+        import pdb; pdb.set_trace( )
+        
+        template = ViewPageTemplateFile('panel_inspect_portlet.pt')
+        # Wrap it so that Zope knows in what context it's being called
+        # Otherwise, we get an "AttributeError: 'str' object has no attribute 'other'" error
+        template = template.__of__(self)
+        out = template(portletName = portletName,
+                       managerName = managerName,
+                       category = unhashedPortletInfo['category'],
+                       key = unhashedPortletInfo['key'],
+                       template = template,
+                       portlethash = portlethash)
+        
+        # Dump the output to the output panel
+        self.updatePanelBodyContent(out)
+        
+        # Highlight this element
+        ksscore = self.getCommandSet('core')
+        self.highlightElement(ksscore.getCssSelector('.kssattr-portlethash-%s' % portlethash))
+        
+        return self.render()
     
     def inspectViewlet(self, viewlethash):
         """ Display detailed information about a particular viewlet. """

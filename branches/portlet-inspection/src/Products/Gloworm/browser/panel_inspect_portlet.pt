@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en-US" lang="en-US"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="">
+
+    <body>
+        <h4>Portlet <tal:block tal:content="options/portletName" /></h4>
+        <table id="portletListing">
+            <tr>
+                <th>Name:</th>
+                <td tal:content="options/portletName" />
+            </tr>
+            <tr>
+                <th>Manager:</th>
+                <td>
+                    <a href="#" 
+                       tal:attributes="class string:inspectPortletManager kssattr-forportletmanager-${options/managerName};"
+                       tal:content="options/managerName" />
+                </td>
+            </tr>
+            <tr>
+                <th>Category:</th>
+                <td tal:content="options/category" />
+            </tr>
+            <tr>
+                <th>Key:</th>
+                <td tal:content="options/key" />
+            </tr>
+        </table>
+    </body>
+</html>

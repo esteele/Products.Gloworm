@@ -116,6 +116,14 @@
 
     <browser:page
         for="*"
+        name="inspectPortlet"
+        class=".inspector.InspectorKSS"
+        attribute="inspectPortlet"
+        permission="cmf.ManagePortal"
+        />
+
+    <browser:page
+        for="*"
         name="inspectViewlet"
         class=".inspector.InspectorKSS"
         attribute="inspectViewlet"
