@@ -5,6 +5,7 @@ from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.component import queryMultiAdapter
 from zope.component import queryUtility
+from zope.component.interfaces import IFactory
 from zope.interface import implements, providedBy, alsoProvides
 from zope.pagetemplate.pagetemplate import PTRuntimeError
 from zope.traversing.interfaces import TraversalError
@@ -18,7 +19,9 @@ from plone.app.customerize import registration
 from plone.app.kss.interfaces import IPloneKSSView
 from plone.app.kss.plonekssview import PloneKSSView as base
 from plone.app.viewletmanager.interfaces import IViewletSettingsStorage
+from plone.portlets.manager import PortletManager
 from plone.portlets.utils import unhashPortletInfo
+from plone.app.portlets.utils import assignment_from_key
 
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.Gloworm.browser.utils import findTemplateViewRegistrationFromHash, hashViewletInfo, unhashViewletInfo, findViewletManager
@@ -167,8 +170,19 @@ class InspectorKSS(base):
         # Get the registration information for this portlet
         portletName = unhashedPortletInfo['name']
         managerName = unhashedPortletInfo['manager']
-        
+
+        from plone.portlets.interfaces import IPortletManager, IPortletRenderer
         import pdb; pdb.set_trace( )
+
+        manager = getUtility(IPortletManager, unhashedPortletInfo['manager'])
+        assignment = assignment_from_key(context = self.context, 
+                                         manager_name = unhashedPortletInfo['manager'], 
+                                         category =     unhashedPortletInfo['category'],
+                                         key =          unhashedPortletInfo['key'],
+                                         name =         unhashedPortletInfo['name'])
+        renderer = getMultiAdapter(
+                (self.context, self.request, self, manager, assignment.data),
+                IPortletRenderer)
         
         template = ViewPageTemplateFile('panel_inspect_portlet.pt')
         # Wrap it so that Zope knows in what context it's being called
