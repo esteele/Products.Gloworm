@@ -37,6 +37,7 @@
 #glowormPanelBody table { color: #000; }
 #glowormPanelBody table th { text-align: right; vertical-align: top; border: 1px solid #EEE; padding: .5em; background: #FFF;}
 #glowormPanelBody table td { vertical-align: top; border: 1px solid #EEE; padding: .5em; background: #FFF;}
+#glowormPanelBody table td ul { margin-left: 1.5em; margin-top: .25em; }
 #glowormPanelBody table table {  }
 #glowormPanelBody table table th, #glowormPanel table table td {  background-color: #DDD; border-color: #999;}
 #glowormPanelBody table table th { text-align: center; background-color: #BBB; }

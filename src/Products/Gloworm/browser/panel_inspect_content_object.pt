@@ -28,7 +28,14 @@
                 <th>Skin Name:</th>
                 <td tal:content="options/skinName" />
             </tr>    
-
+            <tr>
+                <th>Applied Marker Interfaces:</th>
+                <td>
+                    <ul>
+                        <li tal:repeat="interface options/providedInterfaces"
+                            tal:content="interface" />
+                    </ul>
+            </tr>
         </table>
     </body>
 </html>
