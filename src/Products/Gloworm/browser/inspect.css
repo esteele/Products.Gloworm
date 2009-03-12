@@ -76,3 +76,7 @@
 
 .yui-resize-handle-r .yui-layout-resize-knob { background:transparent url(portal_skins/Gloworm/layout_sprite.png) no-repeat scroll 0 -5px; height:16px; left:0; position:absolute; top:45%; width:6px; }
 .yui-resize-handle-t .yui-layout-resize-knob { background:transparent url(portal_skins/Gloworm/layout_sprite.png) no-repeat scroll -20px 0; height:6px; left:45%; position:absolute; width:16px; }
+
+
+#glowormPanelBody #clouseau-top table td { background-color: #F9F9F9 !important; border: none; padding: 5px 0 0 10px; margin: 0;}
+#glowormPanelBody #clouseau-top table td code.clouseau-prompt { background-color: #F9F9F9 !important;}
