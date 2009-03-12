@@ -87,7 +87,6 @@
     inspectViewletManager-managerName: kssAttr(forviewletmanager);
 }
 
-
 #viewletListing .hideViewlet:click,
 #viewletListing .hideViewlet img:click {
     evt-click-preventdefault: True;
@@ -118,4 +117,12 @@
     inlineShowViewlet-managerName: kssAttr('viewletmanager', True);
 }
 
+.openDebugPrompt:click {
+    evt-click-preventdefault: True;
+    action-server: openDebugPrompt;
+}
 
+.closeDebugPrompt:click {
+    evt-click-preventdefault: True;
+    action-server: closeDebugPrompt;
+}

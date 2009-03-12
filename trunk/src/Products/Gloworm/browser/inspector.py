@@ -114,6 +114,7 @@ class InspectorKSS(base):
         providedInterfaces.sort()
         
         template = ViewPageTemplateFile('panel_inspect_content_object.pt')
+
         # Wrap it so that Zope knows in what context it's being called
         # Otherwise, we get an "AttributeError: 'str' object has no attribute 'other'" error
         template = template.__of__(self)
@@ -584,6 +585,29 @@ class InspectorKSS(base):
         panel = ksscore.getCssSelector('#glowormPanelBody')
         ksscore.replaceInnerHTML(panel, content)
     
+    def openDebugPrompt(self):
+        """ Open a Clouseau session """
+        logger.debug("openDebugPrompt")
+        template = ViewPageTemplateFile('panel_clouseau.pt')
+
+        template = template.__of__(self)
+        out = template(contentObject = self.context)
+        
+        # Dump the output to the output panel
+        self.updatePanelBodyContent(out)
+
+        kssglo = self.getCommandSet('gloWorm')
+        kssglo.initializeClouseauSession()
+
+        return self.render()
+
+    def closeDebugPrompt(self):
+        """ Close a Clouseau session """
+        logger.debug("closeDebugPrompt")
+        return self.inspectContentObject()
+
+
+
     def highlightElement(self, selector):
         """ Highlight the element defined by the passed selector.
         """
@@ -601,7 +625,6 @@ class InspectorKSS(base):
             kssglo = self.getCommandSet('gloWorm')
             newSelectorString = '#glowormPageWrapper %s' % selector.value
             kssglo.scrollContentArea(ksscore.getCssSelector(newSelectorString))
-    
     
     def highlightInNavTree(self, selector):
         """ Hightlight the element in the navigation tree

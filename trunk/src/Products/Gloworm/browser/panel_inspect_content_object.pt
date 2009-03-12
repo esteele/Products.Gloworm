@@ -37,5 +37,6 @@
                     </ul>
             </tr>
         </table>
+        <a href="#" class="openDebugPrompt">Open Clouseau Debug Prompt</a>
     </body>
 </html>
