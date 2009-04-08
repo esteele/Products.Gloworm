@@ -25,6 +25,14 @@ Products.Gloworm Package Readme
         * Safari 3.1
         
         * Opera 9
+
+    Words of warning
+
+        Both GloWorm and CacheSetup operate through monkeypatches to
+        PageTemplate.pt_render(). Installing both on the same instance may cause
+        unexpected behavior. GloWorm is intended as a development tool and is best left
+        on your development machine.
+
         
     Using GloWorm
         
