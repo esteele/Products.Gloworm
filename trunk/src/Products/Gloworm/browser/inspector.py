@@ -57,8 +57,7 @@ class InspectorKSS(PloneKSSView):
                 # If there's only one item in the list being returned by the KSS method,
                 # it's passing it as a string instead of a list/array. Not sure why.
                 # Sniff the type and make it a list if needed.
-                if isinstance(talattributes, str):
-                    talattributes = [talattributes]
+                talattributes = list(talattributes)
                 for attr in talattributes:
                     # logger.debug("attr: %s" % attr)
                     attribute = {}
