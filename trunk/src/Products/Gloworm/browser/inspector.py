@@ -16,7 +16,7 @@ from five.customerize.utils import findViewletTemplate
 
 from plone.app.customerize import registration
 from plone.app.kss.interfaces import IPloneKSSView
-from plone.app.kss.plonekssview import PloneKSSView as base
+from plone.app.kss.plonekssview import PloneKSSView
 from plone.app.viewletmanager.interfaces import IViewletSettingsStorage
 from plone.portlets.utils import unhashPortletInfo
 
@@ -31,7 +31,7 @@ import logging
 
 logger = logging.getLogger('Products.Gloworm')
 
-class InspectorKSS(base):
+class InspectorKSS(PloneKSSView):
     implements(IPloneKSSView)
     
     def inspectElement(self,
