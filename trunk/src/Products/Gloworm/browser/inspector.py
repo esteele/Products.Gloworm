@@ -488,9 +488,13 @@ class InspectorKSS(PloneKSSView):
     def hideViewlet(self, viewlethash, managerName = None):
         """ Hide the selected viewlet """
         logger.debug("in hide_viewlet")
-        def updateHiddenList(hidden, viewletName):
-            return hidden + (viewletName,)
-        self._toggleVisibleState(viewlethash, updateHiddenList)
+
+        # Grab the information we need from the viewlet hash
+        unhashedInfo = unhashViewletInfo(viewlethash)
+        manageViewletsView = getMultiAdapter((self.context, self.request), name='manage-viewlets')
+        manageViewletsView.hide(unhashedInfo['managerName'], unhashedInfo['viewletName'])
+        self._redrawViewletManager(unhashedInfo['managerName'])
+
         ksscore = self.getCommandSet('core')
         selector = ksscore.getCssSelector('#glowormPanel .kssattr-viewlethash-%s' % viewlethash)
         ksscore.removeClass(selector, 'visibleViewlet')
@@ -511,9 +515,12 @@ class InspectorKSS(PloneKSSView):
     def showViewlet(self, viewlethash, managerName = None):
         """ Show the selected viewlet """
         logger.debug("in hide_viewlet")
-        def updateHiddenList(hidden, viewletName):
-            return tuple(x for x in hidden if x != viewletName)
-        self._toggleVisibleState(viewlethash, updateHiddenList)
+        # Grab the information we need from the viewlet hash
+        unhashedInfo = unhashViewletInfo(viewlethash)
+        manageViewletsView = getMultiAdapter((self.context, self.request), name='manage-viewlets')
+        manageViewletsView.show(unhashedInfo['managerName'], unhashedInfo['viewletName'])
+        self._redrawViewletManager(unhashedInfo['managerName'])
+
         ksscore = self.getCommandSet('core')
         selector = ksscore.getCssSelector('#glowormPanel .kssattr-viewlethash-%s' % viewlethash)
         ksscore.removeClass(selector, 'hiddenViewlet')
@@ -632,23 +639,6 @@ class InspectorKSS(PloneKSSView):
         ksscore.addClass(selector, 'currentlySelectedElement')
         kssglo = self.getCommandSet('gloWorm')
         kssglo.scrollNavTree(selector)
-    
-    def _toggleVisibleState(self, viewlethash, updateHiddenList):
-        """ Change the visible/hidden state of the viewlet """
-        unhashedInfo = unhashViewletInfo(viewlethash)
-        logger.debug("in _toggleVisibleState")
-        logger.debug(unhashedInfo)
-        skinname = self.context.getCurrentSkinName()
-        manager = unhashedInfo['managerName']
-        storage = getUtility(IViewletSettingsStorage)
-        hidden = storage.getHidden(manager, skinname)
-        logger.debug("hidden before...")
-        logger.debug(hidden)
-        storage.setHidden(manager, skinname, updateHiddenList(hidden, unhashedInfo['viewletName']))
-        logger.debug("hidden after...")
-        logger.debug(storage.getHidden(manager, skinname))
-        
-        return self._redrawViewletManager(manager)
     
     def _getAllViewletManagers(self):
         """ Get all defined viewlet managers
