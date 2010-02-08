@@ -25,6 +25,12 @@ from Products.Five.utilities.interfaces import IMarkerInterfaces
 from Products.Gloworm.browser.utils import findTemplateViewRegistrationFromHash, hashViewletInfo, unhashViewletInfo, findViewletManager
 from Products.Gloworm.browser.interfaces import IGlowormLayer
 
+try:
+    from Products.Five.browser.pagetemplatefile import BoundPageTemplate
+except ImportError:
+    def BoundPageTemplate(template, view):
+        return template.__of__(view)
+
 import transaction
 import binascii
 import logging
@@ -78,7 +84,7 @@ class InspectorKSS(PloneKSSView):
             template = ViewPageTemplateFile('panel_inspect_element.pt')
             # Wrap it so that Zope knows in what context it's being called
             # Otherwise, we get an "AttributeError: 'str' object has no attribute 'other'" error
-            template = template.__of__(self)
+            template = BoundPageTemplate(template, self)
             out = template(metalUseMacro = metalusemacro,
                            metalDefMacro = metaldefmacro,
                            fieldName = fieldname,
@@ -116,7 +122,7 @@ class InspectorKSS(PloneKSSView):
 
         # Wrap it so that Zope knows in what context it's being called
         # Otherwise, we get an "AttributeError: 'str' object has no attribute 'other'" error
-        template = template.__of__(self)
+        template = BoundPageTemplate(template, self)
         out = template(contentObject = self.context,
                        parent = context_state.parent(),
                        skinName = self.context.getCurrentSkinName(),
@@ -143,7 +149,7 @@ class InspectorKSS(PloneKSSView):
         template = ViewPageTemplateFile('panel_inspect_field.pt')
         # Wrap it so that Zope knows in what context it's being called
         # Otherwise, we get an "AttributeError: 'str' object has no attribute 'other'" error
-        template = template.__of__(self)
+        template = BoundPageTemplate(template, self)
         out = template(fieldName = fieldname,
                        type = field.type,
                        widget = type(field.widget).__name__,
@@ -199,7 +205,7 @@ class InspectorKSS(PloneKSSView):
         template = ViewPageTemplateFile('panel_inspect_viewlet.pt')
         # Wrap it so that Zope knows in what context it's being called
         # Otherwise, we get an "AttributeError: 'str' object has no attribute 'other'" error
-        template = template.__of__(self)
+        template = BoundPageTemplate(template, self)
         out = template(viewName = viewName,
                        managerName = managerName,
                        template = template,
@@ -249,7 +255,7 @@ class InspectorKSS(PloneKSSView):
         template = ViewPageTemplateFile('panel_customize_viewlet.pt')
         # Wrap it so that Zope knows in what context it's being called
         # Otherwise, we get an "AttributeError: 'str' object has no attribute 'other'" error
-        template = template.__of__(self)
+        template = BoundPageTemplate(template, self)
         out = template(templateURL = viewzpt.absolute_url(),
                        viewletHash = viewlethash,
                        templateCode = templateCode)
@@ -350,7 +356,7 @@ class InspectorKSS(PloneKSSView):
         template = ViewPageTemplateFile('panel_move_viewlet.pt')
         # Wrap it so that Zope knows in what context it's being called
         # Otherwise, we get an "AttributeError: 'str' object has no attribute 'other'" error
-        template = template.__of__(self)
+        template = BoundPageTemplate(template, self)
         
         out = template(viewlethash=viewlethash,
                        viewletName = unhashedViewletInfo['viewletName'],
@@ -465,7 +471,7 @@ class InspectorKSS(PloneKSSView):
         template = ViewPageTemplateFile('panel_inspect_viewlet_manager.pt')
         # Wrap it so that Zope knows in what context it's being called
         # Otherwise, we get an "AttributeError: 'str' object has no attribute 'other'" error
-        template = template.__of__(self)
+        template = BoundPageTemplate(template, self)
         out = template(managerName = managerName,
                        safeManagerName = managerName.replace('.', '-'),
                        containedViewlets = containedViewlets,
@@ -596,7 +602,7 @@ class InspectorKSS(PloneKSSView):
         logger.debug("openDebugPrompt")
         template = ViewPageTemplateFile('panel_clouseau.pt')
 
-        template = template.__of__(self)
+        template = BoundPageTemplate(template, self)
         out = template(contentObject = self.context)
         
         # Dump the output to the output panel
