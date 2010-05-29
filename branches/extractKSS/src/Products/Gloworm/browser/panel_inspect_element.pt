@@ -1,0 +1,79 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en-US" lang="en-US"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="">
+
+    <body>
+        <table>
+            <tr tal:condition="options/metalUseMacro">
+                <th>In Macro:</th>
+                <td tal:content="options/metalUseMacro" />
+            </tr>
+            <!-- <tr tal:condition="options/metalDefMacro">
+                <th>Defines Macro:</th>
+                <td tal:content="options/metalDefMacro" />
+            </tr> -->
+            <tr tal:condition="options/fieldName">
+                <th>Archetypes Field Name:</th>
+                <td>
+                    <a href="#"
+                       tal:attributes="class string:fieldMoreInfo kssattr-fieldname-${options/fieldName}"
+                       tal:content="options/fieldName" />
+                </td>
+            </tr>
+            <tr tal:condition="options/talAttributes">
+                <th>
+                    tal-attributes:
+                </th>
+                <td>
+                    <table>
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Expression</th>
+                            <th>Result</th>
+                        </tr>
+                        <tr tal:repeat="attribute options/talAttributes">
+                            <td tal:content="attribute/name" />
+                            <td tal:content="attribute/expression" />
+                            <td tal:content="attribute/result" />
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr tal:condition="options/talCondition">
+                <th>tal-condition:</th>
+                <td tal:content="options/talCondition" />
+            </tr>
+            <tr tal:condition="options/portletInfo">
+                <th>Portlet:</th>
+                <td>
+                    <table>
+                        <tr>
+                            <td>Portlet Name:</td>
+                            <td tal:content="options/portletInfo/name" />
+                        </tr>
+                        <tr>
+                            <td>Portlet Manager:</td>
+                            <td tal:content="options/portletInfo/name"/>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr tal:condition="options/viewletInfo">
+                <th>Contained in viewlet:</th>
+                <td>
+                    <a href='#'
+                       tal:attributes="class string:viewletMoreInfo kssattr-forviewlet-${options/viewletInfo/hash}"
+                       tal:content="options/viewletInfo/viewletName" />
+                </td>
+            </tr>
+            <tr tal:condition="options/sourceAnnotation">
+                <th>Template:</th>
+                <td tal:content="options/sourceAnnotation" />
+            </tr>
+        </table>
+    </body>
+</html>
+        

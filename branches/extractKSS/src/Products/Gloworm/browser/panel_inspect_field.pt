@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en-US" lang="en-US"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="">
+    <body>
+        <table>
+            <h4>Archetypes Field "<tal:block tal:content="options/fieldName" />"</h4>
+            <tr tal:condition="options/type">
+                <th>Type:</th>
+                <td tal:content="options/type" />
+            </tr>
+            <tr tal:condition="options/widget">
+                <th>Widget:</th>
+                <td tal:content="options/widget" />
+            </tr>
+            <tr tal:condition="options/accessor">
+                <th>Accessor:</th>
+                <td tal:content="options/accessor" />
+            </tr>
+            <tr tal:condition="options/mutator">
+                <th>Mutator:</th>
+                <td tal:content="options/mutator" />
+            </tr>
+            <tr tal:condition="options/readPermission">
+                <th>Read Permission:</th>
+                <td tal:content="options/readPermission" />
+            </tr>
+            <tr tal:condition="options/writePermission">
+                <th>Write Permission:</th>
+                <td tal:content="options/writePermission" />
+            </tr>
+        </table>
+    </body>
+</html>
