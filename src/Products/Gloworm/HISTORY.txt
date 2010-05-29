@@ -1,7 +1,8 @@
 History
 =======
 
-1.1 (unreleased)
+2.0 (unreleased)
+  * Implement IViewView to display more viewlets [elro]
   * Fix approach to dealing with TAL attributes that come in as a string rather
     than an array. [davisagli]
   * Use BoundPageTemplates instead of acquisition-wrapped templates in Zope 2.12
