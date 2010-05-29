@@ -6,6 +6,6 @@
             meta_type="Filesystem Directory View"
             directory="Products.Gloworm:skins/gloworm"/>
     <skin-path name="*">
-        <layer name="Products.Gloworm"/>
+        <layer name="Gloworm"/>
     </skin-path>
 </object>
