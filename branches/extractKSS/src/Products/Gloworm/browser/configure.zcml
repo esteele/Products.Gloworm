@@ -44,14 +44,14 @@
         name="forceGlowormPanelResize"
         command_factory="global"
         jsfile="plugin.js"
-        />        
-        
+        />
+
     <kss:action
         name="initializeClouseauSession"
         command_factory="global"
         jsfile="plugin.js"
         />
-    
+
     <kss:paramprovider
        name="parseTALAttributes"
        jsfile="plugin.js"
@@ -160,7 +160,7 @@
         attribute="saveViewletTemplate"
         permission="cmf.ManagePortal"
         />
-        
+
     <browser:page
         for="*"
         name="discardTemplateCustomizations"
@@ -176,7 +176,7 @@
         attribute="showMoveViewletForm"
         permission="cmf.ManagePortal"
         />
-        
+
     <browser:page
         for="*"
         name="moveToViewletManager"
@@ -225,16 +225,21 @@
         permission="cmf.ManagePortal"
         />
 
-        
+
     <!-- Resources -->
     <browser:resource
         name="gloworm.kss"
         file="inspect.kss"
         />
-        
+
     <browser:resource
         name="gloworm.css"
         file="inspect.css"
+        />
+
+    <browser:resource
+        name="kss2jq.js"
+        file="kss2jq.js"
         />
 
     <browser:resourceDirectory
