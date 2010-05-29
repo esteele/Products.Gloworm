@@ -4,6 +4,15 @@
     xmlns:kss="http://namespaces.zope.org/kss"
     i18n_domain="Products.Gloworm">
 
+    <!-- Implement IViewView to display more viewlets -->
+    <class class=".inspector.InspectorKSS">
+        <implements interface="plone.app.layout.globals.interfaces.IViewView" />
+    </class>
+
+    <class class=".viewlets.GlowormPanelNavTree">
+        <implements interface="plone.app.layout.globals.interfaces.IViewView" />
+    </class>
+
     <!-- Register KSS commandset and commands -->
     <kss:commandset
         name="gloWorm"
