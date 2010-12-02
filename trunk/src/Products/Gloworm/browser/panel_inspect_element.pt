@@ -3,12 +3,12 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      i18n:domain="">
+      i18n:domain="gloworm">
 
     <body>
         <table>
             <tr tal:condition="options/metalUseMacro">
-                <th>In Macro:</th>
+                <th i18n:translate="metal_use_macro">In Macro:</th>
                 <td tal:content="options/metalUseMacro" />
             </tr>
             <!-- <tr tal:condition="options/metalDefMacro">
@@ -16,7 +16,7 @@
                 <td tal:content="options/metalDefMacro" />
             </tr> -->
             <tr tal:condition="options/fieldName">
-                <th>Archetypes Field Name:</th>
+                <th i18n:translate="archetypes_field_name">Archetypes Field Name:</th>
                 <td>
                     <a href="#"
                        tal:attributes="class string:fieldMoreInfo kssattr-fieldname-${options/fieldName}"
@@ -24,15 +24,15 @@
                 </td>
             </tr>
             <tr tal:condition="options/talAttributes">
-                <th>
+                <th i18n:translate="tal_attributes">
                     tal-attributes:
                 </th>
                 <td>
                     <table>
                         <tr>
-                            <th>Attribute</th>
-                            <th>Expression</th>
-                            <th>Result</th>
+                            <th i18n:translate="attribute">Attribute</th>
+                            <th i18n:translate="expression">Expression</th>
+                            <th i18n:translate="result">Result</th>
                         </tr>
                         <tr tal:repeat="attribute options/talAttributes">
                             <td tal:content="attribute/name" />
@@ -43,26 +43,26 @@
                 </td>
             </tr>
             <tr tal:condition="options/talCondition">
-                <th>tal-condition:</th>
+                <th i18n:translate="tal_condition">tal-condition:</th>
                 <td tal:content="options/talCondition" />
             </tr>
             <tr tal:condition="options/portletInfo">
-                <th>Portlet:</th>
+                <th i18n:translate="portlet_info">Portlet:</th>
                 <td>
                     <table>
                         <tr>
-                            <td>Portlet Name:</td>
+                            <td i18n:translate="portlet_name">Portlet Name:</td>
                             <td tal:content="options/portletInfo/name" />
                         </tr>
                         <tr>
-                            <td>Portlet Manager:</td>
+                            <td i18n:translate="portlet_manager">Portlet Manager:</td>
                             <td tal:content="options/portletInfo/name"/>
                         </tr>
                     </table>
                 </td>
             </tr>
             <tr tal:condition="options/viewletInfo">
-                <th>Contained in viewlet:</th>
+                <th i18n:translate="contained_in_viewlet">Contained in viewlet:</th>
                 <td>
                     <a href='#'
                        tal:attributes="class string:viewletMoreInfo kssattr-forviewlet-${options/viewletInfo/hash}"
@@ -70,7 +70,7 @@
                 </td>
             </tr>
             <tr tal:condition="options/sourceAnnotation">
-                <th>Template:</th>
+                <th i18n:translate="source_annotation_template">Template:</th>
                 <td tal:content="options/sourceAnnotation" />
             </tr>
         </table>

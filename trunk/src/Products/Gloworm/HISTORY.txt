@@ -2,6 +2,10 @@ History
 =======
 
 2.0 (unreleased)
+  * Added support for i18n.
+    [macagua]
+  * Added support for Spanish l10n.
+    [macagua]
   * Fix incorrectly-named skin layer registration [esteele]
   * Implement IViewView to display more viewlets [elro]
   * Fix approach to dealing with TAL attributes that come in as a string rather
