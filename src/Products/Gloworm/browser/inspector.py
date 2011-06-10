@@ -499,13 +499,19 @@ class InspectorKSS(PloneKSSView):
         # Grab the information we need from the viewlet hash
         unhashedInfo = unhashViewletInfo(viewlethash)
         manageViewletsView = getMultiAdapter((self.context, self.request), name='manage-viewlets')
-        manageViewletsView.hide(unhashedInfo['managerName'], unhashedInfo['viewletName'])
-        self._redrawViewletManager(unhashedInfo['managerName'])
+        
+        manager = unhashedInfo['managerName']
+        manageViewletsView.hide(manager, unhashedInfo['viewletName'])
+        
+        
+        # Render the updated viewlet manager
+        self._redrawViewletManager(manager)
 
+        # Update the panel styles accordingly
         ksscore = self.getCommandSet('core')
         selector = ksscore.getCssSelector('#glowormPanel .kssattr-viewlethash-%s' % viewlethash)
-        ksscore.removeClass(selector, 'visibleViewlet')
-        ksscore.addClass(selector, 'hiddenViewlet')
+        ksscore.toggleClass(selector, 'hiddenViewlet')
+        ksscore.toggleClass(selector, 'visibleViewlet')
         
         # Update the nav tree
         zope = self.getCommandSet('zope')
@@ -513,7 +519,7 @@ class InspectorKSS(PloneKSSView):
         
         # Update the viewlet listing in the GloWorm panel
         if managerName:
-            self.inspectViewletManager(unhashViewletInfo(viewlethash)['managerName'].replace('.', '-'))
+            self.inspectViewletManager(managerName.replace('.', '-'))
         else:
             self.inspectViewlet(viewlethash)
         
@@ -530,8 +536,8 @@ class InspectorKSS(PloneKSSView):
 
         ksscore = self.getCommandSet('core')
         selector = ksscore.getCssSelector('#glowormPanel .kssattr-viewlethash-%s' % viewlethash)
-        ksscore.removeClass(selector, 'hiddenViewlet')
-        ksscore.addClass(selector, 'visibleViewlet')
+        ksscore.toggleClass(selector, 'hiddenViewlet')
+        ksscore.toggleClass(selector, 'visibleViewlet')
         
         # Update the nav tree
         zope = self.getCommandSet('zope')
