@@ -30,8 +30,3 @@ class GlowormCommands(CommandSet):
         """
         command = self.commands.addCommand('scrollContentArea', selector)
         logger.debug("in GlowormCommands.scrollContentArea")
-
-    def initializeClouseauSession(self, message=""):
-        """ Start up an instance of Clouseau inside the GloWorm panel """
-        command = self.commands.addCommand('initializeClouseauSession')
-        logger.debug("in GlowormCommands.initializeClouseauSession")

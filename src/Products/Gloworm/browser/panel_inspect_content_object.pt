@@ -38,7 +38,5 @@
                     </ul>
             </tr>
         </table>
-        <a href="#" class="openDebugPrompt"
-           i18n:translate="open_clouseau_debug_prompt">Open Clouseau Debug Prompt</a>
     </body>
 </html>
