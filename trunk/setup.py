@@ -12,7 +12,7 @@ setup(name='Products.Gloworm',
       version='1.1',
       description="A Firebug-like inspection tool for Plone",
       long_description=open("src/Products/Gloworm/README.txt").read() + "\n\n" +
-                       open("HISTORY.txt").read(),
+                       open("CHANGES.txt").read(),
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
         "Framework :: Plone",
