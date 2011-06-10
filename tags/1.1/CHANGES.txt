@@ -1,0 +1,67 @@
+History
+=======
+
+1.1 (unreleased)
+  * Don't show viewlets providing IAmIgnoredByGloworm in the viewlet manager
+    inspection panel.
+    [esteele]
+  * Move the "Inspect this page" link from document actions to its own viewlet
+    since Plone 4 does not use those actions by default.
+    [esteele]
+  * Hide the uninstall profile from add/remove products and site creation
+    pages.
+    [esteele]
+  * Added support for i18n.
+    [macagua]
+  * Added support for Spanish l10n.
+    [macagua]
+  * Fix incorrectly-named skin layer registration [esteele]
+  * Implement IViewView to display more viewlets [elro]
+  * Fix approach to dealing with TAL attributes that come in as a string rather
+    than an array. [davisagli]
+  * Use BoundPageTemplates instead of acquisition-wrapped templates in Zope 2.12
+    [davisagli]
+
+1.0
+  * Improved handling of inspection of custom views, viewlets, and viewlet managers.
+  * Refactored tests
+  * Improved source annotation searching
+    
+1.0b3
+  * Improved auto-scrolling of the navigation tree.
+  * Added scrolling for the content well.
+  * Added a dependency on archetypes.kss>=1.4.2 for IInlineEditingEnabled support.
+  * Changed icons for show/hide viewlets.
+  * Added help text to show/hide viewlet icons
+  * Added new icons and help text for nav tree items.
+  * Fixed a bug that prevented the inspect viewlet panel template from realizing that a customization already existed.
+  * Fixed a bug preventing viewlets from rerendering properly when customizations are discarded.
+  * Added a "visibility" field and show/hide link to the inspect viewlets panel. 
+  * Added resize handles to resizable panels
+    
+1.0b2
+  * Viewlet customization no longer assumes that templates are created with a zope.interface.interface prefix.
+  * Fixed a rendering issue that caused portal_tabs to not display its CSS when the portal-header viewlet manager was rerendered.
+
+1.0b1
+  * plone.app.gloworm is now Products.Gloworm
+  * Disabled viewlet moving (to other viewlet managers) for this release. 
+    It will be enabled once it's been sufficiently stabilized. 
+  * Display errors inline when attempting to save templates containing errors
+  * Removed the need to mark archetypes.kss with a condition turning it off for the @@inspect view
+  * Added portions of the YUI framework for UI enhancements
+  * Fixed some issues with inspecting reordered and customized viewlets
+  * GloWorm panel is now resizable
+  * Improved non-Firefox browser support (tested in Safari, Opera, IE 7)
+  * Added results for tal:attributes
+    
+0.1a8
+  * Archetypes field inspection
+  * Navigation tree auto-scrolling
+  * Beginning work on grabbing SourceAnnotation output
+    
+0.1a7
+  * Corrected a missing import in 0.1a6
+
+0.1a6
+  * Added a document navigation tree

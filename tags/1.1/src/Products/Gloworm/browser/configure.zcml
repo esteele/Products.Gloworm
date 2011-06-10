@@ -1,0 +1,238 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:kss="http://namespaces.zope.org/kss"
+    i18n_domain="Products.Gloworm">
+
+    <!-- Implement IViewView to display more viewlets -->
+    <class class=".inspector.InspectorKSS">
+        <implements interface="plone.app.layout.globals.interfaces.IViewView" />
+    </class>
+
+    <class class=".viewlets.GlowormPanelNavTree">
+        <implements interface="plone.app.layout.globals.interfaces.IViewView" />
+    </class>
+
+    <!-- Register KSS commandset and commands -->
+    <kss:commandset
+        name="gloWorm"
+        for="kss.core.interfaces.IKSSView"
+        class=".plugin.GlowormCommands"
+        provides=".interfaces.IGlowormCommands"
+        />
+
+    <kss:action
+        name="showErrorMessage"
+        command_factory="global"
+        jsfile="plugin.js"
+        params_optional="message"
+        />
+
+    <kss:action
+        name="scrollNavTree"
+        command_factory="selector"
+        jsfile="plugin.js"
+        />
+
+    <kss:action
+        name="scrollContentArea"
+        command_factory="selector"
+        jsfile="plugin.js"
+        />
+
+    <kss:action
+        name="forceGlowormPanelResize"
+        command_factory="global"
+        jsfile="plugin.js"
+        />        
+
+    <kss:paramprovider
+       name="parseTALAttributes"
+       jsfile="plugin.js"
+       />
+
+    <kss:paramprovider
+      name="sourceAnnotation"
+      jsfile="plugin.js"
+      />
+
+    <browser:page
+        name="inspect"
+        for="*"
+        class=".viewlets.InspectorView"
+        permission="cmf.ManagePortal"
+        />
+
+    <browser:viewletManager
+        name="gloworm.glowormPanel"
+        provides=".interfaces.IGlowormPanel"
+        permission="cmf.ManagePortal"
+        class="plone.app.viewletmanager.manager.OrderedViewletManager"
+        />
+
+    <browser:viewlet
+        name="glowormPanelHeader"
+        manager=".interfaces.IGlowormPanel"
+        class=".viewlets.GlowormPanelHeader"
+        permission="cmf.ManagePortal"
+        />
+
+    <browser:viewlet
+        name="glowormPanelBody"
+        manager=".interfaces.IGlowormPanel"
+        class=".viewlets.GlowormPanelBody"
+        permission="cmf.ManagePortal"
+        />
+
+    <browser:viewlet
+        name="glowormPanelNavTree"
+        manager=".interfaces.IGlowormPanel"
+        class=".viewlets.GlowormPanelNavTree"
+        permission="cmf.ManagePortal"
+        />
+
+    <browser:viewlet
+        name="glowormHtmlHeadIncludes"
+        manager="plone.app.layout.viewlets.interfaces.IHtmlHead"
+        class=".viewlets.GlowormHtmlHeadIncludes"
+        layer=".interfaces.IGlowormLayer"
+        permission="cmf.ManagePortal"
+        />
+        
+    <browser:viewlet
+        name="glowormInspectLink"
+        manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+        class=".viewlets.GlowormInspectLink"
+        permission="cmf.ManagePortal"
+        />
+
+    <browser:page
+        for="*"
+        name="inspectContentObject"
+        class=".inspector.InspectorKSS"
+        attribute="inspectContentObject"
+        permission="cmf.ManagePortal"
+        />
+
+    <browser:page
+        for="*"
+        name="inspectElement"
+        class=".inspector.InspectorKSS"
+        attribute="inspectElement"
+        permission="cmf.ManagePortal"
+        />
+
+    <browser:page
+        for="*"
+        name="inspectField"
+        class=".inspector.InspectorKSS"
+        attribute="inspectField"
+        permission="cmf.ManagePortal"
+        />
+
+    <browser:page
+        for="*"
+        name="inspectViewlet"
+        class=".inspector.InspectorKSS"
+        attribute="inspectViewlet"
+        permission="cmf.ManagePortal"
+        />
+
+    <browser:page
+        for="*"
+        name="moveViewletByDelta"
+        class=".inspector.InspectorKSS"
+        attribute="moveViewletByDelta"
+        permission="cmf.ManagePortal"
+        />
+
+    <browser:page
+        for="*"
+        name="customizeViewlet"
+        class=".inspector.InspectorKSS"
+        attribute="customizeViewlet"
+        permission="cmf.ManagePortal"
+        />
+
+    <browser:page
+        for="*"
+        name="inlineSaveViewletTemplate"
+        class=".inspector.InspectorKSS"
+        attribute="saveViewletTemplate"
+        permission="cmf.ManagePortal"
+        />
+        
+    <browser:page
+        for="*"
+        name="discardTemplateCustomizations"
+        class=".inspector.InspectorKSS"
+        attribute="discardViewletCustomizations"
+        permission="cmf.ManagePortal"
+        />
+
+    <browser:page
+        for="*"
+        name="showMoveViewletForm"
+        class=".inspector.InspectorKSS"
+        attribute="showMoveViewletForm"
+        permission="cmf.ManagePortal"
+        />
+        
+    <browser:page
+        for="*"
+        name="moveToViewletManager"
+        class=".inspector.InspectorKSS"
+        attribute="moveViewletToViewletManager"
+        permission="cmf.ManagePortal"
+        />
+
+    <browser:page
+        for="*"
+        name="inspectViewletManager"
+        class=".inspector.InspectorKSS"
+        attribute="inspectViewletManager"
+        permission="cmf.ManagePortal"
+        />
+
+    <browser:page
+        for="*"
+        name="inlineHideViewlet"
+        class=".inspector.InspectorKSS"
+        attribute="hideViewlet"
+        permission="cmf.ManagePortal"
+        />
+
+    <browser:page
+        for="*"
+        name="inlineShowViewlet"
+        class=".inspector.InspectorKSS"
+        attribute="showViewlet"
+        permission="cmf.ManagePortal"
+        />
+
+    <!-- Resources -->
+    <browser:resource
+        name="gloworm.kss"
+        file="inspect.kss"
+        />
+        
+    <browser:resource
+        name="gloworm.css"
+        file="inspect.css"
+        />
+
+    <browser:resourceDirectory
+            name="gloworm3rdParty"
+            directory="3rd_party"
+            />
+
+    <!-- Override InlineEditingEnabledView to turn off inline editing -->
+    <adapter
+        for="Products.Archetypes.interfaces.IBaseObject
+             .interfaces.IGlowormLayer"
+        provides="archetypes.kss.interfaces.IInlineEditingEnabled"
+        factory=".viewlets.DisableInlineEditingView"
+        permission="zope2.View"
+      />
+
+</configure>
