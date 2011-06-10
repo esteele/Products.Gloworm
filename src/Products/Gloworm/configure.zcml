@@ -9,11 +9,17 @@
 
     <include package=".browser" />
     <include file="profiles.zcml" />
+    <include package=".upgrades"/>
 
     <i18n:registerTranslations directory="locales" />
  
     <!-- Register the skin folder -->
     <cmf:registerDirectory name="gloworm" />
+
+    <utility
+        factory=".integration.HiddenProducts"
+        name="Products.Gloworm"
+        />
     
     <utility
         factory=".integration.HiddenProfiles"
