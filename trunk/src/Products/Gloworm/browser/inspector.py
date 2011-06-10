@@ -21,7 +21,6 @@ from plone.app.viewletmanager.interfaces import IViewletSettingsStorage
 from plone.portlets.utils import unhashPortletInfo
 
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from Products.Five.utilities.interfaces import IMarkerInterfaces
 from Products.Gloworm.browser.utils import findTemplateViewRegistrationFromHash, hashViewletInfo, unhashViewletInfo, findViewletManager
 from Products.Gloworm.browser.interfaces import IGlowormLayer
 
@@ -81,7 +80,7 @@ class InspectorKSS(PloneKSSView):
             
             if sourceAnnotation:
                 sourceAnnotation = sourceAnnotation.strip(' =\n')
-
+            
             template = ViewPageTemplateFile('panel_inspect_element.pt')
             # Wrap it so that Zope knows in what context it's being called
             # Otherwise, we get an "AttributeError: 'str' object has no attribute 'other'" error
@@ -94,7 +93,7 @@ class InspectorKSS(PloneKSSView):
                            talCondition = talcondition,
                            portletInfo = unhashedPortletInfo,
                            viewletInfo = unhashedViewletInfo,
-                           sourceAnnotation = sourceAnnotation,
+                           sourceAnnotation = sourceAnnotation
                            )
             
             # Dump the output to the inspector panel
@@ -116,9 +115,6 @@ class InspectorKSS(PloneKSSView):
         
         context_state = getMultiAdapter((self.context, self.request), name=u'plone_context_state')
         
-        providedInterfaces = self.getProvidedMarkerInterfaceNames()
-        providedInterfaces.sort()
-        
         template = ViewPageTemplateFile('panel_inspect_content_object.pt')
         # Wrap it so that Zope knows in what context it's being called
         # Otherwise, we get an "AttributeError: 'str' object has no attribute 'other'" error
@@ -126,8 +122,7 @@ class InspectorKSS(PloneKSSView):
         out = template(contentObject = self.context,
                        parent = context_state.parent(),
                        skinName = self.context.getCurrentSkinName(),
-                       templateName = context_state.view_template_id(),
-                       providedInterfaces = providedInterfaces
+                       templateName = context_state.view_template_id()
                       )
         
         # Dump the output to the inspector panel
@@ -675,14 +670,3 @@ class InspectorKSS(PloneKSSView):
         # Force a resize update of the panel so that the form elements are sized to the dimensions of the panel.
         kssglo = self.getCommandSet('gloWorm')
         kssglo.forceGlowormPanelResize()
-
-    def getProvidedMarkerInterfaceNames(self):
-        """ """
-        contextInterfaces = IMarkerInterfaces(self.context).getInterfaceNames()
-        requestInterfaces = IMarkerInterfaces(self.request).getInterfaceNames()
-        return list(set(contextInterfaces + requestInterfaces))
-        
-    def getAvailableMarkerInterfaceNames(self):
-        """ """
-        return IMarkerInterfaces(self.context).getAvailableInterfaceNames()
-    
