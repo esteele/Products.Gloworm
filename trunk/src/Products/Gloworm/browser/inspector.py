@@ -22,7 +22,7 @@ from plone.portlets.utils import unhashPortletInfo
 
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.Gloworm.browser.utils import findTemplateViewRegistrationFromHash, hashViewletInfo, unhashViewletInfo, findViewletManager
-from Products.Gloworm.browser.interfaces import IGlowormLayer
+from Products.Gloworm.browser.interfaces import IGlowormLayer, IAmIgnoredByGloworm
 
 try:
     from Products.Five.browser.pagetemplatefile import BoundPageTemplate
@@ -432,32 +432,34 @@ class InspectorKSS(PloneKSSView):
         sortedViewlets = viewletManager.sort(viewlets)
         
         containedViewlets = []
-        for viewletTuple in sortedViewlets:
+        for viewletname, viewletObj in sortedViewlets:
             containedViewlet = {}
-            viewletname = viewletTuple[0]
+            if not IAmIgnoredByGloworm.providedBy(viewletObj):
             
-            # generate viewlet hashes...
-            # TODO factor this up.
+                # generate viewlet hashes...
+                # TODO factor this up.
             
-            # Get the "provided" interfaces for this viewlet manager.
-            # TODO: Do this lookup properly.
-            regs = [regs for regs in getGlobalSiteManager().registeredAdapters() if regs.name == viewletname and regs.required[-1].isOrExtends(managerInterface)]
-            if regs:
-                reg = regs[0]
-                provided = ','.join([a.__identifier__ for a in reg.required])
-                # logger.debug("%s - provided: %s" % (viewletName, provided))
-                hashedInfo = binascii.b2a_hex("%s\n%s\n%s" % (viewletname, managerName, provided))
-            else:
-                hashedInfo = ""
-                logger.debug("Unable to create hash for %s" % viewletname)
+                # Get the "provided" interfaces for this viewlet manager.
+                # TODO: Do this lookup properly.
+                regs = [regs for regs in getGlobalSiteManager().registeredAdapters() 
+                        if regs.name == viewletname
+                        and regs.required[-1].isOrExtends(managerInterface)]
+                if regs:
+                    reg = regs[0]
+                    provided = ','.join([a.__identifier__ for a in reg.required])
+                    # logger.debug("%s - provided: %s" % (viewletName, provided))
+                    hashedInfo = binascii.b2a_hex("%s\n%s\n%s" % (viewletname, managerName, provided))
+                else:
+                    hashedInfo = ""
+                    logger.debug("Unable to create hash for %s" % viewletname)
             
-            # Give the viewlet a class name depending on the visibility
-            classname = viewletname in hidden and 'hiddenViewlet' or 'visibleViewlet'
-            logger.debug(classname)
-            containedViewlet['className'] = classname
-            containedViewlet['hashedInfo'] = hashedInfo
-            containedViewlet['name'] = viewletname
-            containedViewlets.append(containedViewlet)
+                # Give the viewlet a class name depending on the visibility
+                classname = viewletname in hidden and 'hiddenViewlet' or 'visibleViewlet'
+                logger.debug(classname)
+                containedViewlet['className'] = classname
+                containedViewlet['hashedInfo'] = hashedInfo
+                containedViewlet['name'] = viewletname
+                containedViewlets.append(containedViewlet)
         
         # Determine whether the contained viewlets can be sorted.
         skinname = self.context.getCurrentSkinName()
