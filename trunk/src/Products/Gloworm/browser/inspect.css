@@ -1,6 +1,23 @@
 
 /*#glowormPageWrapper { cursor: pointer !important; }*/
 
+#gloworm-activate { 
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+    background: #555;
+    padding: .25em .5em;
+    margin: 0 .5em;
+    font-size: .8em;
+}
+
+#gloworm-activate a:link, #gloworm-activate a:visited {
+    color: #FFF;
+}
+
+#glowormPageWrapper #gloworm-activate { display: none}
+
 .GloWormViewletManagerBlock.currentlySelectedElement, .GloWormViewletBlock.currentlySelectedElement { display:block !important; }
 .currentlySelectedElement{ border: 2px dashed red !important; }
 

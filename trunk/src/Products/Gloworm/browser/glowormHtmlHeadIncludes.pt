@@ -34,11 +34,6 @@
        tal:content="structure string:&lt;!-- @import url(${view/baseurl}/++resource++gloworm3rdParty/container.css); --&gt;">
 </style>
 
-<style type="text/css"
-       media="screen"
-       tal:content="structure string:&lt;!-- @import url(${view/baseurl}/++resource++gloworm.css); --&gt;">
-</style>
-
 <link rel="kinetic-stylesheet" 
       type="text/css"
       tal:attributes="href string:${view/baseurl}/++resource++gloworm.kss" />

@@ -98,6 +98,13 @@
         layer=".interfaces.IGlowormLayer"
         permission="cmf.ManagePortal"
         />
+        
+    <browser:viewlet
+        name="glowormInspectLink"
+        manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+        class=".viewlets.GlowormInspectLink"
+        permission="cmf.ManagePortal"
+        />
 
     <browser:page
         for="*"
