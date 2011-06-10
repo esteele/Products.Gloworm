@@ -43,14 +43,6 @@
       type="text/css"
       tal:attributes="href string:${view/baseurl}/++resource++gloworm.kss" />
 
-      <script type="text/javascript" src="sarissa.js"></script>
-      <script type="text/javascript" src="shCore.js"></script>
-      <script type="text/javascript" src="shClouseau.js"></script>
-      <script type="text/javascript" src="shBrushPython.js"></script>
-      <script type="text/javascript" src="process.js"></script>            
-      <script type="text/javascript" src="ui.js"></script>
-
-
  <!-- Generate the resizable layout -->
 <script type="text/javascript">
 GloWormPanel = null; 
@@ -105,6 +97,7 @@ GloWormPanel = null;
       if (document.getElementById('glowormPanelBody')) {
           fullPageLayout.render();
       }
+      
   });
   
 
