@@ -18,11 +18,11 @@ Products.Gloworm Package Readme
         
         Confirmed to work in:
         
-        * Firefox 3
+        * Firefox 3, 4
         
         * Internet Explorer 7
         
-        * Safari 3.1
+        * Safari 3.1, 4, 5
         
         * Opera 9
 
@@ -102,8 +102,6 @@ Products.Gloworm Package Readme
         
         Contact WebLion at "support@weblion.psu.edu":mailto:support@weblion.psu.edu, or visit our IRC channel: #weblion
         on freenode.net.
-        
-        Bug reports may be submitted at http://weblion.psu.edu/trac/weblion/newticket
         
 
 Till glowworms light owl-watchmen's flight
