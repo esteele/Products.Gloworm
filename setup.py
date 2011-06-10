@@ -17,11 +17,10 @@ setup(name='Products.Gloworm',
       classifiers=[
         "Framework :: Plone",
         "Framework :: Zope2",
-        "Programming Language :: Python :: 2.4",
+        "Programming Language :: Python",
         "Programming Language :: JavaScript",
         "Topic :: Software Development :: Libraries :: Python Modules",
         "Intended Audience :: Developers",
-        "Development Status :: 4 - Beta"
         ],
       author='WebLion Group, Penn State University',
       author_email='support@weblion.psu.edu',
