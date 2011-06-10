@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en-US" lang="en-US"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="gloworm">
+    <body>
+        <h4 i18n:translate="clouseau_python_prompt">Clouseau Python Prompt for Content Object "<span tal:replace="options/contentObject/id" i18n:name="options_content_object" />"</h4>
+        <script type="text/javascript" src="sarissa.js"></script>
+        <script type="text/javascript" src="shCore.js"></script>
+        <script type="text/javascript" src="shClouseau.js"></script>
+        <script type="text/javascript" src="shBrushPython.js"></script>
+        <script type="text/javascript" src="process.js"></script>            
+        <script type="text/javascript" src="ui.js"></script>
+
+        <div id="clouseau-top" i18n:domain="plone">
+              <span metal:use-macro="context/clouseau_macros/macros/prompt"></span>
+              <div id="message-wrapper">
+                    <p class="discreet">
+                        <b i18n:translate="clouseau_session">Session <span id="session-id" i18n:name="clouseau_session_id">1</span></b> | <b i18n:translate="clouseau_status">Status</b> <span id="message"></span><br />
+                        <b i18n:translate="clouseau_commands">Commands</b>
+                      <a href="" onClick="clouseauChange(''); return false;" title="Show all lines in this session"
+                         i18n:attributes="title clouseau_hide_title;">
+                        <img src="" tal:attributes="src string:add_alternative_icon.gif"> <span i18n:translate="clouseau_show">Show</span>
+                      </a>
+                      <a href="" onClick="clouseauChange('none'); return false;" title="Hide previous lines in this session"
+                         i18n:attributes="title clouseau_hide_title;">
+                        <img src="" tal:attributes="src string:download_icon.gif" /><span i18n:translate="clouseau_hide">Hide</span>
+                      </a>
+                    </p>
+                    <a name="footer-focus"></a>
+                </div>
+        </div>
+        <a href="#" class="closeDebugPrompt" i18n:translate="clouseau_panel_close">Close</a>
+</body>
+</html>
