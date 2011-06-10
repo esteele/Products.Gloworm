@@ -99,6 +99,14 @@ class GlowormPanelBody(ViewletBase):
         context_state = getMultiAdapter((self.context, self.request),
                                         name=u'plone_context_state')
 
+class GlowormInspectLink(ViewletBase):
+    implements(IAmIgnoredByGloworm)
+    index = ViewPageTemplateFile('glowormInspectLink.pt')
+
+    def update(self):
+        context_state = getMultiAdapter((self.context, self.request), name='plone_context_state')
+        self.url = '%s/@@inspect' % context_state.object_url()
+
 class GlowormHtmlHeadIncludes(ViewletBase):
     implements(IAmIgnoredByGloworm)
     index = ViewPageTemplateFile('glowormHtmlHeadIncludes.pt')
