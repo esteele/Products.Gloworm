@@ -2,6 +2,12 @@ History
 =======
 
 2.0 (unreleased)
+  * Don't show viewlets providing IAmIgnoredByGloworm in the viewlet manager
+    inspection panel.
+    [esteele]
+  * Move the "Inspect this page" link from document actions to its own viewlet
+    since Plone 4 does not use those actions by default.
+    [esteele]
   * Hide the uninstall profile from add/remove products and site creation
     pages.
     [esteele]
