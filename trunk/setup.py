@@ -8,10 +8,8 @@
 from setuptools import setup, find_packages
 import os
 
-version = open(os.path.join("src", "Products", "Gloworm", "version.txt")).read().strip()
-
 setup(name='Products.Gloworm',
-      version=version,
+      version='1.1',
       description="A Firebug-like inspection tool for Plone",
       long_description=open("src/Products/Gloworm/README.txt").read() + "\n\n" +
                        open("src/Products/Gloworm/HISTORY.txt").read(),
