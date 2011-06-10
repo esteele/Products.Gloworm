@@ -2,6 +2,9 @@ History
 =======
 
 2.0 (unreleased)
+  * Hide the uninstall profile from add/remove products and site creation
+    pages.
+    [esteele]
   * Added support for i18n.
     [macagua]
   * Added support for Spanish l10n.

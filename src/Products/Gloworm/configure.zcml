@@ -14,5 +14,10 @@
  
     <!-- Register the skin folder -->
     <cmf:registerDirectory name="gloworm" />
-        
+    
+    <utility
+        factory=".integration.HiddenProfiles"
+        name="Products.Gloworm"
+        />
+    
 </configure>
