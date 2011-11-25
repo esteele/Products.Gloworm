@@ -1,7 +1,11 @@
 History
 =======
 
-1.1 (unreleased)
+1.2 (unreleased)
+  * add french translation
+    [toutpt]
+
+1.1 2011-06-10
   * Don't show viewlets providing IAmIgnoredByGloworm in the viewlet manager
     inspection panel.
     [esteele]
