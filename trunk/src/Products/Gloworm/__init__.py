@@ -1,11 +1,18 @@
 from zope.interface import providedBy
 import binascii
 from zope.component import getGlobalSiteManager
-from Products.Five.fiveconfigure import debug_mode as DebugModeActive
+
+
 from Products.Gloworm.browser.interfaces import IGlowormLayer
 
 import logging
 logger = logging.getLogger('Products.Gloworm')
+
+try:
+    from Products.Five.fiveconfigure import debug_mode as DebugModeActive
+except ImportError:
+    from App.config import getConfiguration
+    DebugModeActive = getConfiguration().debug_mode
 
 def initialize(context):
     """Initializer called when used as a Zope 2 product."""
