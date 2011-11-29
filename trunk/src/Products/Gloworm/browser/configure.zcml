@@ -2,7 +2,11 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:kss="http://namespaces.zope.org/kss"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="Products.Gloworm">
+
+    <include package="Products.CMFCore" file="permissions.zcml"
+           zcml:condition="have plone-41" />
 
     <!-- Implement IViewView to display more viewlets -->
     <class class=".inspector.InspectorKSS">
