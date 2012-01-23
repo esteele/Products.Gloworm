@@ -11,8 +11,8 @@ import os
 setup(name='Products.Gloworm',
       version='1.2',
       description="A Firebug-like inspection tool for Plone",
-      long_description=open("README.txt").read() + "\n\n" +
-                       open("CHANGES.txt").read(),
+      long_description=open("README.rst").read() + "\n\n" +
+                       open("CHANGES.rst").read(),
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
         "Framework :: Plone",
