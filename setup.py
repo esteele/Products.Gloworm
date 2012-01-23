@@ -9,7 +9,7 @@ from setuptools import setup, find_packages
 import os
 
 setup(name='Products.Gloworm',
-      version='1.1',
+      version='1.2',
       description="A Firebug-like inspection tool for Plone",
       long_description=open("README.txt").read() + "\n\n" +
                        open("CHANGES.txt").read(),

@@ -12,7 +12,7 @@ from Products.CMFCore.interfaces import IContentish, IDynamicType
 from Products.Gloworm.browser.interfaces import IInspectorView, IGlowormLayer, IAmIgnoredByGloworm
 from Products.Gloworm.browser.utils import findTemplateViewRegistrationFromHash, getProvidedForViewlet, hashViewletInfo, findViewletManager
 
-from Products.Five.fiveconfigure import debug_mode as DebugModeActive
+from Products.Gloworm import DebugModeActive
 import re
 import logging
 
