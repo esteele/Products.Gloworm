@@ -1,0 +1,9 @@
+<object name="portal_actions" meta_type="Plone Actions Tool" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+    <action-provider name="portal_actions" i18n:domain="gloworm">
+        <action title="Inspect this page" i18n:attributes="title document_actions_inspect_page;"
+                    action_id="gloworm_inspect"
+                    category="document_actions"
+                    remove="True">
+        </action>
+    </action-provider>
+</object>

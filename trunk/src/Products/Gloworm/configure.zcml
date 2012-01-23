@@ -1,0 +1,29 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:cmf="http://namespaces.zope.org/cmf"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="Products.Gloworm">
+
+    <include package=".browser" />
+    <include file="profiles.zcml" />
+    <include package=".upgrades"/>
+
+    <i18n:registerTranslations directory="locales" />
+ 
+    <!-- Register the skin folder -->
+    <cmf:registerDirectory name="gloworm" />
+
+    <utility
+        factory=".integration.HiddenProducts"
+        name="Products.Gloworm"
+        />
+    
+    <utility
+        factory=".integration.HiddenProfiles"
+        name="Products.Gloworm"
+        />
+    
+</configure>

@@ -1,0 +1,9 @@
+<div id="glowormPanelNavTree" i18n:domain="gloworm">
+    <ol>
+        <li>
+            <a href="#" class="inspectContentObject" i18n:translate="content_object_panel_nav_tree">Content Object</a>
+            <tal:block tal:replace="structure view/outstr" />
+        </li>
+    </ol>
+</div>
+

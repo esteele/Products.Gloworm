@@ -1,0 +1,3 @@
+<div id="glowormPanel" class="kssattr-insideglowormpanel-True">
+    <div tal:replace="structure provider:gloworm.glowormPanel" />
+</div>

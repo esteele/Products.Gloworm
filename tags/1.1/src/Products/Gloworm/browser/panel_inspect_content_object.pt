@@ -1,0 +1,35 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en-US" lang="en-US"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="gloworm">
+    <body>
+        <h4 i18n:translate="content_object_id">Content Object "<span tal:replace="options/contentObject/id" i18n:name="options_content_object" />"</h4>
+        <table>
+    
+            <tr>
+                <th i18n:translate="content_type">Content Type:</th>
+                <td tal:content="options/contentObject/Type" />
+            </tr>    
+            <tr>
+                <th i18n:translate="parent_object">Parent object:</th>
+                <td>
+                    <span tal:replace="options/parent/Type" /> 
+                    "<span tal:replace="options/parent/id" />"
+                    <span i18n:translate="parent_object_at_absolute_url">at</span>
+                    <span tal:replace="options/parent/absolute_url" />
+                </td>
+            </tr>
+            <tr>
+                <th i18n:translate="template_name">Template Name:</th>
+                <td tal:content="options/templateName" />
+            </tr>
+            <tr>
+                <th i18n:translate="skin_name">Skin Name:</th>
+                <td tal:content="options/skinName" />
+            </tr>    
+
+        </table>
+    </body>
+</html>

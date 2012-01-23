@@ -1,0 +1,12 @@
+<object name="portal_actions" meta_type="Plone Actions Tool">
+    <action-provider name="portal_actions">
+        <action title="Inspect this page" 
+                action_id="gloworm_inspect" 
+                category="document_actions" 
+                condition_expr="python: not request['URL'].endswith('@@inspect')" 
+                url_expr="string:$object_url/@@inspect" 
+                visible="True">
+            <permission>Manage portal</permission>
+        </action>
+    </action-provider>
+</object>

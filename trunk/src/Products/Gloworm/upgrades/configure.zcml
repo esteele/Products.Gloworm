@@ -1,0 +1,31 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup">
+  
+  <genericsetup:upgradeStep
+      source="*"
+      destination="1.0b1"
+      title="Null upgrade step"
+      description=""
+      profile="Products.Gloworm:default"
+      handler=".null_upgrade_step"
+      />
+      
+  <genericsetup:upgradeStep
+      source="1.0b1"
+      destination="2"
+      title="Miscellaneous steps"
+      description=""
+      profile="Products.Gloworm:default"
+      handler=".upgrade1to2"
+      />
+      
+  <genericsetup:registerProfile
+      name="1to2"
+      title="Upgrade to GloWorm profile 2"
+      description="" 
+      directory="profiles/1to2"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+      
+</configure> 

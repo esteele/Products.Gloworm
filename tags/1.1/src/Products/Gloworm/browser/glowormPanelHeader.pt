@@ -1,0 +1,7 @@
+<div id="glowormPanelHeader" i18n:domain="gloworm">
+    <a href="" tal:attributes="href view/close_url" class="closeLink">
+        <img src="portal_skins/Gloworm/cancel.png" alt="Close"
+             i18n:attributes="alt close_inspector_panel;" />
+    </a>
+    <h2 i18n:translate="gloworm_inspector_panel">GloWorm Inspector Panel</h2>
+</div>

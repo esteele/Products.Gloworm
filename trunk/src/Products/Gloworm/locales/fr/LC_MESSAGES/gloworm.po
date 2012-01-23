@@ -1,0 +1,305 @@
+# French Translations for Gloworm package
+# JeanMichel FRANCOIS <toutpt@gmail.com>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: Products.Gloworm\n"
+"POT-Creation-Date: 2010-01-13 03:20+0000\n"
+"PO-Revision-Date: 2010-12-01 21:17-0400\n"
+"Last-Translator: JeanMichel FRANCOIS <toutpt@gmail.com>\n"
+"Language-Team: French <plone-fr@lists.plone.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-code: fr\n"
+"Language-name: French\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: gloworm\n"
+"X-Is-Fallback-For: fr-be fr-ca fr-lu fr-mc fr-ch fr-fr\n"
+
+#. Default: "Accessor:"
+#: ../browser/panel_inspect_field.pt:19
+msgid "accessor"
+msgstr "Accesseur:"
+
+#. Default: "Applied Marker Interfaces:"
+#: ../browser/panel_inspect_content_object.pt:33
+msgid "applied_marker_interfaces"
+msgstr "Marker Interfaces appliquées:"
+
+#. Default: "Archetypes Field \"${options_field_name}\""
+#: ../browser/panel_inspect_field.pt:9
+msgid "archetypes_field"
+msgstr "Champs archetypes \"${options_field_name}\""
+
+#. Default: "Archetypes Field Name:"
+#: ../browser/panel_inspect_element.pt:19
+msgid "archetypes_field_name"
+msgstr "Nom du champs archetypes:"
+
+#. Default: "Attribute"
+#: ../browser/panel_inspect_element.pt:33
+msgid "attribute"
+msgstr "Attribut"
+
+#. Default: "Class:"
+#: ../browser/panel_inspect_viewlet.pt:24
+msgid "class_name"
+msgstr "Classe:"
+
+#. Default: "Click a page element to inspect."
+#: ../browser/glowormPanelBody.pt:2
+msgid "click_pageelement_inspect"
+msgstr "Cliquer sur un élément de la page pour l'inspecter."
+
+#. Default: "Close"
+#: ../browser/glowormPanelHeader.pt:3
+msgid "close_inspector_panel"
+msgstr "Fermer"
+
+#. Default: "Close"
+#: ../browser/panel_clouseau.pt:34
+msgid "clouseau_panel_close"
+msgstr "Fermer"
+
+#. Default: "Clouseau Python Prompt for Content Object \"${options_content_object}\""
+#: ../browser/panel_clouseau.pt:8
+msgid "clouseau_python_prompt"
+msgstr "Curseur de la console Python Clouseau pour les objet de contenu \"${options_content_object}\""
+
+#. Default: "Contained in viewlet:"
+#: ../browser/panel_inspect_element.pt:65
+msgid "contained_in_viewlet"
+msgstr "Contenu dans la viewlet:"
+
+#. Default: "Content Object \"${options_content_object}\""
+#: ../browser/panel_inspect_content_object.pt:8
+msgid "content_object_id"
+msgstr "Objet de contenu \"${options_content_object}\""
+
+#. Default: "Content Object"
+#: ../browser/glowormPanelNavTree.pt:4
+msgid "content_object_panel_nav_tree"
+msgstr "Objet de contenu"
+
+#. Default: "Content Type:"
+#: ../browser/panel_inspect_content_object.pt:12
+msgid "content_type"
+msgstr "Type de contenu"
+
+#. Default: "Discard Customized Version"
+#: ../browser/panel_inspect_viewlet.pt:59
+msgid "discard_customized_version"
+msgstr "Supprimer la version personnalisée"
+
+#. Default: "Inspect this page"
+#: ../profiles/default/actions.xml:7
+#: ../profiles/uninstall/actions.xml:7
+msgid "document_actions_inspect_page"
+msgstr "Inspecter cette page"
+
+#. Default: "Editing template at ${options_template_url}"
+#: ../browser/panel_customize_viewlet.pt:9
+msgid "editing_template_at"
+msgstr "Modifier le template ${options_template_url}"
+
+#. Default: "Expression"
+#: ../browser/panel_inspect_element.pt:34
+msgid "expression"
+msgstr "Expression"
+
+#. Default: "GloWorm Inspector Panel"
+#: ../browser/glowormPanelHeader.pt:6
+msgid "gloworm_inspector_panel"
+msgstr "Panneau d'inspection GloWorm"
+
+#. Default: "Manager:"
+#: ../browser/panel_inspect_viewlet.pt:16
+msgid "manager_name"
+msgstr "Administrateur:"
+
+#. Default: "In Macro:"
+#: ../browser/panel_inspect_element.pt:11
+msgid "metal_use_macro"
+msgstr "Dans la Macro:"
+
+#. Default: "Move ${options_viewlet_name}"
+#: ../browser/panel_move_viewlet.pt:12
+msgid "move_viewlet"
+msgstr "Déplacer ${options_viewlet_name}"
+
+#. Default: "to..."
+#: ../browser/panel_move_viewlet.pt:13
+msgid "move_viewlet_to"
+msgstr "vers..."
+
+#. Default: "Mutator:"
+#: ../browser/panel_inspect_field.pt:23
+msgid "mutator"
+msgstr "Mutator:"
+
+#. Default: "Open Clouseau Debug Prompt"
+#: ../browser/panel_inspect_content_object.pt:41
+msgid "open_clouseau_debug_prompt"
+msgstr "Ouvrir la console de débug Clouseau"
+
+#. Default: "Parent object:"
+#: ../browser/panel_inspect_content_object.pt:16
+msgid "parent_object"
+msgstr "Objet parent:"
+
+#. Default: "at"
+#: ../browser/panel_inspect_content_object.pt:20
+msgid "parent_object_at_absolute_url"
+msgstr "à"
+
+#. Default: "Portlet:"
+#: ../browser/panel_inspect_element.pt:50
+msgid "portlet_info"
+msgstr "Portlet:"
+
+#. Default: "Portlet Manager:"
+#: ../browser/panel_inspect_element.pt:58
+msgid "portlet_manager"
+msgstr "Gestionnaire de portlets:"
+
+#. Default: "Portlet Name:"
+#: ../browser/panel_inspect_element.pt:54
+msgid "portlet_name"
+msgstr "Nom de la Portlet:"
+
+#. Default: "Read Permission:"
+#: ../browser/panel_inspect_field.pt:27
+msgid "read_permission"
+msgstr "Permission en lecture:"
+
+#. Default: "Result"
+#: ../browser/panel_inspect_element.pt:35
+msgid "result"
+msgstr "Résultat"
+
+#. Default: "Skin Name:"
+#: ../browser/panel_inspect_content_object.pt:29
+msgid "skin_name"
+msgstr "Nom de la Skin:"
+
+#. Default: "Template:"
+#: ../browser/panel_inspect_element.pt:73
+msgid "source_annotation_template"
+msgstr "Template:"
+
+#. Default: "tal-attributes:"
+#: ../browser/panel_inspect_element.pt:27
+msgid "tal_attributes"
+msgstr "Attributs TAL:"
+
+#. Default: "tal-condition:"
+#: ../browser/panel_inspect_element.pt:46
+msgid "tal_condition"
+msgstr "Condition TAL:"
+
+#. Default: "Template Name:"
+#: ../browser/panel_inspect_content_object.pt:25
+msgid "template_name"
+msgstr "Nom du template:"
+
+#. Default: "Template:"
+#: ../browser/panel_inspect_viewlet.pt:28
+msgid "template_path"
+msgstr "Template:"
+
+#. Default: "Type:"
+#: ../browser/panel_inspect_field.pt:11
+msgid "type"
+msgstr "Type:"
+
+#. Default: "Cancel"
+#: ../browser/panel_move_viewlet.pt:22
+msgid "value_cancel"
+msgstr "Annuler"
+
+#. Default: "Customize"
+#: ../browser/panel_inspect_viewlet.pt:65
+msgid "value_customize"
+msgstr "Personnaliser"
+
+#. Default: "Discard Customizations"
+#: ../browser/panel_customize_viewlet.pt:18
+msgid "value_discard_customizations"
+msgstr "Annuler les modifications"
+
+#. Default: "Edit Customized Version"
+#: ../browser/panel_inspect_viewlet.pt:55
+msgid "value_edit_customized_version"
+msgstr "Modifier la version personnalisée"
+
+#. Default: "Hide viewlet"
+#: ../browser/panel_inspect_viewlet.pt:35
+msgid "value_hide_viewlet"
+msgstr "Cacher la viewlet"
+
+#. Default: "Move"
+#: ../browser/panel_move_viewlet.pt:28
+msgid "value_move"
+msgstr "Déplacer"
+
+#. Default: "Save"
+#: ../browser/panel_customize_viewlet.pt:21
+msgid "value_save"
+msgstr "Enregistrer"
+
+#. Default: "Show viewlet"
+#: ../browser/panel_inspect_viewlet.pt:43
+msgid "value_show_viewlet"
+msgstr "Afficher la viewlet"
+
+#. Default: "Name:"
+#: ../browser/panel_inspect_viewlet.pt:12
+msgid "view_name"
+msgstr "Nom:"
+
+#. Default: "Viewlet Manager ${options_viewletmanager_name}"
+#: ../browser/panel_inspect_viewlet_manager.pt:8
+msgid "viewlet_manager"
+msgstr "Gestionnaire de Viewlet ${options_viewletmanager_name}"
+
+#. Default: "Viewlet ${options_viewlet_name}"
+#: ../browser/panel_inspect_viewlet.pt:9
+msgid "viewlet_name"
+msgstr "Viewlet ${options_viewlet_name}"
+
+#. Default: "Hide viewlet"
+#: ../browser/panel_inspect_viewlet_manager.pt:37
+msgid "viewletmanager_hide"
+msgstr "Cacher la viewlet"
+
+#. Default: "Move viewlet down"
+#: ../browser/panel_inspect_viewlet_manager.pt:28
+msgid "viewletmanager_move_down"
+msgstr "Déplacer la viewlet vers le bas"
+
+#. Default: "Move viewlet up"
+#: ../browser/panel_inspect_viewlet_manager.pt:19
+msgid "viewletmanager_move_up"
+msgstr "Déplacer la viewlet vers le haut"
+
+#. Default: "Show viewlet"
+#: ../browser/panel_inspect_viewlet_manager.pt:41
+msgid "viewletmanager_show"
+msgstr "Afficher la viewlet"
+
+#. Default: "Visibility:"
+#: ../browser/panel_inspect_viewlet.pt:32
+msgid "visibility"
+msgstr "Visibilité:"
+
+#. Default: "Widget:"
+#: ../browser/panel_inspect_field.pt:15
+msgid "widget"
+msgstr "Widget:"
+
+#. Default: "Write Permission:"
+#: ../browser/panel_inspect_field.pt:31
+msgid "write_permission"
+msgstr "Permission en écriture:"
+

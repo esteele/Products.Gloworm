@@ -1,0 +1,101 @@
+<script type="text/javascript"
+        tal:attributes="src string:${view/baseurl}/++resource++gloworm3rdParty/yahoo-dom-event.js"></script>
+
+<script type="text/javascript"
+        tal:attributes="src string:${view/baseurl}/++resource++gloworm3rdParty/container-min.js"></script>
+
+<script type="text/javascript" 
+        tal:attributes="src string:${view/baseurl}/++resource++gloworm3rdParty/dragdrop-min.js"></script>
+
+<script type="text/javascript" 
+        tal:attributes="src string:${view/baseurl}/++resource++gloworm3rdParty/element-beta-min.js"></script>
+
+<script type="text/javascript" 
+        tal:attributes="src string:${view/baseurl}/++resource++gloworm3rdParty/layout-min.js"></script>
+
+<script type="text/javascript" 
+        tal:attributes="src string:${view/baseurl}/++resource++gloworm3rdParty/resize-min.js"></script>
+
+<script type="text/javascript" 
+        tal:attributes="src string:${view/baseurl}/++resource++gloworm3rdParty/animation-min.js"></script>
+
+<style type="text/css"
+       media="screen"
+       tal:content="structure string:&lt;!-- @import url(${view/baseurl}/++resource++gloworm3rdParty/resize.css); --&gt;">
+</style>
+
+<style type="text/css"
+       media="screen"
+       tal:content="structure string:&lt;!-- @import url(${view/baseurl}/++resource++gloworm3rdParty/layout.css); --&gt;">
+</style>
+
+<style type="text/css" 
+       media="screen"
+       tal:content="structure string:&lt;!-- @import url(${view/baseurl}/++resource++gloworm3rdParty/container.css); --&gt;">
+</style>
+
+<link rel="kinetic-stylesheet" 
+      type="text/css"
+      tal:attributes="href string:${view/baseurl}/++resource++gloworm.kss" />
+
+ <!-- Generate the resizable layout -->
+<script type="text/javascript">
+GloWormPanel = null; 
+(function() {
+  var Dom = YAHOO.util.Dom,
+      Event = YAHOO.util.Event;
+
+  Event.onDOMReady(function() {
+      var fullPageLayout = new YAHOO.widget.Layout({
+          units: [
+              {
+                  position: 'bottom', 
+                  height: 250, 
+                  resize: true, 
+                  collapse: true
+              },
+              {
+                  position: 'center',
+                  body: 'glowormPageWrapper',
+                  scroll: true
+              }
+          ]
+      });
+      fullPageLayout.on('render', function() {
+          var el = fullPageLayout.getUnitByPosition('bottom').get('wrap');
+          var panelLayout = new YAHOO.widget.Layout(el, {
+              parent: fullPageLayout,
+              units: [
+                  { position: 'top', body: 'glowormPanelHeader', height: 22, scroll: false},
+                  { position: 'left', width: 310, resize: true, body: 'glowormPanelNavTree', scroll: true, gutter: '0 5px 0 0'},
+                  { position: 'center', body: 'glowormPanelBody', scroll: true }
+              ]
+          });
+          
+          GloWormPanel = panelLayout;
+          
+          panelLayout.on('resize', function(args) {
+              fld = document.getElementById('editableTemplateContent');
+              if (fld) {
+                  panelHeight = document.getElementById('yui-gen12').clientHeight;
+                  errorHeight = document.getElementById('editableTemplateErrorMessage').clientHeight;
+                  headerHeight = document.getElementById('editableTemplateHeader').clientHeight;
+                  buttonHeight = document.getElementById('editableTemplateControls').clientHeight;
+                  newHeight = panelHeight - errorHeight - headerHeight - buttonHeight - 45; // Complete guess as to an extra bit of height for margins, padding, borders etc. 
+                  Dom.setStyle(fld, 'height', newHeight + "px");
+              }
+          });
+                
+          panelLayout.render();
+      });
+      <!-- Make sure the page has loaded properly (ie, no errors have caused the content to not display). -->
+      if (document.getElementById('glowormPanelBody')) {
+          fullPageLayout.render();
+      }
+      
+  });
+  
+
+})();
+
+</script>

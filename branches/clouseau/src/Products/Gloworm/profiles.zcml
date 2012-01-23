@@ -1,0 +1,29 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="Products.Gloworm">
+
+    <!-- Register the installation GenericSetup extension profile -->
+    <genericsetup:registerProfile
+      name="default"
+      title="GloWorm"
+      directory="profiles/default"
+      description="Adds a Firebug-like inspector tool for Plone."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      i18n:attributes="title gs_profiles_default_title;
+                       description gs_profiles_default_description;"
+      />
+
+    <!-- Register the uninstall GenericSetup extension profile -->
+    <genericsetup:registerProfile
+      name="uninstall"
+      title="GloWorm uninstall"
+      directory="profiles/uninstall"
+      description="A uninstall profile for GloWorm"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      i18n:attributes="title gs_profiles_uninstall_title;
+                       description gs_profiles_uninstall_description;"
+      />
+
+</configure>

@@ -1,0 +1,94 @@
+
+/*#glowormPageWrapper { cursor: pointer !important; }*/
+
+#gloworm-activate { 
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+    background: #555;
+    padding: .25em .5em;
+    margin: 0 .5em;
+    font-size: .8em;
+}
+
+#gloworm-activate a:link, #gloworm-activate a:visited {
+    color: #FFF;
+}
+
+#glowormPageWrapper #gloworm-activate { display: none}
+
+.GloWormViewletManagerBlock.currentlySelectedElement, .GloWormViewletBlock.currentlySelectedElement { display:block !important; }
+.currentlySelectedElement{ border: 2px dashed red !important; }
+
+#glowormPanelHeader { height: 22px; line-height: 22px; margin:0; padding:0; background:url(portal_skins/Gloworm/gloworm_header_bg.gif) repeat-x; /*cursor: n-resize;*/}
+#glowormPanelHeader h2 { color: #FFF; font-size: 1.0em; font-weight: bold; border-bottom: none; margin: 0; padding-left:5px; }
+#glowormPanelHeader .closeLink{ float: right; margin: 4px; }
+
+#glowormPanelBody, #glowormPanelNavTree, #yui-gen1 { background:#F9F9F9; color: #000; }
+#glowormPanelBody a, #glowormPanelNavTree a { color: #000; text-decoration: underline;}
+
+#glowormPanelNavTree{ margin-right: 5px; }
+#glowormPanelNavTree ol{ margin:0 0 0 1em; padding: 0; list-style: none; }
+#glowormPanelNavTree ol ol{ margin:0 0 0 1.5em; padding: 0; }
+#glowormPanelNavTree ol li{ margin:0; padding:0; display: list-item; }
+#glowormPanelNavTree ol li a.hiddenViewlet{ opacity: .35; filter: alpha(opacity = 35); }
+#glowormPanelNavTree ol.viewletmanager-tree { list-style: none; }
+#glowormPanelNavTree ol.viewletmanager-tree li a,
+#glowormPanelNavTree ol.viewlet-tree li a { padding: 1px 0 2px 20px; line-height: 17px; }
+#glowormPanelNavTree ol.viewletmanager-tree li a, #glowormPanelNavTree ol.viewletmanager-tree ol.viewletmanager-tree li a { background-image: url(portal_skins/Gloworm/folder_table.png); background-repeat: no-repeat; background-position: left middle; }
+#glowormPanelNavTree ol.viewlet-tree li a, #glowormPanelNavTree ol.viewlet-tree ol.viewlet-tree li a { background-image: url(portal_skins/Gloworm/table.png); background-repeat: no-repeat; background-position: left middle; }
+#glowormPanelNavTree .currentlySelectedElement { background-color: #EDD; border: 1px solid #DCC !important; border-right: none !important; font-weight: bold; opacity: 1 !important; filter: alpha(opacity = 100) !important;}
+#glowormPanelNavTree a.inspectContentObject { font-weight: bold; }
+
+#glowormPanelBody { padding: 1px 1em; }
+#glowormPanelBody h4 { color: #000; font-size: 1.2em; }
+#glowormPanelBody a.viewletMoveUp, 
+#glowormPanelBody a.viewletMoveDown { text-decoration: none; }
+#glowormPanelBody .visibleViewlet .showViewlet { display: none; }
+#glowormPanelBody .visibleViewlet .hideViewlet { display: inline; }
+#glowormPanelBody .hiddenViewlet .showViewlet { display: inline; }
+#glowormPanelBody .hiddenViewlet .hideViewlet { display: none; }
+#glowormPanelBody input.context { background-color: #FFF !important;}
+#glowormPanelBody table td { vertical-align: top; }
+#glowormPanelBody table { color: #000; }
+#glowormPanelBody table th { text-align: right; vertical-align: top; border: 1px solid #EEE; padding: .5em; background: #FFF;}
+#glowormPanelBody table td { vertical-align: top; border: 1px solid #EEE; padding: .5em; background: #FFF;}
+#glowormPanelBody table table {  }
+#glowormPanelBody table table th, #glowormPanel table table td {  background-color: #DDD; border-color: #999;}
+#glowormPanelBody table table th { text-align: center; background-color: #BBB; }
+#glowormPanelBody #viewletManagerListing td { border: none; padding: .25em; margin: 0; }
+#glowormPanelBody #viewletManagerListing tr { border: none; background: none; padding: .25em; }
+#glowormPanelBody textarea { width: 100%; }
+#glowormPanelBody #editableTemplateErrorMessage { border: 1px solid #F00; background: #FCC; padding: 2px; margin: 2px 0; display: none;}
+#glowormPanelBody #editableTemplateErrorMessage.visible { display: block; }
+#glowormPanelBody .visibility form { display: inline; margin-left:1em;} 
+
+#glowormErrorPanel { border: 1px solid #DDD; background: #F9F9F9; position:relative; }
+#glowormErrorPanel .hd { color: #FFF; font-size: 1.0em; font-weight: bold; height: 22px; line-height: 22px; padding:0 5px; background:url(portal_skins/Gloworm/gloworm_header_bg.gif) repeat-x; }
+#glowormErrorPanel .bd { padding: .5em; }
+#glowormErrorPanel .container-close { position: absolute; right: 0px; top: 5px; width: 20px; background:url(portal_skins/Gloworm/cancel.png) no-repeat; overflow: hidden; text-decoration: none; text-indent: -10000em; }
+#glowormErrorPanel .bd pre { border: 1px dashed #D55; background: #EEE; padding: 1em; overflow: auto;}
+#glowormErrorPanel .yui-resize-handle-br { right:0; bottom:0; height: 8px; width: 8px; position:absolute; }
+
+/* Prevent Plone elements (usually z-index:2 or below) from displaying over top of the panel*/
+.yui-overlay,.yui-panel-container{ z-index: 20 !important; }
+.yui-resize .yui-resize-handle-br{height:5px;width:5px;bottom:0;right:0;cursor:se-resize;z-index:22;zoom:1;}
+.yui-resize-handle-br{background-image:url(portal_skins/Gloworm/layout_sprite.png);background-repeat:no-repeat;background-position:-22px -62px;}
+.yui-resize .bd { overflow: auto; }
+.yui-layout-hd h2 { border: none;}
+
+.yui-resize .yui-resize-handle-r { cursor: ew-resize;}
+.yui-resize .yui-resize-handle-t { cursor: ns-resize;}
+/* Remove the dotted border on the resize proxy */
+.yui-layout .yui-resize-proxy { border: none; font-size: 0; margin: 0; padding: 0; }
+/* Style the div inside the resize proxy */
+.yui-layout .yui-resize-proxy div { position: absolute; border: 1px solid #808080; background-color: #EDF5FF; }
+/* Styles for the right handle */
+.yui-layout .yui-resize-proxy .yui-layout-handle-r { width: 5px; top: 0; right: 0; height: 100%; }
+.yui-layout .yui-resize-proxy .yui-layout-handle-t { width: 100%; top: 0; left: 0; height: 5px; }
+/* Style the Clip */
+.yui-layout .yui-layout-clip { position: absolute; height: 20px; background-color: #EDF5FF; display: none; border: 1px solid #808080; }
+
+.yui-resize-handle-r .yui-layout-resize-knob { background:transparent url(portal_skins/Gloworm/layout_sprite.png) no-repeat scroll 0 -5px; height:16px; left:0; position:absolute; top:45%; width:6px; }
+.yui-resize-handle-t .yui-layout-resize-knob { background:transparent url(portal_skins/Gloworm/layout_sprite.png) no-repeat scroll -20px 0; height:6px; left:45%; position:absolute; width:16px; }

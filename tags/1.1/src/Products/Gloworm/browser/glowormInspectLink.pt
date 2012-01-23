@@ -1,0 +1,1 @@
+<div id='gloworm-activate'><a tal:attributes="href view/url">Inspect this page</a></div>

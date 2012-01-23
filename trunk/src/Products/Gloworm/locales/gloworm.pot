@@ -1,0 +1,302 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Products.Gloworm\n"
+"POT-Creation-Date: 2010-01-13 03:20+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: gloworm\n"
+
+#. Default: "Accessor:"
+#: ../browser/panel_inspect_field.pt:19
+msgid "accessor"
+msgstr ""
+
+#. Default: "Applied Marker Interfaces:"
+#: ../browser/panel_inspect_content_object.pt:33
+msgid "applied_marker_interfaces"
+msgstr ""
+
+#. Default: "Archetypes Field \"${options_field_name}\""
+#: ../browser/panel_inspect_field.pt:9
+msgid "archetypes_field"
+msgstr ""
+
+#. Default: "Archetypes Field Name:"
+#: ../browser/panel_inspect_element.pt:19
+msgid "archetypes_field_name"
+msgstr ""
+
+#. Default: "Attribute"
+#: ../browser/panel_inspect_element.pt:33
+msgid "attribute"
+msgstr ""
+
+#. Default: "Class:"
+#: ../browser/panel_inspect_viewlet.pt:24
+msgid "class_name"
+msgstr ""
+
+#. Default: "Click a page element to inspect."
+#: ../browser/glowormPanelBody.pt:2
+msgid "click_pageelement_inspect"
+msgstr ""
+
+#. Default: "Close"
+#: ../browser/glowormPanelHeader.pt:3
+msgid "close_inspector_panel"
+msgstr ""
+
+#. Default: "Close"
+#: ../browser/panel_clouseau.pt:34
+msgid "clouseau_panel_close"
+msgstr ""
+
+#. Default: "Clouseau Python Prompt for Content Object \"${options_content_object}\""
+#: ../browser/panel_clouseau.pt:8
+msgid "clouseau_python_prompt"
+msgstr ""
+
+#. Default: "Contained in viewlet:"
+#: ../browser/panel_inspect_element.pt:65
+msgid "contained_in_viewlet"
+msgstr ""
+
+#. Default: "Content Object \"${options_content_object}\""
+#: ../browser/panel_inspect_content_object.pt:8
+msgid "content_object_id"
+msgstr ""
+
+#. Default: "Content Object"
+#: ../browser/glowormPanelNavTree.pt:4
+msgid "content_object_panel_nav_tree"
+msgstr ""
+
+#. Default: "Content Type:"
+#: ../browser/panel_inspect_content_object.pt:12
+msgid "content_type"
+msgstr ""
+
+#. Default: "Discard Customized Version"
+#: ../browser/panel_inspect_viewlet.pt:59
+msgid "discard_customized_version"
+msgstr ""
+
+#. Default: "Inspect this page"
+#: ../profiles/default/actions.xml:7
+#: ../profiles/uninstall/actions.xml:7
+msgid "document_actions_inspect_page"
+msgstr ""
+
+#. Default: "Editing template at ${options_template_url}"
+#: ../browser/panel_customize_viewlet.pt:9
+msgid "editing_template_at"
+msgstr ""
+
+#. Default: "Expression"
+#: ../browser/panel_inspect_element.pt:34
+msgid "expression"
+msgstr ""
+
+#. Default: "GloWorm Inspector Panel"
+#: ../browser/glowormPanelHeader.pt:6
+msgid "gloworm_inspector_panel"
+msgstr ""
+
+#. Default: "Manager:"
+#: ../browser/panel_inspect_viewlet.pt:16
+msgid "manager_name"
+msgstr ""
+
+#. Default: "In Macro:"
+#: ../browser/panel_inspect_element.pt:11
+msgid "metal_use_macro"
+msgstr ""
+
+#. Default: "Move ${options_viewlet_name}"
+#: ../browser/panel_move_viewlet.pt:12
+msgid "move_viewlet"
+msgstr ""
+
+#. Default: "to..."
+#: ../browser/panel_move_viewlet.pt:13
+msgid "move_viewlet_to"
+msgstr ""
+
+#. Default: "Mutator:"
+#: ../browser/panel_inspect_field.pt:23
+msgid "mutator"
+msgstr ""
+
+#. Default: "Open Clouseau Debug Prompt"
+#: ../browser/panel_inspect_content_object.pt:41
+msgid "open_clouseau_debug_prompt"
+msgstr ""
+
+#. Default: "Parent object:"
+#: ../browser/panel_inspect_content_object.pt:16
+msgid "parent_object"
+msgstr ""
+
+#. Default: "at"
+#: ../browser/panel_inspect_content_object.pt:20
+msgid "parent_object_at_absolute_url"
+msgstr ""
+
+#. Default: "Portlet:"
+#: ../browser/panel_inspect_element.pt:50
+msgid "portlet_info"
+msgstr ""
+
+#. Default: "Portlet Manager:"
+#: ../browser/panel_inspect_element.pt:58
+msgid "portlet_manager"
+msgstr ""
+
+#. Default: "Portlet Name:"
+#: ../browser/panel_inspect_element.pt:54
+msgid "portlet_name"
+msgstr ""
+
+#. Default: "Read Permission:"
+#: ../browser/panel_inspect_field.pt:27
+msgid "read_permission"
+msgstr ""
+
+#. Default: "Result"
+#: ../browser/panel_inspect_element.pt:35
+msgid "result"
+msgstr ""
+
+#. Default: "Skin Name:"
+#: ../browser/panel_inspect_content_object.pt:29
+msgid "skin_name"
+msgstr ""
+
+#. Default: "Template:"
+#: ../browser/panel_inspect_element.pt:73
+msgid "source_annotation_template"
+msgstr ""
+
+#. Default: "tal-attributes:"
+#: ../browser/panel_inspect_element.pt:27
+msgid "tal_attributes"
+msgstr ""
+
+#. Default: "tal-condition:"
+#: ../browser/panel_inspect_element.pt:46
+msgid "tal_condition"
+msgstr ""
+
+#. Default: "Template Name:"
+#: ../browser/panel_inspect_content_object.pt:25
+msgid "template_name"
+msgstr ""
+
+#. Default: "Template:"
+#: ../browser/panel_inspect_viewlet.pt:28
+msgid "template_path"
+msgstr ""
+
+#. Default: "Type:"
+#: ../browser/panel_inspect_field.pt:11
+msgid "type"
+msgstr ""
+
+#. Default: "Cancel"
+#: ../browser/panel_move_viewlet.pt:22
+msgid "value_cancel"
+msgstr ""
+
+#. Default: "Customize"
+#: ../browser/panel_inspect_viewlet.pt:65
+msgid "value_customize"
+msgstr ""
+
+#. Default: "Discard Customizations"
+#: ../browser/panel_customize_viewlet.pt:18
+msgid "value_discard_customizations"
+msgstr ""
+
+#. Default: "Edit Customized Version"
+#: ../browser/panel_inspect_viewlet.pt:55
+msgid "value_edit_customized_version"
+msgstr ""
+
+#. Default: "Hide viewlet"
+#: ../browser/panel_inspect_viewlet.pt:35
+msgid "value_hide_viewlet"
+msgstr ""
+
+#. Default: "Move"
+#: ../browser/panel_move_viewlet.pt:28
+msgid "value_move"
+msgstr ""
+
+#. Default: "Save"
+#: ../browser/panel_customize_viewlet.pt:21
+msgid "value_save"
+msgstr ""
+
+#. Default: "Show viewlet"
+#: ../browser/panel_inspect_viewlet.pt:43
+msgid "value_show_viewlet"
+msgstr ""
+
+#. Default: "Name:"
+#: ../browser/panel_inspect_viewlet.pt:12
+msgid "view_name"
+msgstr ""
+
+#. Default: "Viewlet Manager ${options_viewletmanager_name}"
+#: ../browser/panel_inspect_viewlet_manager.pt:8
+msgid "viewlet_manager"
+msgstr ""
+
+#. Default: "Viewlet ${options_viewlet_name}"
+#: ../browser/panel_inspect_viewlet.pt:9
+msgid "viewlet_name"
+msgstr ""
+
+#. Default: "Hide viewlet"
+#: ../browser/panel_inspect_viewlet_manager.pt:37
+msgid "viewletmanager_hide"
+msgstr ""
+
+#. Default: "Move viewlet down"
+#: ../browser/panel_inspect_viewlet_manager.pt:28
+msgid "viewletmanager_move_down"
+msgstr ""
+
+#. Default: "Move viewlet up"
+#: ../browser/panel_inspect_viewlet_manager.pt:19
+msgid "viewletmanager_move_up"
+msgstr ""
+
+#. Default: "Show viewlet"
+#: ../browser/panel_inspect_viewlet_manager.pt:41
+msgid "viewletmanager_show"
+msgstr ""
+
+#. Default: "Visibility:"
+#: ../browser/panel_inspect_viewlet.pt:32
+msgid "visibility"
+msgstr ""
+
+#. Default: "Widget:"
+#: ../browser/panel_inspect_field.pt:15
+msgid "widget"
+msgstr ""
+
+#. Default: "Write Permission:"
+#: ../browser/panel_inspect_field.pt:31
+msgid "write_permission"
+msgstr ""
+

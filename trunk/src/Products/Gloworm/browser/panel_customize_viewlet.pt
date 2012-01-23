@@ -1,0 +1,27 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en-US" lang="en-US"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="gloworm">
+    <body>
+        <h4 id="editableTemplateHeader"
+            i18n:translate="editing_template_at">Editing template at <tal:block tal:content="options/templateURL" i18n:name="options_template_url" />
+        </h4>
+        <div id="editableTemplateErrorMessage"></div>
+        <form>
+            <textarea name="text:text" id="editableTemplateContent" rows="8" tal:content="options/templateCode"></textarea>
+            <div id="editableTemplateControls" style="text-align:right; margin: 1em;">
+                <input type="submit" value="Cancel" name="pt_editAction:method"
+                       tal:attributes="class string:viewletMoreInfo standalone kssattr-forviewlet-${options/viewletHash}"
+                       i18n:attributes="value value_cancel;" />
+                <input type="submit" value="Discard Customizations" name="pt_editAction:method"
+                       tal:attributes="class string:discardTemplateEdits standalone kssattr-forviewlet-${options/viewletHash}"
+                       i18n:attributes="value value_discard_customizations;" />
+                <input type="submit" value="Save" name="pt_editAction:method"
+                       tal:attributes="class string:saveTemplateEdits context kssattr-forviewlet-${options/viewletHash}"
+                       i18n:attributes="value value_save;" />
+            </div>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,307 @@
+# Spanish translations for Gloworm package
+# Traducciones al Español del producto Gloworm.
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: Products.Gloworm\n"
+"POT-Creation-Date: 2010-01-13 03:20+0000\n"
+"PO-Revision-Date: 2010-12-01 21:17-0400\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
+"Language-Team: Spanish <plone-conosur@lists.plone.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-code: es\n"
+"Language-name: Spanish\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: gloworm\n"
+"X-Is-Fallback-For: es-ar es-bo es-cl es-co es-cr es-do es-ec es-es es-sv es-gt es-hn es-mx es-ni es-pa es-py es-pe es-pr es-us es-uy es-ve\n"
+
+#. Default: "Accessor:"
+#: ../browser/panel_inspect_field.pt:19
+msgid "accessor"
+msgstr "Accesor:"
+
+#. Default: "Applied Marker Interfaces:"
+#: ../browser/panel_inspect_content_object.pt:33
+#, fuzzy
+msgid "applied_marker_interfaces"
+msgstr "Interfaces registro aplicadas:"
+
+#. Default: "Archetypes Field \"${options_field_name}\""
+#: ../browser/panel_inspect_field.pt:9
+msgid "archetypes_field"
+msgstr "Campo Arquetipos \"${options_field_name}\""
+
+#. Default: "Archetypes Field Name:"
+#: ../browser/panel_inspect_element.pt:19
+msgid "archetypes_field_name"
+msgstr "Nombre de campos de Arquetipos:"
+
+#. Default: "Attribute"
+#: ../browser/panel_inspect_element.pt:33
+msgid "attribute"
+msgstr "Atributo"
+
+#. Default: "Class:"
+#: ../browser/panel_inspect_viewlet.pt:24
+msgid "class_name"
+msgstr "Clase:"
+
+#. Default: "Click a page element to inspect."
+#: ../browser/glowormPanelBody.pt:2
+msgid "click_pageelement_inspect"
+msgstr "Haga clic un elemento de la página para inspeccionar."
+
+#. Default: "Close"
+#: ../browser/glowormPanelHeader.pt:3
+msgid "close_inspector_panel"
+msgstr "Cerrar"
+
+#. Default: "Close"
+#: ../browser/panel_clouseau.pt:34
+msgid "clouseau_panel_close"
+msgstr "Cerrar"
+
+#. Default: "Clouseau Python Prompt for Content Object \"${options_content_object}\""
+#: ../browser/panel_clouseau.pt:8
+msgid "clouseau_python_prompt"
+msgstr "Consola Clouseau / Python para el objeto de contenido \"${options_content_object}\""
+
+#. Default: "Contained in viewlet:"
+#: ../browser/panel_inspect_element.pt:65
+msgid "contained_in_viewlet"
+msgstr "Contenido en viewlet:"
+
+#. Default: "Content Object \"${options_content_object}\""
+#: ../browser/panel_inspect_content_object.pt:8
+msgid "content_object_id"
+msgstr "Objecto de contenido \"${options_content_object}\""
+
+#. Default: "Content Object"
+#: ../browser/glowormPanelNavTree.pt:4
+msgid "content_object_panel_nav_tree"
+msgstr "Objeto de contenido"
+
+#. Default: "Content Type:"
+#: ../browser/panel_inspect_content_object.pt:12
+msgid "content_type"
+msgstr "Tipo de contenido:"
+
+#. Default: "Discard Customized Version"
+#: ../browser/panel_inspect_viewlet.pt:59
+msgid "discard_customized_version"
+msgstr "Descartar versión personalizada"
+
+#. Default: "Inspect this page"
+#: ../profiles/default/actions.xml:7
+#: ../profiles/uninstall/actions.xml:7
+msgid "document_actions_inspect_page"
+msgstr "Inspeccionar este página"
+
+#. Default: "Editing template at ${options_template_url}"
+#: ../browser/panel_customize_viewlet.pt:9
+msgid "editing_template_at"
+msgstr "Editando plantilla en ${options_template_url}"
+
+#. Default: "Expression"
+#: ../browser/panel_inspect_element.pt:34
+msgid "expression"
+msgstr "Expresión"
+
+#. Default: "GloWorm Inspector Panel"
+#: ../browser/glowormPanelHeader.pt:6
+msgid "gloworm_inspector_panel"
+msgstr "Panel de inspección GloWorm"
+
+#. Default: "Manager:"
+#: ../browser/panel_inspect_viewlet.pt:16
+msgid "manager_name"
+msgstr "Administrador:"
+
+#. Default: "In Macro:"
+#: ../browser/panel_inspect_element.pt:11
+msgid "metal_use_macro"
+msgstr "En Macro:"
+
+#. Default: "Move ${options_viewlet_name}"
+#: ../browser/panel_move_viewlet.pt:12
+msgid "move_viewlet"
+msgstr "Mover ${options_viewlet_name}"
+
+#. Default: "to..."
+#: ../browser/panel_move_viewlet.pt:13
+msgid "move_viewlet_to"
+msgstr "hacia..."
+
+#. Default: "Mutator:"
+#: ../browser/panel_inspect_field.pt:23
+msgid "mutator"
+msgstr "Mutador:"
+
+#. Default: "Open Clouseau Debug Prompt"
+#: ../browser/panel_inspect_content_object.pt:41
+msgid "open_clouseau_debug_prompt"
+msgstr "Abrir consola de depuración Clouseau"
+
+#. Default: "Parent object:"
+#: ../browser/panel_inspect_content_object.pt:16
+msgid "parent_object"
+msgstr "Objeto padre:"
+
+#. Default: "at"
+#: ../browser/panel_inspect_content_object.pt:20
+msgid "parent_object_at_absolute_url"
+msgstr "en"
+
+#. Default: "Portlet:"
+#: ../browser/panel_inspect_element.pt:50
+msgid "portlet_info"
+msgstr "Portlet:"
+
+#. Default: "Portlet Manager:"
+#: ../browser/panel_inspect_element.pt:58
+msgid "portlet_manager"
+msgstr "Administrar portlets"
+
+#. Default: "Portlet Name:"
+#: ../browser/panel_inspect_element.pt:54
+msgid "portlet_name"
+msgstr "Nombre de Portlet:"
+
+#. Default: "Read Permission:"
+#: ../browser/panel_inspect_field.pt:27
+msgid "read_permission"
+msgstr "Permisos de lectura:"
+
+#. Default: "Result"
+#: ../browser/panel_inspect_element.pt:35
+msgid "result"
+msgstr "Resultado"
+
+#. Default: "Skin Name:"
+#: ../browser/panel_inspect_content_object.pt:29
+msgid "skin_name"
+msgstr "Nombre de Skin:"
+
+#. Default: "Template:"
+#: ../browser/panel_inspect_element.pt:73
+msgid "source_annotation_template"
+msgstr "Plantilla:"
+
+#. Default: "tal-attributes:"
+#: ../browser/panel_inspect_element.pt:27
+msgid "tal_attributes"
+msgstr "Atributos TAL:"
+
+#. Default: "tal-condition:"
+#: ../browser/panel_inspect_element.pt:46
+msgid "tal_condition"
+msgstr "Condición TAL:"
+
+#. Default: "Template Name:"
+#: ../browser/panel_inspect_content_object.pt:25
+msgid "template_name"
+msgstr "Nombre de plantilla:"
+
+#. Default: "Template:"
+#: ../browser/panel_inspect_viewlet.pt:28
+msgid "template_path"
+msgstr "Plantilla:"
+
+#. Default: "Type:"
+#: ../browser/panel_inspect_field.pt:11
+msgid "type"
+msgstr "Tipo:"
+
+#. Default: "Cancel"
+#: ../browser/panel_move_viewlet.pt:22
+msgid "value_cancel"
+msgstr "Cancelar"
+
+#. Default: "Customize"
+#: ../browser/panel_inspect_viewlet.pt:65
+msgid "value_customize"
+msgstr "Personalizar"
+
+#. Default: "Discard Customizations"
+#: ../browser/panel_customize_viewlet.pt:18
+msgid "value_discard_customizations"
+msgstr "Descartar personalizaciones"
+
+#. Default: "Edit Customized Version"
+#: ../browser/panel_inspect_viewlet.pt:55
+msgid "value_edit_customized_version"
+msgstr "Editar versión personalizada"
+
+#. Default: "Hide viewlet"
+#: ../browser/panel_inspect_viewlet.pt:35
+msgid "value_hide_viewlet"
+msgstr "Ocultar viewlet"
+
+#. Default: "Move"
+#: ../browser/panel_move_viewlet.pt:28
+msgid "value_move"
+msgstr "Mover"
+
+#. Default: "Save"
+#: ../browser/panel_customize_viewlet.pt:21
+msgid "value_save"
+msgstr "Guardar"
+
+#. Default: "Show viewlet"
+#: ../browser/panel_inspect_viewlet.pt:43
+msgid "value_show_viewlet"
+msgstr "Mostrar viewlet"
+
+#. Default: "Name:"
+#: ../browser/panel_inspect_viewlet.pt:12
+msgid "view_name"
+msgstr "Nombre:"
+
+#. Default: "Viewlet Manager ${options_viewletmanager_name}"
+#: ../browser/panel_inspect_viewlet_manager.pt:8
+msgid "viewlet_manager"
+msgstr "Administrar Viewlet ${options_viewletmanager_name}"
+
+#. Default: "Viewlet ${options_viewlet_name}"
+#: ../browser/panel_inspect_viewlet.pt:9
+msgid "viewlet_name"
+msgstr "Viewlet ${options_viewlet_name}"
+
+#. Default: "Hide viewlet"
+#: ../browser/panel_inspect_viewlet_manager.pt:37
+msgid "viewletmanager_hide"
+msgstr "Ocultar viewlet"
+
+#. Default: "Move viewlet down"
+#: ../browser/panel_inspect_viewlet_manager.pt:28
+msgid "viewletmanager_move_down"
+msgstr "Mostrar viewlet hacia abajo"
+
+#. Default: "Move viewlet up"
+#: ../browser/panel_inspect_viewlet_manager.pt:19
+msgid "viewletmanager_move_up"
+msgstr "Mostrar viewlet hacia arriba "
+
+#. Default: "Show viewlet"
+#: ../browser/panel_inspect_viewlet_manager.pt:41
+msgid "viewletmanager_show"
+msgstr "Mostrar viewlet"
+
+#. Default: "Visibility:"
+#: ../browser/panel_inspect_viewlet.pt:32
+msgid "visibility"
+msgstr "Visibilidad:"
+
+#. Default: "Widget:"
+#: ../browser/panel_inspect_field.pt:15
+msgid "widget"
+msgstr "Componente gráfico:"
+
+#. Default: "Write Permission:"
+#: ../browser/panel_inspect_field.pt:31
+msgid "write_permission"
+msgstr "Permiso de escritura:"
+

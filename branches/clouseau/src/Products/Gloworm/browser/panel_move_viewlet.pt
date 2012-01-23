@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en-US" lang="en-US"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="gloworm">
+
+    <body>
+        <h4 i18n:translate="viewlet_name">Viewlet <tal:block tal:content="options/viewletName" i18n:name="options_viewlet_name" /></h4>
+        <div style="margin:1em 0;">
+            <form>
+                <label for="toManagerName" i18n:translate="move_viewlet">Move <tal:block tal:content="options/viewletName" i18n:name="options_viewlet_name" /></label>
+                <span i18n:translate="move_viewlet_to">to...</span>                
+
+                <select id='toManagerName'>
+                    <option tal:repeat="mgr options/managerNames" tal:content="mgr" />
+                </select>
+                        
+
+                <div style="text-align: right; margin: 1em;">
+
+                    <input type="submit"
+                           value="Cancel"
+                           name="pt_editAction:method"
+                           tal:attributes="class string:viewletMoreInfo standalone kssattr-forviewlet-${options/viewlethash}"
+                           i18n:attributes="value value_cancel;" />
+
+                    <input type="submit" 
+                           value="Move"
+                           id="moveViewlet"
+                           tal:attributes="class string:moveToViewletManager context kssattr-forviewlet-${options/viewlethash}"
+                           i18n:attributes="value value_move;" />
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

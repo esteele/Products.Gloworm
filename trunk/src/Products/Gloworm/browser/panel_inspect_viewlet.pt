@@ -1,0 +1,79 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en-US" lang="en-US"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="gloworm">
+
+    <body>
+        <h4 i18n:translate="viewlet_name">Viewlet <tal:block tal:content="options/viewName" i18n:name="options_viewlet_name" /></h4>
+        <table id="viewletListing">
+            <tr>
+                <th i18n:translate="view_name">Name:</th>
+                <td tal:content="options/viewName" />
+            </tr>
+            <tr>
+                <th i18n:translate="manager_name">Manager:</th>
+                <td>
+                    <a href="#" 
+                       tal:attributes="class string:inspectViewletManager kssattr-forviewletmanager-${options/managerName};"
+                       tal:content="options/managerName" />
+                </td>
+            </tr>
+            <tr>
+                <th i18n:translate="class_name">Class:</th>
+                <td tal:content="options/className"></td>
+            </tr>
+            <tr tal:condition="options/templatePath">
+                <th i18n:translate="template_path">Template:</th>
+                <td tal:content="options/templatePath" />
+            </tr>
+            <tr tal:attributes="class string:visibility kssattr-viewlethash-${options/viewletHash};">
+                <th i18n:translate="visibility">Visibility:</th>
+                <td tal:condition="options/visible">Visible 
+                    <form>
+                        <input type="submit" 
+                               value="Hide viewlet"
+                               class='hideViewlet context'
+                               i18n:attributes="value value_hide_viewlet;" />
+                    </form>
+                </td>
+                <td tal:condition="not: options/visible">Hidden
+                    <form>
+                        <input type="submit" 
+                               value="Show viewlet"
+                               class='showViewlet context'
+                               i18n:attributes="value value_show_viewlet;" />
+                    </form>
+                </td>
+            </tr>
+        </table>
+        <div style="margin:1em; text-align: center;">
+            <form>
+                <tal:customizationAllowed tal:condition="options/customizationAllowed">
+                    <tal:customizationExists tal:condition="options/customizationExists">
+                        <input type="submit" 
+                               value="Edit Customized Version"
+                               tal:attributes="class string:customizeViewlet context kssattr-forviewlet-${options/viewletHash}"
+                               i18n:attributes="value value_edit_customized_version;" />
+                        <input type="submit"
+                               value="Discard Customized Version"
+                               tal:attributes="class string:discardTemplateEdits standalone kssattr-forviewlet-${options/viewletHash}"
+                               i18n:attributes="value discard_customized_version;" />
+                    </tal:customizationExists>
+                    <tal:noCustomizationExists tal:condition="not: options/customizationExists">
+                        <input type="submit"
+                               value="Customize"
+                               tal:attributes="class string:customizeViewlet context kssattr-forviewlet-${options/viewletHash}"
+                               i18n:attributes="value value_customize;" />
+                    </tal:noCustomizationExists>
+                    <!-- <input type="submit" 
+                           value="Move"
+                           tal:attributes="class string:showMoveViewletForm context kssattr-forviewlet-${options/viewletHash};"
+                           i18n:attributes="value value_move;" /> -->
+               </tal:customizationAllowed>
+
+            </form>
+        </div>
+    </body>
+</html>

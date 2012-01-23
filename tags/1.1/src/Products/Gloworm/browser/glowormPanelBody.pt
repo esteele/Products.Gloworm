@@ -1,0 +1,3 @@
+<div id="glowormPanelBody" i18n:domain="gloworm">
+    <span i18n:translate="click_pageelement_inspect">Click a page element to inspect.</span>
+</div>

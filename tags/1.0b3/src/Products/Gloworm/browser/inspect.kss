@@ -1,0 +1,121 @@
+#glowormPageWrapper *:click {
+    evt-click-preventdefault: True;
+    action-server: inspectElement;
+    inspectElement-insideInspectableArea: kssAttr(insideInspectableArea, True);
+    inspectElement-talcontent: nodeAttr(tal:content, False);
+    inspectElement-talattributes: parseTALAttributes();
+    inspectElement-talcondition: nodeAttr(tal:condition, True);
+    inspectElement-metaldefmacro: nodeAttr(metal:define-macro, True);
+    inspectElement-metalusemacro: nodeAttr(metal:use-macro, True);
+    inspectElement-fieldname: kssAttr(atfieldname, True);
+    inspectElement-portlethash: kssAttr(portlethash, True);
+    inspectElement-viewlethash: kssAttr(viewlethash, True);
+    inspectElement-sourceAnnotation: sourceAnnotation();
+}
+
+.fieldMoreInfo:click {
+    evt-click-preventdefault: True;
+    action-server: inspectField;
+    inspectField-fieldname: kssAttr(fieldname);
+}
+
+.viewletMoreInfo:click {
+    evt-click-preventdefault: True;
+    action-server: inspectViewlet;
+    inspectViewlet-viewlethash: kssAttr(forviewlet);
+}
+
+.viewletMoveUp:click {
+    evt-click-preventdefault: True;
+    action-server: moveViewletByDelta;
+    moveViewletByDelta-viewlethash: kssAttr(forviewlet);
+    moveViewletByDelta-delta: -1;
+}
+
+.viewletMoveDown:click {
+    evt-click-preventdefault: True;
+    action-server: moveViewletByDelta;
+    moveViewletByDelta-viewlethash: kssAttr(forviewlet);
+    moveViewletByDelta-delta: 1;
+}
+
+.customizeViewlet:click {
+    evt-click-preventdefault: True;
+    action-server: customizeViewlet;
+    customizeViewlet-viewlethash: kssAttr(forviewlet);
+}
+
+.saveTemplateEdits:click {
+    evt-click-preventdefault: True;
+    action-server: inlineSaveViewletTemplate;
+    inlineSaveViewletTemplate-viewlethash: kssAttr('forviewlet', True);
+    inlineSaveViewletTemplate-newContent: currentFormVar('text:text');
+    inlineSaveViewletTemplate-kssSubmitForm: currentForm();
+}
+
+.discardTemplateEdits:click {
+    evt-click-preventdefault: True;
+    action-server: discardTemplateCustomizations;
+    discardTemplateCustomizations-viewlethash: kssAttr('forviewlet', True);
+}
+
+.showMoveViewletForm:click {
+    evt-click-preventdefault: True;
+    showMoveViewletForm-viewlethash: kssAttr('forviewlet', True);
+    action-server: showMoveViewletForm;
+}
+
+.moveToViewletManager:click {
+    evt-click-preventdefault: True;
+    action-server: moveToViewletManager;
+    moveToViewletManager-viewlethash: kssAttr('forviewlet', True);
+    moveToViewletManager-toManagerName: currentFormVar('toManagerName');
+}
+
+.inspectContentObject:click {
+    evt-click-preventdefault: True;
+    action-server: inspectContentObject;
+}
+
+#glowormPanelBody:load {
+    action-server: inspectContentObject;
+}
+
+.inspectViewletManager:click {
+    evt-click-preventdefault: True;
+    action-server: inspectViewletManager;
+    inspectViewletManager-managerName: kssAttr(forviewletmanager);
+}
+
+
+#viewletListing .hideViewlet:click,
+#viewletListing .hideViewlet img:click {
+    evt-click-preventdefault: True;
+    action-server: inlineHideViewlet;
+    inlineHideViewlet-viewlethash: kssAttr('viewlethash', True);
+}
+
+#viewletListing .showViewlet:click,
+#viewletListing .showViewlet img:click {
+    evt-click-preventdefault: True;
+    action-server: inlineShowViewlet;
+    inlineShowViewlet-viewlethash: kssAttr('viewlethash', True);    
+}
+
+#viewletManagerListing .hideViewlet:click,
+#viewletManagerListing .hideViewlet img:click {
+    evt-click-preventdefault: True;
+    action-server: inlineHideViewlet;
+    inlineHideViewlet-viewlethash: kssAttr('viewlethash', True);
+    inlineHideViewlet-managerName: kssAttr('viewletmanager', True);
+} 
+
+#viewletManagerListing .showViewlet:click,
+#viewletManagerListing .showViewlet img:click {
+    evt-click-preventdefault: True;
+    action-server: inlineShowViewlet;
+    inlineShowViewlet-viewlethash: kssAttr('viewlethash', True);    
+    inlineShowViewlet-managerName: kssAttr('viewletmanager', True);
+}
+
+
