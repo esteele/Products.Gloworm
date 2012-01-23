@@ -1,1 +1,0 @@
-See the README at Products/Gloworm/README.txt
