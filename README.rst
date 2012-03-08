@@ -6,10 +6,8 @@ Products.Gloworm Package Readme
         
     Credits
         
-        Author: WebLion Group, Penn State University "support@weblion.psu.edu":mailto:support@weblion.psu.edu
-        
-        Release Manager: "Eric Steele":mailto:EricSteele+gloworm@psu.edu, esteele on irc.freenode.net
-        
+        Author: Eric Steele "ericsteele47@gmail.com":mailto:ericsteele47@gmail.com
+                
     Requirements
         
         * Requires plone.app.customerize 1.1.2 (included in Plone 3.1.3) or higher
