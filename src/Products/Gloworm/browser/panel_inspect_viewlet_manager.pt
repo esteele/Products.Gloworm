@@ -36,11 +36,11 @@
             <td>
                 <a href='#' title="Hide viewlet" class='hideViewlet'
                    i18n:attributes="title viewletmanager_hide;">
-                  <img src='portal_skins/Gloworm/tick.png' alt="Hide Viewlet"
+                  <img src='portal_skins/Gloworm/tick.png' alt="Hide viewlet"
                        i18n:attributes="alt viewletmanager_hide;" /></a>
                 <a href='#' title="Show viewlet" class='showViewlet'
                    i18n:attributes="title viewletmanager_show;">
-                  <img src='portal_skins/Gloworm/cross.png' alt="Show Viewlet"
+                  <img src='portal_skins/Gloworm/cross.png' alt="Show viewlet"
                        i18n:attributes="alt viewletmanager_show;" />
                 </a>
             </td>

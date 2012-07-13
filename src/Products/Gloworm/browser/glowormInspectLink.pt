@@ -1,1 +1,3 @@
-<div id='gloworm-activate'><a tal:attributes="href view/url">Inspect this page</a></div>
+<div id='gloworm-activate' i18n:domain="gloworm">
+    <a tal:attributes="href view/url" i18n:translate="label_inspect_this_page">Inspect this page</a>
+</div>

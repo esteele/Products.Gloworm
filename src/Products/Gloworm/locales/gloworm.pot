@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Products.Gloworm\n"
-"POT-Creation-Date: 2010-01-13 03:20+0000\n"
+"POT-Creation-Date: 2012-07-12 21:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,11 +17,6 @@ msgstr ""
 #. Default: "Accessor:"
 #: ../browser/panel_inspect_field.pt:19
 msgid "accessor"
-msgstr ""
-
-#. Default: "Applied Marker Interfaces:"
-#: ../browser/panel_inspect_content_object.pt:33
-msgid "applied_marker_interfaces"
 msgstr ""
 
 #. Default: "Archetypes Field \"${options_field_name}\""
@@ -52,16 +47,6 @@ msgstr ""
 #. Default: "Close"
 #: ../browser/glowormPanelHeader.pt:3
 msgid "close_inspector_panel"
-msgstr ""
-
-#. Default: "Close"
-#: ../browser/panel_clouseau.pt:34
-msgid "clouseau_panel_close"
-msgstr ""
-
-#. Default: "Clouseau Python Prompt for Content Object \"${options_content_object}\""
-#: ../browser/panel_clouseau.pt:8
-msgid "clouseau_python_prompt"
 msgstr ""
 
 #. Default: "Contained in viewlet:"
@@ -110,6 +95,11 @@ msgstr ""
 msgid "gloworm_inspector_panel"
 msgstr ""
 
+#. Default: "Inspect this page"
+#: ../browser/glowormInspectLink.pt:2
+msgid "label_inspect_this_page"
+msgstr ""
+
 #. Default: "Manager:"
 #: ../browser/panel_inspect_viewlet.pt:16
 msgid "manager_name"
@@ -133,11 +123,6 @@ msgstr ""
 #. Default: "Mutator:"
 #: ../browser/panel_inspect_field.pt:23
 msgid "mutator"
-msgstr ""
-
-#. Default: "Open Clouseau Debug Prompt"
-#: ../browser/panel_inspect_content_object.pt:41
-msgid "open_clouseau_debug_prompt"
 msgstr ""
 
 #. Default: "Parent object:"
@@ -211,6 +196,7 @@ msgid "type"
 msgstr ""
 
 #. Default: "Cancel"
+#: ../browser/panel_customize_viewlet.pt:15
 #: ../browser/panel_move_viewlet.pt:22
 msgid "value_cancel"
 msgstr ""
@@ -262,6 +248,7 @@ msgstr ""
 
 #. Default: "Viewlet ${options_viewlet_name}"
 #: ../browser/panel_inspect_viewlet.pt:9
+#: ../browser/panel_move_viewlet.pt:9
 msgid "viewlet_name"
 msgstr ""
 

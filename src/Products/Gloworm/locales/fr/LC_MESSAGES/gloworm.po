@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Products.Gloworm\n"
-"POT-Creation-Date: 2010-01-13 03:20+0000\n"
+"POT-Creation-Date: 2012-07-12 21:35+0000\n"
 "PO-Revision-Date: 2010-12-01 21:17-0400\n"
 "Last-Translator: JeanMichel FRANCOIS <toutpt@gmail.com>\n"
 "Language-Team: French <plone-fr@lists.plone.org>\n"
@@ -21,11 +21,6 @@ msgstr ""
 #: ../browser/panel_inspect_field.pt:19
 msgid "accessor"
 msgstr "Accesseur:"
-
-#. Default: "Applied Marker Interfaces:"
-#: ../browser/panel_inspect_content_object.pt:33
-msgid "applied_marker_interfaces"
-msgstr "Marker Interfaces appliquées:"
 
 #. Default: "Archetypes Field \"${options_field_name}\""
 #: ../browser/panel_inspect_field.pt:9
@@ -56,16 +51,6 @@ msgstr "Cliquer sur un élément de la page pour l'inspecter."
 #: ../browser/glowormPanelHeader.pt:3
 msgid "close_inspector_panel"
 msgstr "Fermer"
-
-#. Default: "Close"
-#: ../browser/panel_clouseau.pt:34
-msgid "clouseau_panel_close"
-msgstr "Fermer"
-
-#. Default: "Clouseau Python Prompt for Content Object \"${options_content_object}\""
-#: ../browser/panel_clouseau.pt:8
-msgid "clouseau_python_prompt"
-msgstr "Curseur de la console Python Clouseau pour les objet de contenu \"${options_content_object}\""
 
 #. Default: "Contained in viewlet:"
 #: ../browser/panel_inspect_element.pt:65
@@ -113,6 +98,11 @@ msgstr "Expression"
 msgid "gloworm_inspector_panel"
 msgstr "Panneau d'inspection GloWorm"
 
+#. Default: "Inspect this page"
+#: ../browser/glowormInspectLink.pt:2
+msgid "label_inspect_this_page"
+msgstr ""
+
 #. Default: "Manager:"
 #: ../browser/panel_inspect_viewlet.pt:16
 msgid "manager_name"
@@ -137,11 +127,6 @@ msgstr "vers..."
 #: ../browser/panel_inspect_field.pt:23
 msgid "mutator"
 msgstr "Mutator:"
-
-#. Default: "Open Clouseau Debug Prompt"
-#: ../browser/panel_inspect_content_object.pt:41
-msgid "open_clouseau_debug_prompt"
-msgstr "Ouvrir la console de débug Clouseau"
 
 #. Default: "Parent object:"
 #: ../browser/panel_inspect_content_object.pt:16
@@ -214,6 +199,7 @@ msgid "type"
 msgstr "Type:"
 
 #. Default: "Cancel"
+#: ../browser/panel_customize_viewlet.pt:15
 #: ../browser/panel_move_viewlet.pt:22
 msgid "value_cancel"
 msgstr "Annuler"
@@ -265,6 +251,7 @@ msgstr "Gestionnaire de Viewlet ${options_viewletmanager_name}"
 
 #. Default: "Viewlet ${options_viewlet_name}"
 #: ../browser/panel_inspect_viewlet.pt:9
+#: ../browser/panel_move_viewlet.pt:9
 msgid "viewlet_name"
 msgstr "Viewlet ${options_viewlet_name}"
 
