@@ -1,6 +1,6 @@
 rm ./rebuild_i18n.log
 
-i18ndude rebuild-pot --pot ./gloworm.pot --exclude=`find ../portlets -name "*.*py"` --create gloworm ../ ../profiles ../browser || exit 1
+i18ndude rebuild-pot --pot ./gloworm.pot --merge ./gloworm-manual.pot --create gloworm ../browser || exit 1
 i18ndude sync --pot ./gloworm.pot ./*/LC_MESSAGES/gloworm.po
 
 WARNINGS=`find . -name "*pt" | xargs i18ndude find-untranslated | grep -e '^-WARN' | wc -l`
